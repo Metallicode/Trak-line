@@ -1,0 +1,66 @@
+
+/* === GLOBAL === */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+  padding-top: 70px; /* for fixed navbar spacing */
+}
+
+.background-video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* === HERO SECTION === */
+#hero .hero-content {
+  z-index: 2;
+}
+
+/* === SERVICES SECTION === */
+.card {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* === MODAL === */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1050;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 1.5rem;
+  border: 1px solid #888;
+  border-radius: 0.5rem;
+  width: 90%;
+  max-width: 500px;
+}
+
+.close {
+  float: end;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* === FOOTER === */
+footer a:hover {
+  text-decoration: underline;
+}
