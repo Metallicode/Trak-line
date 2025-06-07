@@ -6,6 +6,8 @@
   <title>Trak-line Ltd</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css"/>
+
   <!-- Bootstrap RTL CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
 
@@ -29,8 +31,8 @@
         <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#section3" data-lang="en">About Us</a>
-              <a class="nav-link d-none" href="#section3" data-lang="he">עלינו</a>
+              <a class="nav-link" href="about.html" data-lang="en">About Us</a>
+              <a class="nav-link d-none" href="about.html" data-lang="he">עלינו</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="info.html" data-lang="en">Info</a>
@@ -179,8 +181,15 @@
     </div>
   </section>
 
+<section id="service_map" class="py-5 position-relative text-center text-white">
+    <h2 class="h4 fw-bold" data-lang="en">Global Service Coverage</h2>
+    <h2 class="h4 fw-bold d-none" data-lang="he">עלינו</h2>
+    <div id="map"></div>
+</section>
+
+
   <!-- VISUAL -->
-  <section id="visual" class="py-5 position-relative text-center text-white">
+  <section id="visual" class="position-relative text-center text-white">
     <div class="position-absolute w-100 h-100" style="background-image: url('fixed-image.jpg'); background-size: cover; background-attachment: fixed; background-position: center; z-index: -1;"></div>
     <div class="container py-5">
       <h2 class="display-5 fw-bold" data-lang="en">What Sets Us Apart</h2>
@@ -234,6 +243,72 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js"></script>
+  <script>
+
+    const serviceCountries = ['CN', 'IN', 'JP', 'KR', 'MY', 'SG', 'AE', 'VN', 'BE', 'CZ', 'DK', 'FR', 'DE', 'GR', 'IE', 'IT', 'NL', 'NO', 'RO', 'CH', 'TR', 'GB', 'CA', 'MX', 'US', 'BR', 'AR', 'PE'];
+    const tooltips = {'CN': 'China', 'IN': 'India', 'JP': 'Japan', 'KR': 'South Korea', 'MY': 'Malaysia', 'SG': 'Singapore', 'AE': 'United Arab Emirates', 'VN': 'Vietnam', 'BE': 'Belgium', 'CZ': 'Czech Republic', 'DK': 'Denmark', 'FR': 'France', 'DE': 'Germany', 'GR': 'Greece', 'IE': 'Ireland', 'IT': 'Italy', 'NL': 'Netherlands', 'NO': 'Norway', 'RO': 'Romania', 'CH': 'Switzerland', 'TR': 'Turkey', 'GB': 'United Kingdom', 'CA': 'Canada', 'MX': 'Mexico', 'US': 'USA', 'BR':'Brazil', 'AR':'Argentina', 'PE':'Peru'};
+
+    const map = new jsVectorMap({
+      zoomOnScroll: false,
+      zoomButtons: false,
+      selector: "#map",
+      map: "world",
+      regionStyle: {
+        initial: {
+          fill: "#e0e0e0"
+        },
+        hover: {
+          fill: "#4a90e2"
+        },
+        selected: {
+          fill: "#007bff"
+        }
+      },
+      selectedRegions: [...serviceCountries, "IL"],
+      onRegionTooltipShow: function(event, tooltip, code) {
+        if (tooltips[code]) {
+          tooltip.textContent = tooltips[code];
+        } else if (code === "IL") {
+          tooltip.textContent = "Israel (Headquarters)";
+        } else {
+          event.preventDefault();
+        }
+      },
+      series: {
+        regions: [{
+          values: {
+            "IL": "hq",
+            "CN": "service", "IN": "service", "JP": "service", "KR": "service", "MY": "service", "SG": "service", "AE": "service", "VN": "service", "BE": "service", "CZ": "service", "DK": "service", "FR": "service", "DE": "service", "GR": "service", "IE": "service", "IT": "service", "NL": "service", "NO": "service", "RO": "service", "CH": "service", "TR": "service", "GB": "service", "CA": "service", "MX": "service", "US": "service"
+          },
+          scale: {
+            "hq": "#dc3545",       // red for HQ
+            "service": "#007bff"   // blue for other service countries
+          },
+          attribute: 'fill'
+        }]
+      }
+    });
+  </script>
+
+    <script>
+      setTimeout(() => {
+        const hqRegion = document.querySelector('[data-code="IL"]');
+        if (hqRegion) {
+          hqRegion.classList.add("pulsing");
+        }
+
+        const countries = ['CN', 'IN', 'JP', 'KR', 'MY', 'SG', 'AE', 'VN', 'BE', 'CZ', 'DK', 'FR', 'DE', 'GR', 'IE', 'IT', 'NL', 'NO', 'RO', 'CH', 'TR', 'GB', 'CA', 'MX', 'US', 'BR', 'PE', 'AR'];
+        document.querySelectorAll(".jvm-region").forEach(region => {
+          if (countries.includes(region.getAttribute("data-code"))) {
+            region.classList.add("hover-pulse");
+          } else {
+            region.style.pointerEvents = "none";
+          }
+        });
+      }, 500);
+    </script>
 </body>
 </html>
 

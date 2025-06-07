@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Trak-line Ltd</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#" onclick="scrollToTop()">
+            <img src="logo.png" alt="Trak-line Ltd Logo" height="40">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" data-lang="en">Home</a>
+              <a class="nav-link d-none" href="index.html" data-lang="he">ראשי</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="info.html" data-lang="en">Info</a>
+              <a class="nav-link d-none" href="info.html" data-lang="he">מידע</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact" data-lang="en">Contact</a>
+              <a class="nav-link d-none" href="#contact" data-lang="he">צור קשר</a>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+              <button class="btn btn-outline-secondary btn-sm me-1" onclick="switchLanguage('en')">EN</button>
+              <button class="btn btn-outline-secondary btn-sm" onclick="switchLanguage('he')">HE</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Fullscreen offcanvas for mobile -->
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasMenu">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+        <a class="nav-link text-white mb-3" href="#section3" data-lang="en" data-bs-dismiss="offcanvas">
+          <i class="fas fa-info-circle me-2"></i>About Us
+        </a>
+        <a class="nav-link text-white mb-3 d-none" href="#section3" data-lang="he" data-bs-dismiss="offcanvas">
+          <i class="fas fa-info-circle me-2"></i>עלינו
+        </a>
+
+        <a class="nav-link text-white mb-3" href="#section2" data-lang="en" data-bs-dismiss="offcanvas">
+          <i class="fas fa-cogs me-2"></i>Info
+        </a>
+        <a class="nav-link text-white mb-3 d-none" href="#section2" data-lang="he" data-bs-dismiss="offcanvas">
+          <i class="fas fa-cogs me-2"></i>מידע
+        </a>
+
+        <a class="nav-link text-white mb-3" href="#contact" data-lang="en" data-bs-dismiss="offcanvas">
+          <i class="fas fa-envelope me-2"></i>Contact
+        </a>
+        <a class="nav-link text-white mb-3 d-none" href="#contact" data-lang="he" data-bs-dismiss="offcanvas">
+          <i class="fas fa-envelope me-2"></i>צור קשר
+        </a>
+
+        <div class="mt-auto">
+          <button class="btn btn-outline-light btn-sm me-2" onclick="switchLanguage('en')">EN</button>
+          <button class="btn btn-outline-light btn-sm" onclick="switchLanguage('he')">HE</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+<main class="container-fluid pt-5 mt-5">
+
+  <!-- The Company -->
+  <section class="py-5 bg-light border-bottom" id="the-company">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <img src="images/company.jpg" class="img-fluid rounded shadow" alt="The Company" />
+        </div>
+        <div class="col-md-6">
+          <h2 data-lang="en">The Company</h2>
+          <h2 data-lang="he" class="d-none">החברה</h2>
+
+      <p data-lang="en">
+        TRAK-line Ltd is an international freight forwarding company based in Israel, established in 2003 by Ms. Rivka Shahar. With over 40 years of industry experience, we collaborate with a wide network of global partners.
+      </p>
+      <p data-lang="he" class="d-none">
+        חברת TRAK-line בע"מ היא חברת שילוח בינלאומית שהוקמה בישראל בשנת 2003 על ידי גב' רבקה שחר. עם ניסיון של למעלה מ-40 שנה, אנו משתפים פעולה עם רשת רחבה של שותפים עולמיים.
+      </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Vision -->
+  <section class="py-5" id="our-vision">
+    <div class="container">
+      <div class="row align-items-center flex-md-row-reverse">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <img src="images/vision.jpg" class="img-fluid rounded shadow" alt="Our Vision" />
+        </div>
+        <div class="col-md-6">
+          <h2 data-lang="en">Our Vision</h2>
+          <h2 data-lang="he" class="d-none">החזון שלנו</h2>
+
+                <p data-lang="en">
+        To provide exceptional, personalized freight services with professionalism, transparency, and integrity. We aim to be a reliable logistics partner globally.
+      </p>
+      <p data-lang="he" class="d-none">
+        לספק שירותי שילוח יוצאי דופן ומותאמים אישית, תוך הקפדה על מקצועיות, שקיפות ויושרה. מטרתנו להיות שותף לוגיסטי אמין בכל העולם.
+      </p>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Team -->
+  <section class="py-5 bg-light border-top border-bottom" id="our-team">
+    <div class="container text-center">
+      <h2 data-lang="en" class="mb-4">Our Team</h2>
+      <h2 data-lang="he" class="d-none mb-4">הצוות שלנו</h2>
+      <div class="row">
+        <div class="col-sm-6 col-md-3 mb-4">
+          <img src="images/team1.jpg" class="img-fluid rounded-circle mb-2" alt="Team Member 1" />
+          <h6>Rivka Shahar</h6>
+          <p class="text-muted small">Director</p>
+        </div>
+        <div class="col-sm-6 col-md-3 mb-4">
+          <img src="images/team2.jpg" class="img-fluid rounded-circle mb-2" alt="Team Member 2" />
+          <h6>Dace</h6>
+          <p class="text-muted small">Operations Manager</p>
+        </div>
+        <div class="col-sm-6 col-md-3 mb-4">
+          <img src="images/team2.jpg" class="img-fluid rounded-circle mb-2" alt="Team Member 2" />
+          <h6>Orly Yaskin</h6>
+          <p class="text-muted small">Operations Manager</p>
+        </div>
+        <!-- Add more team members if needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Specialists -->
+  <section class="py-5" id="specialists">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <img src="images/specialists.jpg" class="img-fluid rounded shadow" alt="Specialists" />
+        </div>
+        <div class="col-md-6">
+          <h2 data-lang="en">Specialists</h2>
+          <h2 data-lang="he" class="d-none">מומחים</h2>
+
+                <p data-lang="en">
+                    We work with a global network of customs agents, marine surveyors, cargo insurers, and legal consultants to provide holistic freight and logistics solutions.
+                </p>
+                <p data-lang="he" class="d-none">
+                    אנו משתפים פעולה עם רשת עולמית של סוכני מכס, סוקרי מטענים, מבטחי סחורות ויועצים משפטיים כדי לספק פתרונות שילוח ולוגיסטיקה מקיפים.
+                </p>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+
+<!-- FOOTER -->
+  <footer id="contact" class="bg-dark text-white pt-5 pb-3">
+    <div class="container">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <p>Email: rivka@trak-line.com</p>
+          <p>Phone: +972 50-472-9699</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="#" class="text-white me-3">Home</a>
+          <a href="#section3" class="text-white me-3">About</a>
+          <a href="#section2" class="text-white me-3">Info</a>
+          <a href="#contact" class="text-white">Contact</a>
+        </div>
+      </div>
+      <div class="text-center border-top pt-3">
+        <small>Site built by Metallicode Ltd 2025</small>
+      </div>
+    </div>
+  </footer> 
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
