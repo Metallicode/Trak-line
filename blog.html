@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog - Trak-line Ltd</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    .blog-card img {
+      max-height: 200px;
+      object-fit: cover;
+    }
+    .blog-card {
+      transition: transform 0.2s ease;
+    }
+    .blog-card:hover {
+      transform: scale(1.04);
+    }
+    #blog_title{
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Include your navbar header here -->
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#" onclick="scrollToTop()">
+            <img src="logo.png" alt="Trak-line Ltd Logo" height="40">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" data-lang="en">Home</a>
+              <a class="nav-link d-none" href="index.html" data-lang="he">ראשי</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html" data-lang="en">About Us</a>
+              <a class="nav-link d-none" href="about.html" data-lang="he">עלינו</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="info.html" data-lang="en">Info</a>
+              <a class="nav-link d-none" href="info.html" data-lang="he">מידע</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact" data-lang="en">Contact</a>
+              <a class="nav-link d-none" href="#contact" data-lang="he">צור קשר</a>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+              <button class="btn btn-outline-secondary btn-sm me-1" onclick="switchLanguage('en')">EN</button>
+              <button class="btn btn-outline-secondary btn-sm" onclick="switchLanguage('he')">HE</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Fullscreen offcanvas for mobile -->
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasMenu">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+        <a class="nav-link text-white mb-3" href="#section3" data-lang="en" data-bs-dismiss="offcanvas">
+          <i class="fas fa-info-circle me-2"></i>About Us
+        </a>
+        <a class="nav-link text-white mb-3 d-none" href="#section3" data-lang="he" data-bs-dismiss="offcanvas">
+          <i class="fas fa-info-circle me-2"></i>עלינו
+        </a>
+
+        <a class="nav-link text-white mb-3" href="#section2" data-lang="en" data-bs-dismiss="offcanvas">
+          <i class="fas fa-cogs me-2"></i>Info
+        </a>
+        <a class="nav-link text-white mb-3 d-none" href="#section2" data-lang="he" data-bs-dismiss="offcanvas">
+          <i class="fas fa-cogs me-2"></i>מידע
+        </a>
+
+        <a class="nav-link text-white mb-3" href="#contact" data-lang="en" data-bs-dismiss="offcanvas">
+          <i class="fas fa-envelope me-2"></i>Contact
+        </a>
+        <a class="nav-link text-white mb-3 d-none" href="#contact" data-lang="he" data-bs-dismiss="offcanvas">
+          <i class="fas fa-envelope me-2"></i>צור קשר
+        </a>
+
+        <div class="mt-auto">
+          <button class="btn btn-outline-light btn-sm me-2" onclick="switchLanguage('en')">EN</button>
+          <button class="btn btn-outline-light btn-sm" onclick="switchLanguage('he')">HE</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <h2 id="blog_title" class="mb-4 text-center">Latest News & Blog</h2>
+    <div class="container py-5" id="blog-container"></div>
+
+  </main>
+
+  <!-- Include your footer here -->
+    <footer id="contact" class="bg-dark text-white pt-5 pb-3">
+    <div class="container">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <p>Email: rivka@trak-line.com</p>
+          <p>Phone: +972 50-472-9699</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="#" class="text-white me-3">Home</a>
+          <a href="#section3" class="text-white me-3">About</a>
+          <a href="#section2" class="text-white me-3">Info</a>
+          <a href="#contact" class="text-white">Contact</a>
+        </div>
+      </div>
+      <div class="text-center border-top pt-3">
+        <small>Site built by Metallicode Ltd 2025</small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+ fetch("https://script.google.com/macros/s/AKfycbylGUql7TbQkBb1wybqEh8B2x7nYNznc-IUv3A-4i-P78Rct72nczYDVX2cyw-pPyRtNg/exec")
+   .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('blog-container');
+        data.forEach(post => {
+          const col = document.createElement('div');
+          col.className = 'col-md-6 col-lg-4';
+
+          const card = document.createElement('div');
+          card.className = 'card blog-card h-100 shadow-sm';
+
+          // Format date
+          const date = new Date(post.Date);
+          const formattedDate = date.toLocaleDateString();
+
+          card.innerHTML = `
+            <img src="${post['Image URL']}" class="card-img-top" alt="Blog image">
+            <div class="card-body">
+              <h5 class="card-title">${post.Title.replace(/^"|"$/g, '')}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">${formattedDate}</h6>
+              <p class="card-text">${post.Summary}</p>
+              ${post['Link or Full Text'].startsWith('http')
+                ? `<a href="${post['Link or Full Text']}" target="_blank" class="btn btn-outline-primary btn-sm">Read More</a>`
+                : `<p>${post['Link or Full Text']}</p>`}
+            </div>
+          `;
+
+          col.appendChild(card);
+          container.appendChild(col);
+        });
+      })
+      .catch(error => {
+        document.getElementById('blog-container').innerHTML =
+          '<p class="text-danger">Unable to load blog posts at the moment.</p>';
+        console.error('Blog fetch error:', error);
+      });
+  </script>
+</body>
+</html>
