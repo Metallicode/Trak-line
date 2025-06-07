@@ -33,8 +33,8 @@
               <a class="nav-link d-none" href="#section3" data-lang="he">עלינו</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#section2" data-lang="en">Info</a>
-              <a class="nav-link d-none" href="#section2" data-lang="he">מידע</a>
+              <a class="nav-link" href="info.html" data-lang="en">Info</a>
+              <a class="nav-link d-none" href="info.html" data-lang="he">מידע</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#contact" data-lang="en">Contact</a>
@@ -106,7 +106,7 @@
       <div class="row text-center g-4">
         <!-- Example Service -->
         <div class="col-md-4">
-          <div class="card h-100 shadow-sm" onclick="openModal('service01')">
+          <div class="card h-100 shadow-sm" onclick="openModal('import')">
             <div class="card-body">
               <h4 class="card-title" data-lang="en">Import</h5>
               <h4 class="card-title d-none" data-lang="he">יבוא</h5>
@@ -118,7 +118,7 @@
         </div>
 
         <div class="col-md-4">
-          <div class="card h-100 shadow-sm" onclick="openModal('service02')">
+          <div class="card h-100 shadow-sm" onclick="openModal('export')">
             <div class="card-body">
               <h4 class="card-title" data-lang="en">Export</h5>
               <h4 class="card-title d-none" data-lang="he">יצוא</h5>
@@ -131,7 +131,7 @@
         </div>
 
         <div class="col-md-4">
-          <div class="card h-100 shadow-sm" onclick="openModal('service03')">
+          <div class="card h-100 shadow-sm" onclick="openModal('projects')">
             <div class="card-body">
               <h4 class="card-title" data-lang="en">Projects</h5>
               <h4 class="card-title d-none" data-lang="he">פרוייקטים</h5>
@@ -157,8 +157,21 @@
         <div class="col-md-6">
           <h2 class="h4 fw-bold" data-lang="en">About Us</h2>
           <h2 class="h4 fw-bold d-none" data-lang="he">עלינו</h2>
-          <p class="lead text-muted" data-lang="en">We are a leading service provider in our field.</p>
-          <p class="lead text-muted d-none" data-lang="he">אנחנו ספק שירותים מוביל בתחומנו.</p>
+          <p class="lead text-muted" data-lang="en">
+            
+            TRAK-line Ltd is an international freight forwarding company founded in Israel in 2003 by Ms. Rivka Shahar. Privately owned and operating as a limited company, TRAK-line Ltd collaborates with a global network of partners and brings over 40 years of industry experience to its clients.
+
+            The company specializes in comprehensive freight solutions across air, sea, land, and rail, both regionally and internationally — offering tailored services for both export and import operations.
+
+          </p>
+          <p class="lead text-muted d-none" data-lang="he">
+
+חברת טראקליין בע"מ היא חברת שילוח בינלאומית שהוקמה בישראל בשנת 2003 על ידי גב' רבקה שחר. החברה פרטית בע"מ, פועלת בשיתוף עם רשת שותפים עולמית ומביאה עמה ניסיון של למעלה מ־40 שנה בענף הלוגיסטיקה והשילוח.
+
+החברה מתמחה בפתרונות שילוח מקיפים באוויר, בים, ביבשה וברכבת, הן בארץ והן ברחבי העולם — ומספקת שירותים מותאמים אישית לייצוא וייבוא כאחד.
+
+
+          </p>
           <button class="btn btn-secondary mt-3" onclick="scrollToSection('visual')" data-lang="en">Learn More</button>
           <button class="btn btn-secondary mt-3 d-none" onclick="scrollToSection('visual')" data-lang="he">למידע נוסף</button>
         </div>
@@ -207,7 +220,9 @@
           <button type="button" class="btn-close" onclick="closeModal()"></button>
         </div>
         <div class="modal-body">
-          <p>Full description of the selected service.</p>
+          <p>
+            
+          </p>
         </div>
         <div class="modal-footer">
           <button class="btn btn-primary" onclick="scrollToSection('contact')">Contact Us</button>
