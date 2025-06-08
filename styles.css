@@ -31,6 +31,9 @@ body {
   z-index: 2;
 }
 
+
+
+
 /* === SERVICES SECTION === */
 .card {
   cursor: pointer;
@@ -102,6 +105,6 @@ footer a:hover {
 
 
 #service_map{
-      background-color: cornflowerblue;
+      background-color: #6a757d;
 }
 

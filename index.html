@@ -14,6 +14,9 @@
   <!-- FontAwesome for icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
+<link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -41,6 +44,10 @@
             <li class="nav-item">
               <a class="nav-link" href="blog.html" data-lang="en">Blog</a>
               <a class="nav-link d-none" href="blog.html" data-lang="he">בלוג</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html" data-lang="en">Gallery</a>
+              <a class="nav-link d-none" href="gallery.html" data-lang="he">גלריה</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#contact" data-lang="en">Contact</a>
@@ -107,51 +114,97 @@
   </section>
 
   <!-- SERVICES -->
-  <section id="services" class="py-5 bg-light">
-    <div class="container">
-      <div class="row text-center g-4">
-        <!-- Example Service -->
-        <div class="col-md-4">
-          <div class="card h-100 shadow-sm" onclick="openModal('import')">
-            <div class="card-body">
-              <h4 class="card-title" data-lang="en">Import</h5>
-              <h4 class="card-title d-none" data-lang="he">יבוא</h5>
-              <img src="cat_01.png" class="card-img-top" alt="Import">
-              <button class="btn btn-outline-primary mt-2" data-lang="en">More Info</button>
-              <button class="btn btn-outline-primary mt-2 d-none" data-lang="he">מידע נוסף</button>
-            </div>
+  <section id="services" class="py-5 bg-light mb-5">
+  <div class="container">
+    <div class="row text-center g-4">
+      <!-- Service Item -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm" onclick="openModal('import')">
+          <div class="card-body">
+            <h4 class="card-title" data-lang="en">Import</h4>
+            <h4 class="card-title d-none" data-lang="he">יבוא</h4>
+            <img src="images/services/cat_01.png" class="card-img-top" alt="Import">
+            <button class="btn btn-outline-primary mt-2" data-lang="en">More Info</button>
+            <button class="btn btn-outline-primary mt-2 d-none" data-lang="he">מידע נוסף</button>
           </div>
         </div>
+      </div>
 
-        <div class="col-md-4">
-          <div class="card h-100 shadow-sm" onclick="openModal('export')">
-            <div class="card-body">
-              <h4 class="card-title" data-lang="en">Export</h5>
-              <h4 class="card-title d-none" data-lang="he">יצוא</h5>
-                          <img src="cat_02.png" class="card-img-top" alt="Export">
-
-              <button class="btn btn-outline-primary mt-2" data-lang="en">More Info</button>
-              <button class="btn btn-outline-primary mt-2 d-none" data-lang="he">מידע נוסף</button>
-            </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm" onclick="openModal('export')">
+          <div class="card-body">
+            <h4 class="card-title" data-lang="en">Export</h4>
+            <h4 class="card-title d-none" data-lang="he">יצוא</h4>
+            <img src="images/services/cat_02.png" class="card-img-top" alt="Export">
+            <button class="btn btn-outline-primary mt-2" data-lang="en">More Info</button>
+            <button class="btn btn-outline-primary mt-2 d-none" data-lang="he">מידע נוסף</button>
           </div>
         </div>
+      </div>
 
-        <div class="col-md-4">
-          <div class="card h-100 shadow-sm" onclick="openModal('projects')">
-            <div class="card-body">
-              <h4 class="card-title" data-lang="en">Projects</h5>
-              <h4 class="card-title d-none" data-lang="he">פרוייקטים</h5>
-                          <img src="cat_03.png" class="card-img-top" alt="Projects">
-
-              <button class="btn btn-outline-primary mt-2" data-lang="en">More Info</button>
-              <button class="btn btn-outline-primary mt-2 d-none" data-lang="he">מידע נוסף</button>
-            </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm" onclick="openModal('projects')">
+          <div class="card-body">
+            <h4 class="card-title" data-lang="en">Projects</h4>
+            <h4 class="card-title d-none" data-lang="he">פרוייקטים</h4>
+            <img src="images/services/cat_03.png" class="card-img-top" alt="Projects">
+            <button class="btn btn-outline-primary mt-2" data-lang="en">More Info</button>
+            <button class="btn btn-outline-primary mt-2 d-none" data-lang="he">מידע נוסף</button>
           </div>
         </div>
+      </div>
 
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm" onclick="openModal('consulting')">
+          <div class="card-body">
+            <h4 class="card-title" data-lang="en">Consulting Services</h4>
+            <h4 class="card-title d-none" data-lang="he">יעוץ מקצועי</h4>
+            <img src="images/services/cat_04.png" class="card-img-top" alt="Consulting">
+            <button class="btn btn-outline-primary mt-2" data-lang="en">More Info</button>
+            <button class="btn btn-outline-primary mt-2 d-none" data-lang="he">מידע נוסף</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm" onclick="openModal('storage')">
+          <div class="card-body">
+            <h4 class="card-title" data-lang="en">Storage</h4>
+            <h4 class="card-title d-none" data-lang="he">אחסון</h4>
+            <img src="images/services/cat_05.png" class="card-img-top" alt="Storage">
+            <button class="btn btn-outline-primary mt-2" data-lang="en">More Info</button>
+            <button class="btn btn-outline-primary mt-2 d-none" data-lang="he">מידע נוסף</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm" onclick="openModal('insurance')">
+          <div class="card-body">
+            <h4 class="card-title" data-lang="en">Insurance</h4>
+            <h4 class="card-title d-none" data-lang="he">ביטוח</h4>
+            <img src="images/services/cat_06.png" class="card-img-top" alt="Insurance">
+            <button class="btn btn-outline-primary mt-2" data-lang="en">More Info</button>
+            <button class="btn btn-outline-primary mt-2 d-none" data-lang="he">מידע נוסף</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm" onclick="openModal('haulage')">
+          <div class="card-body">
+            <h4 class="card-title" data-lang="en">Haulage</h4>
+            <h4 class="card-title d-none" data-lang="he">הובלה</h4>
+            <img src="images/services/cat_07.png" class="card-img-top" alt="Haulage">
+            <button class="btn btn-outline-primary mt-2" data-lang="en">More Info</button>
+            <button class="btn btn-outline-primary mt-2 d-none" data-lang="he">מידע נוסף</button>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- ABOUT -->
   <section id="section3" class="py-5 bg-white">
