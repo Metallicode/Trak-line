@@ -77,10 +77,10 @@
               <a class="nav-link" href="#contact" data-lang="en">Contact</a>
               <a class="nav-link d-none" href="#contact" data-lang="he">צור קשר</a>
             </li>
-            <!-- <li class="nav-item d-flex align-items-center">
+            <li class="nav-item d-flex align-items-center">
               <button class="btn btn-outline-secondary btn-sm me-1" onclick="switchLanguage('en')">EN</button>
               <button class="btn btn-outline-secondary btn-sm" onclick="switchLanguage('he')">HE</button>
-            </li> -->
+            </li>
           </ul>
         </div>
       </div>
@@ -159,8 +159,22 @@
 
   <!-- RESOURCES SECTION -->
   <section class="container py-5">
-    <h3 class="mb-4">Downloadable Resources</h3>
+    <h3 data-lang="en" class="mb-4">Downloadable Resources</h3>
+    <h3 data-lang="he" class="mb-4">מסמכים</h3>
     <ul class="list-group list-group-flush">
+
+      <li class="list-group-item"><a target="_blank"  data-lang="he" href="https://www.gov.il/he/service/power-of-attorney" download>כתב הרשאה לעמיל מכס</a></li>
+      <li class="list-group-item"><a target="_blank"  data-lang="en" href="https://www.gov.il/he/service/power-of-attorney" download>Power Of Attorney</a></li>
+     
+      <li class="list-group-item"><a target="_blank"  data-lang="he" href="https://www.gov.il/he/service/submission-of-an-annual-importers-affidavit" download>תצהיר יבואן תקופתי</a></li>
+      <li class="list-group-item"><a target="_blank"  data-lang="en" href="https://www.gov.il/he/service/submission-of-an-annual-importers-affidavit" download>Submission  Of An Annual Importers Affidavit</a></li>
+
+      
+      <li class="list-group-item"><a target="_blank"  data-lang="he" href="https://www.gov.il/he/service/maslul-plus" download>מערכת מסלול</a></li>
+      <li class="list-group-item"><a target="_blank"  data-lang="en" href="https://www.gov.il/he/service/maslul-plus" download>Maslul Plus</a></li>
+
+
+
       <li class="list-group-item"><a href="/docs/company_profile.pdf" download>Company Profile (PDF)</a></li>
       <li class="list-group-item"><a href="/docs/shipping_terms.docx" download>Shipping Terms (DOCX)</a></li>
       <li class="list-group-item"><a href="/docs/price_list.xlsx" download>Price List (XLSX)</a></li>
@@ -169,6 +183,8 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script src="script.js"></script>
   <script>
 
 
