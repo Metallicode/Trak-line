@@ -28,7 +28,64 @@ const serviceContent = {
       title: "פרויקטים מיוחדים",
       text: "צוות הפרויקטים שלנו מטפל במשלוחים מורכבים וחריגים בדיוק רב. מתיאום הנדסי ועד שימוש בציוד הובלה מיוחד – אנו מציעים פתרונות כוללים לכל אתגר לוגיסטי.",
     }
+  },
+
+  consulting: {
+    en: {
+      title: "Consulting Services",
+      text: "At TRAK-line Ltd, we believe that knowledge is power—and the key to success in global trade. We proudly offer free consultation to both new and potential clients, helping them take their first steps into the world of import and export with confidence. Our team provides ongoing support, guiding clients through every stage of the process and equipping them with the tools they need to succeed. We've developed user-friendly tools that help calculate and manage logistics costs for any type of shipment—from anywhere, to anywhere. Our mission is to empower each client to take ownership of their decisions, while knowing they have our full support whenever needed. We are always here to ensure every move is made with clarity, confidence, and care.",
+    },
+    he: {
+      title: "ייעוץ מקצועי",
+      text: "ב־TRAK-line Ltd אנו מאמינים ש־ידע הוא כוח — והמפתח להצלחה במסחר גלובלי. אנו מציעים בגאווה ייעוץ חינם ללקוחות חדשים וקיימים, ומסייעים להם לעשות את הצעדים הראשונים בתחום היבוא והיצוא בביטחון מלא. הצוות שלנו מלווה את הלקוח לאורך כל הדרך, ומספק את הכלים הדרושים לו להצלחה. פיתחנו כלים ידידותיים למשתמש שמאפשרים לחשב ולנהל עלויות לוגיסטיות עבור כל סוג של משלוח — מכל מקום בעולם ולכל יעד. החזון שלנו הוא לאפשר לכל לקוח להיות האחראי המרכזי להחלטותיו, תוך ידיעה שיש לו גב ותמיכה מלאה מאיתנו. אנו כאן תמיד, כדי לוודא שכל צעד נעשה מתוך הבנה, ביטחון ואחריות.",
+    }
+  },
+
+
+    storage: {
+    en: {
+      title: "Storage",
+      text: "At TRAK-line Ltd, we provide reliable third-party storage solutions through partnerships with top-tier facilities equipped with advanced technologies. These sites offer comprehensive logistics support, including tailored solutions for specialized equipment and distribution services, which are increasingly in demand across global markets. We also offer access to bonded warehouse services, backed by strong relationships with trusted providers. Our team actively oversees client requirements, ensuring the right tools and compliance processes are in place to support smooth and secure operations.",
+    },
+    he: {
+      title: "אכסון",
+      text: "ב־TRAK-line Ltd אנו מציעים פתרונות אחסון באמצעות שירותי צד שלישי מובילים, בשיתוף פעולה עם אתרים מתקדמים בעלי תשתיות לוגיסטיות חדשניות. השירות כולל גם פתרונות ייעודיים לציוד מיוחד ולצורכי הפצה, שמהווים כיום צורך הולך וגובר בשווקים השונים. בנוסף, אנו מציעים גישה לשירותי מחסנים רשויים (מחסני ערובה), תוך שיתוף פעולה הדוק עם גופים אמינים וותיקים בתחום. אנו מפקחים על צורכי הלקוחות והשותפים שלנו באופן שוטף, ודואגים לספק להם את הכלים והתהליכים הנדרשים לפעילות בטוחה, חלקה ויעילה.",
+    }
+  },
+
+
+
+    insurance: {
+    en: {
+      title: "Insurance",
+      text: "We offer our clients comprehensive insurance coverage for both import and export operations, including Clause A or any other required policy — all conveniently under one roof.",
+    },
+    he: {
+      title: "ביטוח",
+      text: "אנו מציעים ללקוחותינו כיסוי ביטוחי מלא לשירותי יבוא ויצוא, כולל תנאי פוליסה A או כל כיסוי נדרש אחר – הכול תחת קורת גג אחת.",
+    }
+  },
+
+
+
+
+    haulage: {
+    en: {
+      title: "Haulage",
+      text: "We utilize third-party haulage services through trusted private operators and shipping line facilities. Our objective is to ensure that every shipment reaches its final destination precisely on time, aligning with our clients’ facility availability and supporting the seamless continuation of their delivery chain to the end customer.",
+    },
+    he: {
+      title: "הובלה",
+      text: "אנו משתמשים בשירותי הובלה צד שלישי באמצעות מפעילים פרטיים ואתרי חברות ספנות אמינות. מטרתנו היא להבטיח שהמשלוח יגיע ליעדו הסופי בדיוק בזמן הדרוש, בהתאם לזמינות המתקנים של הלקוח, ותוך תמיכה בהמשכיות שרשרת האספקה עד ללקוח הסופי.",
+    }
   }
+
+
+
+
+
+
+
 };
 
 

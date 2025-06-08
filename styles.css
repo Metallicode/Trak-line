@@ -74,6 +74,15 @@ body {
   cursor: pointer;
 }
 
+
+.partner-logo {
+  transition: transform 0.3s ease-in-out;
+}
+
+.partner-logo:hover {
+  transform: scale(1.2);
+}
+
 /* === FOOTER === */
 footer a:hover {
   text-decoration: underline;
