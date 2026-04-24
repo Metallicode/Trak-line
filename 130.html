@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>טופס מכס 130 – הצהרה על יבוא אישי של טובין</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --page-w: 216mm;
+  --page-h: 279.4mm;
+}
+
+body {
+  min-height: 100vh;
+  padding: 20px;
+  background: #777;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-family: Arial, sans-serif;
+}
+
+.page {
+  position: relative;
+  width: var(--page-w);
+  height: var(--page-h);
+  background: #fff url("form130-original.png") center / 100% 100% no-repeat;
+  box-shadow: 0 2px 16px rgba(0,0,0,.5);
+  overflow: hidden;
+}
+
+.field {
+  position: absolute;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  padding: 0 2px;
+  font: 9pt Arial, sans-serif;
+  line-height: 1;
+  color: #000;
+}
+
+.field:focus {
+  background: rgba(210,235,255,.55);
+  outline: 1px solid rgba(0,100,180,.45);
+}
+
+.rtl { direction: rtl; text-align: right; }
+.center { text-align: center; }
+
+.check {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.tick {
+  position: absolute;
+  pointer-events: none;
+  font: bold 11pt Arial, sans-serif;
+  line-height: 1;
+  color: #000;
+}
+
+.pbtn {
+  padding: 9px 30px;
+  font: 11pt Arial, sans-serif;
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.pbtn:hover { background: #1255a8; }
+
+@media print {
+  @page { size: letter portrait; margin: 0; }
+  body { padding: 0; margin: 0; background: none; }
+  .page {
+    width: var(--page-w);
+    height: var(--page-h);
+    box-shadow: none;
+  }
+  .field:focus { background: transparent; outline: 0; }
+  .field::placeholder { color: transparent; }
+  .pbtn { display: none; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<div class="page" id="thePage" aria-label="טופס מכס 130">
+  <input class="field rtl" data-x="118" data-y="405" data-w="250" data-h="24" aria-label="Address in Israel">
+  <input class="field" data-x="338" data-y="405" data-w="155" data-h="24" maxlength="12" aria-label="I.D. No.">
+  <input class="field" data-x="507" data-y="405" data-w="175" data-h="24" aria-label="Name">
+  <input class="field" data-x="686" data-y="405" data-w="214" data-h="24" aria-label="Family Name">
+
+  <input class="field" data-x="118" data-y="463" data-w="250" data-h="24" aria-label="Last Country of Residence">
+  <input class="field" data-x="338" data-y="463" data-w="155" data-h="24" aria-label="Teudat Oleh No.">
+  <input class="field" data-x="507" data-y="463" data-w="175" data-h="24" aria-label="Country">
+  <input class="field" data-x="686" data-y="463" data-w="214" data-h="24" aria-label="Passport No.">
+
+  <input type="checkbox" class="check" name="status" value="immigrant" data-x="193" data-y="504" aria-label="Immigrant">
+  <input type="checkbox" class="check" name="status" value="returning" data-x="278" data-y="504" aria-label="Returning resident or student">
+  <input type="checkbox" class="check" name="status" value="foreign" data-x="433" data-y="504" aria-label="Foreign resident">
+  <input type="checkbox" class="check" name="status" value="notax" data-x="549" data-y="504" aria-label="Without tax exemption rights">
+
+  <div id="goodsFields"></div>
+
+  <input class="field" data-x="110" data-y="1242" data-w="325" data-h="25" aria-label="Signature">
+  <input class="field center" id="sigDate" data-x="667" data-y="1242" data-w="245" data-h="25" placeholder="dd/mm/yyyy" maxlength="10" aria-label="Date">
+</div>
+
+<button class="pbtn" onclick="window.print()">הדפסה / Print</button>
+
+<script>
+const BASE_W = 1020;
+const BASE_H = 1320;
+
+function place(el) {
+  const x = parseFloat(el.dataset.x);
+  const y = parseFloat(el.dataset.y);
+  const w = parseFloat(el.dataset.w || 13);
+  const h = parseFloat(el.dataset.h || 13);
+  el.style.left = (x / BASE_W * 100) + '%';
+  el.style.top = (y / BASE_H * 100) + '%';
+  el.style.width = (w / BASE_W * 100) + '%';
+  el.style.height = (h / BASE_H * 100) + '%';
+}
+
+function addField(parent, x, y, w, h, className = '') {
+  const input = document.createElement('input');
+  input.className = `field ${className}`.trim();
+  input.dataset.x = x;
+  input.dataset.y = y;
+  input.dataset.w = w;
+  input.dataset.h = h;
+  parent.appendChild(input);
+  place(input);
+  return input;
+}
+
+function addCheck(parent, x, y) {
+  const input = document.createElement('input');
+  input.type = 'checkbox';
+  input.className = 'check';
+  input.dataset.x = x;
+  input.dataset.y = y;
+  parent.appendChild(input);
+  place(input);
+  return input;
+}
+
+function attachTick(input) {
+  const tick = document.createElement('span');
+  tick.className = 'tick';
+  input.parentElement.appendChild(tick);
+  const syncPosition = () => {
+    tick.style.left = input.style.left;
+    tick.style.top = input.style.top;
+    tick.style.width = input.style.width;
+    tick.style.height = input.style.height;
+  };
+  const syncValue = () => {
+    tick.textContent = input.checked ? '✓' : '';
+  };
+  syncPosition();
+  syncValue();
+  input.addEventListener('change', syncValue);
+  return tick;
+}
+
+const goods = document.getElementById('goodsFields');
+const cols = [
+  [112, 127, 'center'],
+  [242, 43, 'center'],
+  [288, 98, 'center'],
+  [390, 107, 'center'],
+  [501, 84, 'center'],
+  [590, 84, 'center'],
+  [680, 128, 'rtl'],
+  [813, 82, 'center']
+];
+const rowTop = 727;
+const rowH = 27.5;
+for (let row = 0; row < 12; row++) {
+  const y = rowTop + row * rowH + 3;
+  cols.forEach(([x, w, className], index) => {
+    if (index === 1) addCheck(goods, x + 17, y + 2);
+    else addField(goods, x + 3, y, w - 6, 20, className);
+  });
+}
+
+document.querySelectorAll('[data-x]').forEach(place);
+document.querySelectorAll('.check').forEach(attachTick);
+
+document.querySelectorAll('input[name="status"]').forEach(input => {
+  input.addEventListener('change', () => {
+    if (!input.checked) return;
+    document.querySelectorAll('input[name="status"]').forEach(other => {
+      if (other !== input) {
+        other.checked = false;
+        other.dispatchEvent(new Event('change'));
+      }
+    });
+  });
+});
+
+const sigDate = document.getElementById('sigDate');
+sigDate.addEventListener('keydown', event => {
+  if (event.key === 'Backspace' && sigDate.value.endsWith('/')) {
+    event.preventDefault();
+    sigDate.value = sigDate.value.slice(0, -1);
+  }
+});
+sigDate.addEventListener('input', () => {
+  const digits = sigDate.value.replace(/\D/g, '').slice(0, 8);
+  let value = digits.slice(0, 2);
+  if (digits.length > 2) value += '/' + digits.slice(2, 4);
+  if (digits.length > 4) value += '/' + digits.slice(4, 8);
+  sigDate.value = value;
+});
+</script>
+</body>
+</html>

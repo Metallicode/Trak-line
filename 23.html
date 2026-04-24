@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>טופס מכס 23 - שחזור</title>
+    <style>
+        /* BASE SETTINGS */
+        :root {
+            --input-bg: #eef;
+            --border-black: 1px solid #000;
+        }
+
+        body {
+            background: #525659;
+            margin: 0;
+            padding: 20px;
+            /* Official Hebrew Government Font */
+            font-family: "David", "Times New Roman", serif;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* A4 PAPER SIMULATION */
+        .page {
+            background: white;
+            width: 210mm;
+            height: 297mm; 
+            padding: 10mm 15mm; 
+            box-sizing: border-box;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden; 
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4 { margin: 0; padding: 0; }
+        .text-center { text-align: center; }
+        .text-bold { font-weight: bold; }
+        .flex { display: flex; align-items: flex-end; gap: 8px; }
+        .row { display: flex; width: 100%; margin-bottom: 4px; }
+        .grow { flex-grow: 1; }
+        
+        /* INPUT STYLING */
+        input[type="text"], 
+        input[type="date"],
+        input[type="time"],
+        input[type="number"] {
+            border: none;
+            border-bottom: 1px dotted #000;
+            background: var(--input-bg);
+            font-family: "David", "Times New Roman", serif;
+            font-size: 16px;
+            padding: 0 5px;
+            flex-grow: 1;
+            min-width: 0;
+            height: 20px;
+            color: #000;
+        }
+
+        input:focus {
+            outline: none;
+            background: #ffeb3b;
+        }
+
+        /* HEADER LAYOUT - STRICT POSITIONING */
+        .header-section {
+            position: relative;
+            height: 85px;
+            border-bottom: 2px solid black;
+            margin-bottom: 5px;
+        }
+
+        .header-text {
+            position: absolute;
+            right: -5;
+            top: 0;
+            text-align: right;
+            max-width: 46%;
+            z-index: 2;
+        }
+
+        .header-logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            z-index: 1;
+        }
+
+        /* SECTIONS */
+        .section-box {
+            border: 1px solid black;
+            padding: 5px 8px;
+            margin-bottom: 6px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+
+        .label {
+            font-size: 15px;
+            white-space: nowrap;
+        }
+
+        /* CHECKBOXES - SPLIT LAYOUT (GIMEL) */
+        .checkbox-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .checkbox-header {
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 6px; /* Space between box and text */
+            font-size: 14px;
+            height: 18px; 
+            cursor: pointer;
+        }
+        
+        /* BOX STYLING */
+        .checkbox-box {
+            width: 13px;
+            height: 13px;
+            border: 1px solid black;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            flex-shrink: 0;
+        }
+
+        .checkbox-box.checked {
+            background: black;
+        }
+
+        .checkbox-box.checked::after {
+            content: "✓";
+            color: white;
+            font-size: 9px;
+            line-height: 1;
+            font-family: Arial, sans-serif;
+        }
+
+        /* PRINT SETTINGS */
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body {
+                background: none;
+                margin: 0;
+                padding: 0;
+                display: block;
+            }
+
+            .page {
+                box-shadow: none;
+                margin: 0;
+                width: 210mm;
+                min-height: 297mm;
+                padding: 8mm 12mm;
+            }
+
+            input[type="text"],
+            input[type="date"],
+            input[type="time"],
+            input[type="number"] {
+                background: transparent !important;
+                border-bottom: 1px solid #000 !important;
+                -webkit-appearance: none;
+                appearance: none;
+            }
+
+            .checkbox-box {
+                border: 1px solid #000 !important;
+                background: white !important;
+            }
+
+            .checkbox-box.checked {
+                background: black !important;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="no-print" onclick="window.print()" style="position: fixed; top: 20px; left: 20px; padding: 10px 20px; font-size: 20px; cursor: pointer; z-index: 100;">🖨️ הדפס טופס</button>
+
+    <div class="page">
+        
+        <div class="header-section">
+            <div class="header-text">
+                <div style="font-size: 12px; font-weight: bold;">מדינת ישראל / משרד האוצר</div>
+                <div style="font-size: 11px; font-weight: bold;">רשות המסים בישראל</div>
+                <div style="margin: 3px 0; font-size: 14px; ">תעודת משלוח טובין למחסן רשוי, ואישור קבלתם</div>
+                <div style="font-size: 11px;">טופס מכס 23 (מהדורה ח')</div>
+            </div>
+
+            <div class="header-logo">
+                <img src="logotax.png" alt="Logo" style="height: 75px; width: auto;">
+            </div>
+        </div>
+        
+        <div style="font-size: 13px; margin-bottom: 8px;">הטופס ימולא במקור ו-2 העתקים.</div>
+
+        <div class="section-box">
+            <div class="section-title">א. פרטי הרשימון/החשבונית (לטובין בייצור מקומי) (ימולא על ידי סוכן המכס).</div>
+            
+            <div class="row flex">
+                <span class="label">מס' רשימון</span>
+                <input type="text">
+                <span class="label">מס' סידורי רץ</span>
+                <input type="text">
+            </div>
+            
+            <div class="row flex">
+                <span class="label">הטובין מועברים מ-</span>
+                <input type="text">
+                <span class="label">למחסן רשוי (שם המחסן)</span>
+                <input type="text">
+                <span class="label">מס' מזהה</span>
+                <input type="text" style="width: 60px; flex-grow: 0;">
+            </div>
+
+            <div class="row flex">
+                <span class="label">תאריך התרת הרשימון</span>
+                <input type="date">
+                <span class="label">סוג האריזה</span>
+                <input type="text">
+                <span class="label">משקל</span>
+                <input type="text">
+                <span class="label">כמות ברשימון</span>
+                <input type="text">
+            </div>
+
+            <div class="row flex">
+                <span class="label">תיאור הטובין:</span>
+                <input type="text">
+            </div>
+        </div>
+
+        <div class="section-box">
+            <div class="section-title">ב. פרטי ההובלה (ימולא על ידי סוכן המכס ופקח השער או בעל המחסן המעביר).</div>
+            
+            <div class="row flex">
+                <span class="label">שם המוביל</span>
+                <input type="text">
+                <span class="label">שם הנהג</span>
+                <input type="text">
+                <span class="label">מס' ת.ז.</span>
+                <input type="text">
+                <span class="label" style="text-align: center; line-height: 1;">מס'<br>משאית</span>
+                <input type="text" style="width: 70px; flex-grow: 0;">
+            </div>
+
+            <div class="row flex">
+                <span class="label">מס' מכולה</span>
+                <input type="text">
+                <span class="label">מס' סגר<br>המכס</span>
+                <input type="text">
+                <span class="label">מס' סגר<br>ספק/סוכן</span>
+                <input type="text">
+                <span class="label">כמות לאחסנה<br>בהובלה זו</span>
+                <input type="text">
+            </div>
+
+            <div class="row flex">
+                <span class="label">הערות סוכן המכס (ציין גם סימנים ומספרים):</span>
+                <input type="text">
+            </div>
+        </div>
+
+        <div style="margin-bottom: 6px; border-bottom: 1px solid black; padding-bottom: 5px;">
+            <div class="text-bold label">הצהרת סוכן המכס</div>
+            <div style="font-size: 13px; margin-bottom: 4px; line-height: 1.2;">
+                אני מצהיר בזאת, כי סגרתי את המכולה בסגר המכס לפני הוצאתה של המכולה מהנמל. (קטע זה יימחק כאשר אין חובת סגירה בסגר עפ"י הוראות). כמו כן כל הנתונים האמורים לעיל נכונים ומדוייקים.
+            </div>
+            <div class="row" style="display: flex; gap: 8px; align-items: flex-end;">
+                <div style="flex: 2; padding-left:7px; display: flex; flex-direction: column; align-items: center;">
+                    <input type="text" style="width: 100%;">
+                    <span class="label" style="font-size: 13px; text-align: center; margin-top: 2px;">שם סוכן המכס/הפקיד הרשוי</span>
+                </div>
+                <div style="flex: 1; padding-left:7px; display: flex; flex-direction: column; align-items: center;">
+                    <input type="text" style="width: 100%;">
+                    <span class="label" style="font-size: 13px; text-align: center; margin-top: 2px;">חותמת</span>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                    <input type="text" style="width: 100%;">
+                    <span class="label" style="font-size: 13px; text-align: center; margin-top: 2px;">חתימה</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="border: 1px solid #000; padding: 5px 8px; margin-bottom: 6px;">
+            <div class="section-title" style="font-size: 14px;">מעקב יציאה (באחסנה משנית ימולא ע"י בעל המחסן ממנו הוצאו הטובין, וביציאה מנמל/מסוף ימולא ע"י פקח השער)</div>
+            <div class="row flex">
+                <span class="label">תאריך יציאה</span>
+                <input type="date">
+                <span class="label">שעת יציאה</span>
+                <input type="time">
+                <span class="label">שם פקח השער</span>
+                <input type="text">
+            </div>
+            <div class="row flex">
+                <span class="label" style="font-size: 13px;">בדקתי ומצאתי סגר נעול, מספרו ומס' המשאית זהים לרשום לעיל.</span>
+                <span class="label">חתימה וחותמת</span>
+                <input type="text">
+            </div>
+        </div>
+
+        <div class="section-box">
+            <div class="section-title">ג. פרטי הכניסה למחסן (ימולא על ידי בעל המחסן)</div>
+
+            <!-- TOP ROW: full width above checkboxes -->
+            <div class="row flex">
+                <span class="label">תאריך כניסה</span>
+                <input type="date">
+                <span class="label">שעת כניסה</span>
+                <input type="time">
+                <span class="label">מס' גוש</span>
+                <input type="text" style="width: 50px; flex-grow: 0;">
+                <span class="label">הכמות שנתקבלה</span>
+                <input type="text">
+            </div>
+
+            <!-- CHECKBOX COLUMNS: right = שלמות הטובין, left = שלמות הסגר -->
+            <div style="display: flex; margin-top: 4px;">
+
+                <!-- RIGHT in RTL (first in DOM): שלמות הטובין -->
+                <div class="checkbox-column" style="flex: 1; border-left: 1px solid #000; padding-left: 10px;">
+                    <div class="checkbox-header">שלמות הטובין:</div>
+                    <div class="checkbox-row" onclick="toggleCheck(this)">
+                        <div class="checkbox-box"></div> <span>תקין.</span>
+                    </div>
+                    <div class="checkbox-row" onclick="toggleCheck(this)">
+                        <div class="checkbox-box"></div> <span>חוסר.</span>
+                    </div>
+                    <div class="checkbox-row" onclick="toggleCheck(this)">
+                        <div class="checkbox-box"></div> <span>נזק.</span>
+                    </div>
+                    <div class="checkbox-row" onclick="toggleCheck(this)">
+                        <div class="checkbox-box"></div> <span>אי התאמה.</span>
+                    </div>
+                </div>
+
+                <!-- LEFT in RTL (last in DOM): שלמות הסגר -->
+                <div class="checkbox-column" style="flex: 1; padding-right: 10px;">
+                    <div class="checkbox-header">שלמות הסגר:</div>
+                    <div class="checkbox-row" onclick="toggleCheck(this)">
+                        <div class="checkbox-box"></div> <span>תקין.</span>
+                    </div>
+                    <div class="checkbox-row" onclick="toggleCheck(this)">
+                        <div class="checkbox-box"></div> <span>חוסר.</span>
+                    </div>
+                    <div class="checkbox-row" onclick="toggleCheck(this)">
+                        <div class="checkbox-box"></div> <span>פתוח.</span>
+                    </div>
+                    <div class="checkbox-row" onclick="toggleCheck(this)">
+                        <div class="checkbox-box"></div> <span>מספר לא תואם.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- BOTTOM: הערות with two fillable lines -->
+            <div style="margin-top: 6px;">
+                <div class="row flex">
+                    <span class="label" style="white-space: nowrap;">הערות: (פירוט החוסר, הנזק, או כל ליקוי אחר בהעברה)</span>
+                    <input type="text">
+                </div>
+                <div class="row flex">
+                    <input type="text">
+                </div>
+            </div>
+        </div>
+
+        <div style="border-top: 2px solid black; padding-top: 5px;">
+            <div class="text-bold label">הצהרת בעל המחסן</div>
+            <div style="font-size: 10px; margin-bottom: 8px;">
+                אני מצהיר בזאת, כי כל הנתונים האמורים לעיל נכונים ומדוייקים.
+            </div>
+            
+            <div class="row" style="display: flex; gap: 8px; align-items: flex-end; margin-top: 15px;">
+                <div style="flex: 2; padding-left:7px; display: flex; flex-direction: column; align-items: center;">
+                    <input type="text" style="width: 100%;">
+                    <span class="label" style="font-size: 13px; text-align: center; margin-top: 2px;">שם המחסן ומספר מזהה</span>
+                </div>
+                <div style="flex: 1; padding-left:7px; display: flex; flex-direction: column; align-items: center;">
+                    <input type="text" style="width: 100%;">
+                    <span class="label" style="font-size: 13px; text-align: center; margin-top: 2px;">חותמת בעל המחסן</span>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                    <input type="text" style="width: 100%;">
+                    <span class="label" style="font-size: 13px; text-align: center; margin-top: 2px;">חתימת בעל המחסן</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleCheck(row) {
+            const box = row.querySelector('.checkbox-box');
+            box.classList.toggle('checked');
+        }
+
+        const _ruler = document.createElement('span');
+        _ruler.setAttribute('aria-hidden', 'true');
+        _ruler.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none;white-space:nowrap;font-family:"David","Times New Roman",serif;';
+        document.body.appendChild(_ruler);
+
+        function autoShrinkFont(input) {
+            // Reset to baseline first
+            input.style.removeProperty('font-size');
+            input.style.letterSpacing = '';
+
+            const style = window.getComputedStyle(input);
+            const baseFontPx = parseFloat(style.fontSize);
+            const availableWidth = input.getBoundingClientRect().width
+                - parseFloat(style.paddingLeft)
+                - parseFloat(style.paddingRight);
+
+            _ruler.style.fontSize = baseFontPx + 'px';
+            _ruler.style.letterSpacing = 'normal';
+            _ruler.textContent = input.value;
+            const naturalWidth = _ruler.getBoundingClientRect().width;
+
+            if (!input.value || naturalWidth <= availableWidth) return;
+
+            // Step 1: reduce font-size as much as the browser allows (min 10px)
+            const targetFont = Math.max(10, (availableWidth / naturalWidth) * baseFontPx);
+            input.style.setProperty('font-size', targetFont + 'px', 'important');
+
+            // Check what the browser actually applied (may be clamped by browser minimum)
+            const appliedFont = parseFloat(window.getComputedStyle(input).fontSize);
+            _ruler.style.fontSize = appliedFont + 'px';
+            const widthAfterFont = _ruler.getBoundingClientRect().width;
+
+            if (widthAfterFont <= availableWidth) return;
+
+            // Step 2: letter-spacing for remaining overflow (capped at -2px to avoid overlap)
+            const remaining = widthAfterFont - availableWidth;
+            const spacing = -(remaining / input.value.length);
+            input.style.letterSpacing = Math.max(-2, spacing).toFixed(2) + 'px';
+        }
+
+        document.querySelectorAll('input[type="text"]').forEach(input => {
+            input.addEventListener('input', () => autoShrinkFont(input));
+        });
+
+        // Before printing, replace date inputs with text showing full DD/MM/YYYY
+        window.addEventListener('beforeprint', () => {
+            document.querySelectorAll('input[type="date"]').forEach(input => {
+                const val = input.value; // YYYY-MM-DD
+                if (val) {
+                    const [y, m, d] = val.split('-');
+                    input.dataset.printOriginal = val;
+                    input.type = 'text';
+                    input.value = `${d}/${m}/${y}`;
+                    autoShrinkFont(input);
+                }
+            });
+        });
+
+        window.addEventListener('afterprint', () => {
+            document.querySelectorAll('input[type="text"]').forEach(input => {
+                if (input.dataset.printOriginal !== undefined) {
+                    input.value = input.dataset.printOriginal;
+                    input.type = 'date';
+                    delete input.dataset.printOriginal;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

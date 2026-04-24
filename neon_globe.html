@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Spinning Globe with Arcs</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: black;
+    }
+    #globe-container {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <div id="globe-container"></div>
+
+  <!-- Libraries -->
+  <script src="https://unpkg.com/three@0.137.5/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.137.5/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://unpkg.com/three-globe@2.24.10/dist/three-globe.min.js"></script>
+
+  <script>
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.getElementById('globe-container').appendChild(renderer.domElement);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 300;
+
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.8;
+
+    scene.add(new THREE.AmbientLight(0xbbbbbb));
+    const dirLight = new THREE.DirectionalLight(0xffffff, 0.6);
+    dirLight.position.set(0, 50, 100);
+    scene.add(dirLight);
+
+    const arcs = [
+      // USA, Japan, France, Australia -> Israel
+      { startLat: 40.7128, startLng: -74.0060, endLat: 31.0461, endLng: 34.8516 }, // USA
+      { startLat: 35.6895, startLng: 139.6917, endLat: 31.0461, endLng: 34.8516 }, // Japan
+      { startLat: 48.8566, startLng: 2.3522,   endLat: 31.0461, endLng: 34.8516 }, // France
+      { startLat: -33.8688, startLng: 151.2093, endLat: 31.0461, endLng: 34.8516 }, // Australia
+      { startLat: 9.0820, startLng: 8.6753, endLat: 31.0461, endLng: 34.8516 }, // Nigeria
+      { startLat: -30.5595, startLng: 22.9375, endLat: 31.0461, endLng: 34.8516 }, // South Africa
+      { startLat: -14.2350, startLng: -51.9253, endLat: 31.0461, endLng: 34.8516 }, // Brazil
+      { startLat: -38.4161, startLng: -63.6167, endLat: 31.0461, endLng: 34.8516 }, // Argentina
+      { startLat: 32.313, startLng: 118.7310, endLat: 31.0461, endLng: 34.8516 }, // Argentina
+      { startLat: 19.126715, startLng: 72.771, endLat: 31.0461, endLng: 34.8516 }, 
+
+
+      // Israel -> green outbound arcs
+      { startLat: 31.0461, startLng: 34.8516, endLat: 52.52, endLng: 13.4050, color: 'yellow' },     // Berlin
+      { startLat: 31.0461, startLng: 34.8516, endLat: 41.9028, endLng: 12.4964, color: 'yellow' },   // Rome
+      { startLat: 31.0461, startLng: 34.8516, endLat: 19.4326, endLng: -99.1332, color: 'yellow' },   // Mexico City
+      { startLat: 31.0461, startLng: 34.8516, endLat: 40.7128, endLng: -74.0070, color: 'yellow' },  
+      { startLat: 31.0461, startLng: 34.8516, endLat: 35.6895, endLng: 139.6927, color: 'yellow' },   
+      { startLat: 31.0461, startLng: 34.8516, endLat:-30.5595, endLng: -30.5595, color: 'yellow' },   
+      { startLat: 31.0461, startLng: 34.8516, endLat: -14.2350, endLng: -51.9253, color: 'yellow' },     
+      { startLat: 31.0461, startLng: 34.8516, endLat: 9.0820, endLng: 8.6753, color: 'yellow' }
+    ];
+
+    const globe = new ThreeGlobe()
+      .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-night.jpg')
+      .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
+      .arcsData(arcs)
+      .arcColor(d => d.color || 'aqua')
+      .arcAltitude(() => 0.2)
+      .arcStroke(() => 0.5) // thinner
+      .arcDashLength(() => 0.1)
+      .arcDashGap(() => 0.15)
+      .arcDashInitialGap(() => Math.random())
+      .arcDashAnimateTime(() => 4000);
+
+    scene.add(globe);
+    
+    
+    
+    // Create a canvas-based texture with text
+function createTextSprite(message, parameters = {}) {
+  const fontface = parameters.fontface || 'Arial';
+  const fontsize = parameters.fontsize || 60;
+  const color = parameters.color || { r: 255, g: 255, b: 255, a: 1.0 };
+
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
+  context.font = fontsize + "px " + fontface;
+  context.fillStyle = `rgba(${color.r},${color.g},${color.b},${color.a})`;
+  context.fillText(message, 10, fontsize);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  const material = new THREE.SpriteMaterial({ map: texture, transparent: true });
+  return new THREE.Sprite(material);
+}
+
+// Create the label
+const loader = new THREE.TextureLoader();
+loader.load('logo.png', function (texture) {
+  const logoMaterial = new THREE.SpriteMaterial({ map: texture, transparent: true });
+  const logoSprite = new THREE.Sprite(logoMaterial);
+  logoSprite.scale.set(120, 40, 1); // Adjust to your logo's aspect ratio
+  scene.add(logoSprite);
+
+  // Orbit animation
+  let angle = 0;
+  function animateLogoOrbit() {
+    angle += 0.01;
+    const radius = 180;
+    logoSprite.position.set(
+      Math.sin(angle) * radius,
+      20,
+      Math.cos(angle) * radius
+    );
+    requestAnimationFrame(animateLogoOrbit);
+  }
+
+  animateLogoOrbit();
+});
+
+    
+
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>
+
