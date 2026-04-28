@@ -554,20 +554,15 @@
 
         return fetch(SCRIPT_URL, {
           method:  'POST',
+          mode:    'no-cors',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body:    JSON.stringify(payload)
         });
       })
-      .then(function (res) { return res.json(); })
-      .then(function (result) {
+      .then(function () {
         loading.classList.remove('active');
-        if (result.success) {
-          document.getElementById('mainForm').style.display    = 'none';
-          document.getElementById('successScreen').classList.add('active');
-        } else {
-          showError('אירעה שגיאה: ' + (result.error || 'נסה שוב מאוחר יותר'));
-          btn.disabled = false;
-        }
+        document.getElementById('mainForm').style.display = 'none';
+        document.getElementById('successScreen').classList.add('active');
       })
       .catch(function (err) {
         loading.classList.remove('active');
