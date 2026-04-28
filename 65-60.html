@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>הצהרת יבואן – קודים 60-65</title>
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.5/dist/signature_pad.umd.min.js"></script>
+  <style>
+
+    /* ══════════════════════════════════════
+       SCREEN – form UI
+    ══════════════════════════════════════ */
+    @media screen {
+      #print-doc { display: none; }
+
+      *, *::before, *::after { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        padding: 24px 16px 60px;
+        background: #eef2f7;
+        font-family: Arial, "David CLM", "Noto Sans Hebrew", sans-serif;
+        font-size: 14px;
+        direction: rtl;
+        color: #1a1a1a;
+      }
+
+      .page-wrap { max-width: 820px; margin: 0 auto; }
+
+      .top-bar {
+        background: #1e4fa3;
+        color: #fff;
+        padding: 18px 28px;
+        border-radius: 10px 10px 0 0;
+        text-align: center;
+      }
+      .top-bar h1 { margin: 0; font-size: 17px; font-weight: 700; line-height: 1.5; }
+
+      .card {
+        background: #fff;
+        padding: 28px 32px;
+        border-right: 4px solid #1e4fa3;
+        margin-bottom: 16px;
+        box-shadow: 0 1px 6px rgba(0,0,0,.08);
+      }
+
+      .section-label {
+        display: block;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: underline;
+        text-align: center;
+        margin: 0 0 14px;
+      }
+
+      p { margin: 0 0 10px; line-height: 1.75; }
+      .note-center { text-align: center; font-style: italic; color: #555; }
+
+      .inline-fields {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 6px 10px;
+        margin-bottom: 14px;
+        line-height: 2.2;
+      }
+
+      input[type="text"],
+      input[type="date"] {
+        border: none;
+        border-bottom: 1.5px solid #888;
+        background: #f7f9ff;
+        padding: 3px 8px;
+        font-size: 14px;
+        font-family: inherit;
+        direction: rtl;
+        transition: border-color .2s;
+        min-width: 140px;
+      }
+      input[type="text"]:focus,
+      input[type="date"]:focus {
+        outline: none;
+        border-bottom-color: #1e4fa3;
+        background: #eef2ff;
+      }
+
+      .radio-list { list-style: none; margin: 8px 0 14px; padding: 0; }
+      .radio-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 7px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background .15s;
+      }
+      .radio-list li:hover { background: #f0f4ff; }
+      .radio-list li.checked { background: #e6eeff; }
+      .radio-list input[type="radio"] {
+        margin-top: 3px;
+        accent-color: #1e4fa3;
+        width: 17px; height: 17px;
+        flex-shrink: 0; cursor: pointer;
+      }
+      .radio-list label { cursor: pointer; line-height: 1.5; }
+
+      .sig-wrap { margin-top: 12px; }
+      .sig-tabs { display: flex; gap: 8px; margin-bottom: 10px; }
+      .sig-tab {
+        padding: 7px 18px;
+        border: 1.5px solid #bbb;
+        background: #f5f5f5;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 13px;
+        transition: all .2s;
+      }
+      .sig-tab.active { background: #1e4fa3; color: #fff; border-color: #1e4fa3; }
+
+      .sig-canvas-wrap {
+        border: 1.5px solid #ccc;
+        border-radius: 6px;
+        background: #fff;
+        overflow: hidden;
+        touch-action: none;
+      }
+      #sig-canvas { display: block; width: 100%; height: 160px; cursor: crosshair; }
+
+      .btn-clear {
+        margin-top: 8px;
+        padding: 6px 16px;
+        border: 1.5px solid #c0392b;
+        background: #fff;
+        color: #c0392b;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 13px;
+      }
+      .btn-clear:hover { background: #fdf0ef; }
+
+      .upload-zone {
+        border: 2px dashed #aac;
+        border-radius: 8px;
+        padding: 22px;
+        text-align: center;
+        cursor: pointer;
+        color: #557;
+        transition: all .2s;
+      }
+      .upload-zone:hover { border-color: #1e4fa3; color: #1e4fa3; background: #f0f4ff; }
+      .upload-zone input { display: none; }
+
+      #sig-preview {
+        max-height: 110px; max-width: 320px;
+        margin-top: 10px;
+        border: 1px solid #ddd; border-radius: 4px;
+        display: none;
+      }
+
+      .bottom-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .sig-block { flex: 2; min-width: 260px; }
+      .date-block { flex: 1; min-width: 180px; }
+      .date-block label { display: block; font-weight: 600; margin-bottom: 6px; }
+      .date-block input[type="date"] { width: 100%; }
+
+      .dl-btn {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        background: #1e4fa3;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-family: inherit;
+        font-weight: 700;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background .2s;
+      }
+      .dl-btn:hover { background: #163d82; }
+    }
+
+
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════ FORM VIEW ══════════════════ -->
+<div id="form-view">
+<div class="page-wrap">
+
+  <div class="top-bar">
+    <h1>הצהרת יבואן – שחרור מוצרים קודים 60-65</h1>
+  </div>
+
+  <!-- Intro -->
+  <div class="card">
+    <p><strong><u>הנדון: שחרור מוצרים מקבוצות התקינה 2-1 ו-3 ושימוש בקודים 60-63 בהתאם להצהרת היבואן</u></strong></p>
+    <p>בהתאם להנחלים ולהנחיות שפורסמו ע"י מינהל התקינה של משרד הכלכלה, במסגרת רפורמת "לא עוצרים בנמל" ("שמיים פתוחים") אנו מצהירים, כדלקמן:</p>
+    <p class="note-center">(נא לסמן את האפשרות המתאימה)</p>
+  </div>
+
+  <!-- Specific declaration -->
+  <div class="card">
+    <span class="section-label">הצהרה ספציפית למשלוח</span>
+    <div class="inline-fields">
+      <span>המוצרים במשלוח שהגיעו תחת תיק עמילות מכס</span>
+      <input type="text" id="tik_amila" placeholder="מס׳ תיק" style="min-width:160px;" />
+      <span>וחשבון ספק מס.</span>
+      <input type="text" id="heshbon_safak" placeholder="מס׳ חשבון" style="min-width:140px;" />
+      <span>מיועדים ל:</span>
+      <input type="text" id="miyoadim" placeholder="יעד" style="min-width:180px;" />
+    </div>
+    <ul class="radio-list">
+      <li><input type="radio" name="specific" id="s60" value="60"><label for="s60">מכירה – שימוש בקוד 60 (נדרשת עמידה בתקן רשמי)</label></li>
+      <li><input type="radio" name="specific" id="s61" value="61"><label for="s61">יבוא לשם יצוא – שימוש בקוד 61</label></li>
+      <li><input type="radio" name="specific" id="s62" value="62"><label for="s62">מחקר ופיתוח – שימוש בקוד 62.</label></li>
+      <li><input type="radio" name="specific" id="s63" value="63"><label for="s63">לא נדרש תקן – שימוש בקוד 63</label></li>
+      <li><input type="radio" name="specific" id="s64" value="64"><label for="s64">דוגמאות שאין מיועדות לשיווק והפצה לציבור כמות שלא תעלה על 5 יחידות מדגם – קוד 64</label></li>
+      <li><input type="radio" name="specific" id="s65" value="65"><label for="s65">יבוא טובין במסלול אירופי – שימוש בקוד 65</label></li>
+    </ul>
+    <p>אנו מבקשים כי תשחררו אלו מהמכס בהסתמך על הצהרת היבואן, כאמור, מבלי לפנות למכון התקנים בענין זה.</p>
+  </div>
+
+  <!-- Global declaration -->
+  <div class="card">
+    <span class="section-label">הצהרה גלובלית</span>
+    <p>כל המוצרים אשר יגיעו עברנו מכל הספקים וישוחררו על ידכם מעתה ועד להודעה חדשה מאתנו, מיועדים ל:</p>
+    <ul class="radio-list">
+      <li><input type="radio" name="global" id="g60" value="60"><label for="g60">מכירה – שימוש בקוד 60 (נדרשת עמידה בתקן רשמי)</label></li>
+      <li><input type="radio" name="global" id="g61" value="61"><label for="g61">יבוא לשם יצוא – שימוש בקוד 61</label></li>
+      <li><input type="radio" name="global" id="g62" value="62"><label for="g62">מחקר ופיתוח – שימוש בקוד 62.</label></li>
+      <li><input type="radio" name="global" id="g63" value="63"><label for="g63">לא נדרש תקן – שימוש בקוד 63</label></li>
+      <li><input type="radio" name="global" id="g65" value="65"><label for="g65">יבוא טובין במסלול אירופי – שימוש בקוד 65</label></li>
+    </ul>
+    <p>אנו מבקשים כי תשחררו את הטובין מהמכס בהסתמך על הצהרת היבואן, כאמור, מבלי לפנות למכון התקנים, ומתחייבים לעדכן וליידע אתכם מראש ולפני השחרור, אם וכאשר יגיעו טובין שאינם עונים לכללים שסומנו לעיל.</p>
+  </div>
+
+  <!-- Legal text + signature -->
+  <div class="card">
+    <p>בהתאם לכך אנו מצהירים כי "הנחיות והוראות הממונה על התקינה יבוא טובין שלהם תקן רשמי" ידועים לנו ואנו מקיימים את כל הכללים, ההנחיות וההוראות הנדרשות, לרבות, החזקת תיק מוצר, ככל שנדרש בהוראות הנוהל בכל המקרים. ידוע לנו כי נציגי משרד הכלכלה/מינהל התקינה רשאים לדרוש מאתנו במהלך הליך השחרור את תיק המוצר או מסמכים מתוכו, וכי עלינו להגיש אותם, באמצעותכם, בתוך 144 שעות מרגע קבלת מסר הדרישה.</p>
+    <p>ידוע לנו כי אי היענות לדרישות משרד הכלכלה/מינהל התקינה, כאמור, עלולה לגרור להחמרה בתהליך הפיקוח ו/או עיצום כספי ו/או הכנסת היבואן לסטטוס "מפר אמון".</p>
+    <p>אנו מצהירים כי ידוע לנו כי "הנחיות והוראות הממונה על התקינה יבוא טובין שלהם תקן רשמי" חלות על היבואן ולא על סוכן המכס, וכן ואנו מאשרים כי עצם הגשת המסמכים למשרד הכלכלה באמצעותכם או שידורם למכס במערכת שטר עולמי או סימון הקודים הנדרשים, אינה מטילה עליכם כל חובות או אחריות לקיום כל הנחיות והוראות הממונה, לרבות, ניהול תיק המוצר – היא אחריות בלעדית שלנו.</p>
+
+    <hr style="border:none;border-top:1px solid #ddd;margin:24px 0;" />
+
+    <div class="bottom-row">
+      <div class="sig-block">
+        <strong>חתימת היבואן</strong>
+        <div class="sig-wrap">
+          <div class="sig-tabs">
+            <button class="sig-tab active" id="tab-draw" onclick="switchTab('draw')">חתימה ידנית</button>
+            <button class="sig-tab" id="tab-upload" onclick="switchTab('upload')">העלאת קובץ</button>
+          </div>
+          <div id="panel-draw">
+            <div class="sig-canvas-wrap">
+              <canvas id="sig-canvas"></canvas>
+            </div>
+            <button class="btn-clear" onclick="clearSig()">נקה חתימה</button>
+          </div>
+          <div id="panel-upload" style="display:none;">
+            <label class="upload-zone" for="sig-file">
+              <div style="font-size:32px;margin-bottom:6px;">📎</div>
+              <div>לחצו לבחירת תמונת חתימה (PNG / JPG)</div>
+              <input type="file" id="sig-file" accept="image/*" onchange="loadSigFile(event)" />
+            </label>
+            <img id="sig-preview" alt="חתימה" />
+          </div>
+        </div>
+      </div>
+      <div class="date-block">
+        <label for="doc-date">תאריך:</label>
+        <input type="date" id="doc-date" />
+      </div>
+    </div>
+
+    <p style="margin-top:28px;text-align:left;color:#555;font-size:12px;">העתק: משרד הכלכלה</p>
+  </div>
+
+  <button class="dl-btn" onclick="downloadPDF()">⬇&nbsp; הורדה כ-PDF</button>
+
+</div><!-- /page-wrap -->
+</div><!-- /form-view -->
+
+
+
+
+<script>
+/* ── Signature pad ──────────────────────────────── */
+let pad;
+let uploadedSig = null;
+
+window.addEventListener('load', () => {
+  const canvas = document.getElementById('sig-canvas');
+  const ratio  = window.devicePixelRatio || 1;
+  canvas.width  = canvas.offsetWidth  * ratio;
+  canvas.height = canvas.offsetHeight * ratio;
+  canvas.getContext('2d').scale(ratio, ratio);
+  pad = new SignaturePad(canvas, {
+    backgroundColor: 'rgb(255,255,255)',
+    penColor: 'rgb(0,0,0)'
+  });
+});
+
+function switchTab(tab) {
+  document.getElementById('panel-draw').style.display   = tab === 'draw'   ? 'block' : 'none';
+  document.getElementById('panel-upload').style.display = tab === 'upload' ? 'block' : 'none';
+  document.getElementById('tab-draw').classList.toggle('active',   tab === 'draw');
+  document.getElementById('tab-upload').classList.toggle('active', tab === 'upload');
+}
+
+function clearSig() { pad && pad.clear(); }
+
+function loadSigFile(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    uploadedSig = ev.target.result;
+    const img = document.getElementById('sig-preview');
+    img.src = uploadedSig;
+    img.style.display = 'block';
+  };
+  reader.readAsDataURL(file);
+}
+
+function getSig() {
+  if (document.getElementById('panel-draw').style.display !== 'none') {
+    return (pad && !pad.isEmpty()) ? pad.toDataURL('image/png') : null;
+  }
+  return uploadedSig;
+}
+
+/* ── Radio highlight ────────────────────────────── */
+document.querySelectorAll('.radio-list input[type="radio"]').forEach(r => {
+  r.addEventListener('change', () => {
+    r.closest('.radio-list').querySelectorAll('li').forEach(li => li.classList.remove('checked'));
+    r.closest('li').classList.add('checked');
+  });
+});
+
+/* ── Data helpers ───────────────────────────────── */
+const SPECIFIC_OPTS = [
+  { v:'60', t:'מכירה – שימוש בקוד 60 (נדרשת עמידה בתקן רשמי)' },
+  { v:'61', t:'יבוא לשם יצוא – שימוש בקוד 61' },
+  { v:'62', t:'מחקר ופיתוח – שימוש בקוד 62.' },
+  { v:'63', t:'לא נדרש תקן – שימוש בקוד 63' },
+  { v:'64', t:'דוגמאות שאין מיועדות לשיווק והפצה לציבור כמות שלא תעלה על 5 יחידות מדגם – קוד 64' },
+  { v:'65', t:'יבוא טובין במסלול אירופי – שימוש בקוד 65' },
+];
+const GLOBAL_OPTS = [
+  { v:'60', t:'מכירה – שימוש בקוד 60 (נדרשת עמידה בתקן רשמי)' },
+  { v:'61', t:'יבוא לשם יצוא – שימוש בקוד 61' },
+  { v:'62', t:'מחקר ופיתוח – שימוש בקוד 62.' },
+  { v:'63', t:'לא נדרש תקן – שימוש בקוד 63' },
+  { v:'65', t:'יבוא טובין במסלול אירופי – שימוש בקוד 65' },
+];
+
+function getRadio(name) {
+  const el = document.querySelector(`input[name="${name}"]:checked`);
+  return el ? el.value : null;
+}
+
+function fld(id, blankWidth) {
+  const v = document.getElementById(id).value.trim();
+  if (v) return `<strong>${v}</strong>`;
+  return `<span class="underline-blank" style="min-width:${blankWidth || 100}px;">&nbsp;&nbsp;&nbsp;</span>`;
+}
+
+function optList(opts, selected) {
+  if (selected) {
+    const opt = opts.find(o => o.v === selected);
+    return `<ul><li class="sel">✓&nbsp;&nbsp;${opt ? opt.t : ''}</li></ul>`;
+  }
+  return '<ul>' + opts.map(o => `<li>◦&nbsp;&nbsp;${o.t}</li>`).join('') + '</ul>';
+}
+
+/* ── Build print HTML ───────────────────────────── */
+function buildPrintHTML() {
+  const tik     = fld('tik_amila',    130);
+  const heshbon = fld('heshbon_safak',120);
+  const miyoad  = fld('miyoadim',     150);
+  const dateRaw = document.getElementById('doc-date').value;
+  const dateStr = dateRaw
+    ? `<strong>${dateRaw.split('-').reverse().join('/')}</strong>`
+    : `<span class="underline-blank" style="min-width:110px;">&nbsp;&nbsp;&nbsp;</span>`;
+  const sig = getSig();
+  const sigHtml = sig
+    ? `<img src="${sig}" class="sig-img" />`
+    : `<div style="border-bottom:1px solid #000;min-width:200px;height:60px;"></div>`;
+
+  return `
+<p style="text-decoration:underline;font-weight:700;font-size:12.5pt;">
+  הנדון: שחרור מוצרים מקבוצות התקינה 2-1 ו-3 ושימוש בקודים 60-63 בהתאם להצהרת היבואן
+</p>
+<p>בהתאם להנחלים ולהנחיות שפורסמו ע"י מינהל התקינה של משרד הכלכלה, במסגרת רפורמת "לא עוצרים בנמל" ("שמיים פתוחים") אנו מצהירים, כדלקמן:</p>
+<p style="text-align:center;">(נא לסמן את האפשרות המתאימה)</p>
+
+<span class="sec-title">הצהרה ספציפית למשלוח</span>
+
+<p>המוצרים במשלוח שהגיעו&nbsp;&nbsp;תחת תיק עמילות מכס&nbsp;&nbsp;${tik}&nbsp;&nbsp;וחשבון ספק מס.&nbsp;${heshbon}&nbsp;&nbsp;מיועדים ל:&nbsp;${miyoad}</p>
+
+${optList(SPECIFIC_OPTS, getRadio('specific'))}
+
+<p>אנו מבקשים כי תשחררו אלו מהמכס בהסתמך על הצהרת היבואן, כאמור, מבלי לפנות למכון התקנים בענין זה.</p>
+
+<span class="sec-title">הצהרה גלובלית</span>
+
+<p>כל המוצרים אשר יגיעו עברנו מכל הספקים וישוחררו על ידכם מעתה ועד להודעה חדשה מאתנו, מיועדים ל:</p>
+
+${optList(GLOBAL_OPTS, getRadio('global'))}
+
+<p>אנו מבקשים כי תשחררו את הטובין מהמכס בהסתמך על הצהרת היבואן, כאמור, מבלי לפנות למכון התקנים, ומתחייבים לעדכן וליידע אתכם מראש ולפני השחרור, אם וכאשר יגיעו טובין שאינם עונים לכללים שסומנו לעיל.</p>
+
+<p>בהתאם לכך אנו מצהירים כי "הנחיות והוראות הממונה על התקינה יבוא טובין שלהם תקן רשמי" ידועים לנו ואנו מקיימים את כל הכללים, ההנחיות וההוראות הנדרשות, לרבות, החזקת תיק מוצר, ככל שנדרש בהוראות הנוהל בכל המקרים. ידוע לנו כי נציגי משרד הכלכלה/מינהל התקינה רשאים לדרוש מאתנו במהלך הליך השחרור את תיק המוצר או מסמכים מתוכו, וכי עלינו להגיש אותם, באמצעותכם, בתוך 144 שעות מרגע קבלת מסר הדרישה.</p>
+<p>ידוע לנו כי אי היענות לדרישות משרד הכלכלה/מינהל התקינה, כאמור, עלולה לגרור להחמרה בתהליך הפיקוח ו/או עיצום כספי ו/או הכנסת היבואן לסטטוס "מפר אמון".</p>
+<p>אנו מצהירים כי ידוע לנו כי "הנחיות והוראות הממונה על התקינה יבוא טובין שלהם תקן רשמי" חלות על היבואן ולא על סוכן המכס, וכן ואנו מאשרים כי עצם הגשת המסמכים למשרד הכלכלה באמצעותכם או שידורם למכס במערכת שטר עולמי או סימון הקודים הנדרשים, אינה מטילה עליכם כל חובות או אחריות לקיום כל הנחיות והוראות הממונה, לרבות, ניהול תיק המוצר – היא אחריות בלעדית שלנו.</p>
+
+<div class="sig-row">
+  <div class="sig-col">
+    <div style="font-weight:700;margin-bottom:8px;">חתימת היבואן</div>
+    ${sigHtml}
+    <div style="border-top:1px solid #000;min-width:220px;padding-top:3px;font-size:9pt;">&nbsp;</div>
+  </div>
+  <div class="sig-col">
+    <div>תאריך:&nbsp;${dateStr}</div>
+    <div style="border-top:1px solid #000;min-width:150px;margin-top:28px;font-size:9pt;">&nbsp;</div>
+  </div>
+</div>
+
+<p style="margin-top:20px;text-align:left;font-size:10pt;color:#333;">העתק: משרד הכלכלה</p>`;
+}
+
+/* ── Download – open a clean window and print from it ── */
+function downloadPDF() {
+  const body = buildPrintHTML();
+
+  const pw = window.open('', '_blank', 'width=900,height=700');
+  pw.document.write(`<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<title>הצהרת יבואן – קודים 60-65</title>
+<style>
+  @page { size: A4; margin: 0; }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.45;
+    direction: rtl;
+    color: #000;
+    margin: 0;
+    padding: 14mm 24mm;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  p  { margin: 0 0 5px; }
+  ul { list-style: none; margin: 3px 0 6px 18px; padding: 0; }
+  ul li { margin-bottom: 3px; }
+  ul li.sel { font-weight: 700; }
+  .sec-title {
+    text-align: center;
+    text-decoration: underline;
+    font-weight: 700;
+    display: block;
+    margin: 9px 0 6px;
+  }
+  .sig-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 18px;
+    gap: 20px;
+  }
+  .sig-col { text-align: right; }
+  img.sig-img {
+    max-height: 50px;
+    max-width: 200px;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .underline-blank {
+    display: inline-block;
+    border-bottom: 1px solid #000;
+    min-width: 110px;
+  }
+</style>
+</head>
+<body>${body}</body>
+</html>`);
+  pw.document.close();
+
+  /* wait for images (signature) to load before printing */
+  pw.addEventListener('load', () => {
+    pw.focus();
+    pw.print();
+  });
+}
+</script>
+</body>
+</html>
