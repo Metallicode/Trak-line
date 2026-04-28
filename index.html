@@ -57,9 +57,9 @@
               <a class="nav-link" href="contact.html" data-lang="en">Contact</a>
               <a class="nav-link d-none" href="contact.html" data-lang="he">צור קשר</a>
             </li>
-            <li class="nav-item d-flex align-items-center">
-              <button class="btn btn-outline-secondary btn-sm me-1" onclick="switchLanguage('en')">EN</button>
-              <button class="btn btn-outline-secondary btn-sm" onclick="switchLanguage('he')">HE</button>
+            <li class="nav-item d-flex align-items-center lang-switcher">
+              <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
+              <button class="lang-btn" onclick="switchLanguage('he')">HE</button>
             </li>
           </ul>
         </div>
@@ -88,18 +88,17 @@
         </a>
 
         <a class="nav-link text-white mb-3" href="blog.html" data-lang="en" data-bs-dismiss="offcanvas">
-          <i class="fas fa-cogs me-2"></i>Blog
+          <i class="fas fa-newspaper me-2"></i>Blog
         </a>
         <a class="nav-link text-white mb-3 d-none" href="blog.html" data-lang="he" data-bs-dismiss="offcanvas">
-          <i class="fas fa-cogs me-2"></i>בלוג
+          <i class="fas fa-newspaper me-2"></i>בלוג
         </a>
-
 
         <a class="nav-link text-white mb-3" href="gallery.html" data-lang="en" data-bs-dismiss="offcanvas">
-          <i class="fas fa-cogs me-2"></i>Gallery
+          <i class="fas fa-images me-2"></i>Gallery
         </a>
         <a class="nav-link text-white mb-3 d-none" href="gallery.html" data-lang="he" data-bs-dismiss="offcanvas">
-          <i class="fas fa-cogs me-2"></i>גלריה
+          <i class="fas fa-images me-2"></i>גלריה
         </a>
 
         <a class="nav-link text-white mb-3" href="documents.html" data-lang="en" data-bs-dismiss="offcanvas">
@@ -126,160 +125,179 @@
 
   <!-- HERO -->
   <section id="hero" class="vh-100 position-relative">
-    <video autoplay muted loop class="w-100 h-100 position-absolute object-fit-cover" style="z-index: -1;">
+    <video autoplay muted loop playsinline class="w-100 h-100 position-absolute object-fit-cover" style="z-index: -1;">
       <source src="video.mp4" type="video/mp4" />
     </video>
-    <div class="container h-100 d-flex flex-column justify-content-center align-items-center text-center text-white">
-      <h1 class="display-4 fw-bold" data-lang="en">Welcome to Trak-line Ltd</h1>
-      <h1 class="display-4 fw-bold d-none" data-lang="he">ברוכים הבאים ל-טרקליין בע"מ</h1>
-      <p class="lead" data-lang="en">Your trusted service partner</p>
-      <p class="lead d-none" data-lang="he">השותף האמין שלך לשירות</p>
-      <button class="btn btn-primary mt-3" onclick="scrollToSection('services')" data-lang="en">Our Services</button>
-      <button class="btn btn-primary mt-3 d-none" onclick="scrollToSection('services')" data-lang="he">השירותים שלנו</button>
+    <div class="hero-overlay"></div>
+    <div class="hero-content container h-100 d-flex flex-column justify-content-center align-items-center text-center text-white">
+      <p class="section-label text-white opacity-75 mb-2" data-lang="en">International Freight Forwarding</p>
+      <p class="section-label text-white opacity-75 mb-2 d-none" data-lang="he">שילוח בינלאומי</p>
+      <h1 class="fw-bold mb-3" data-lang="en">Trak-line Ltd</h1>
+      <h1 class="fw-bold mb-3 d-none" data-lang="he">טרקליין בע"מ</h1>
+      <p class="lead mb-4" data-lang="en">40+ years of expertise moving cargo across air, sea, land &amp; rail — from Israel to the world.</p>
+      <p class="lead mb-4 d-none" data-lang="he">למעלה מ-40 שנות ניסיון בהעברת מטענים באוויר, ים, יבשה ורכבת — מישראל לעולם.</p>
+      <div class="d-flex gap-3 flex-wrap justify-content-center">
+        <button class="btn btn-primary btn-lg px-4" onclick="scrollToSection('services')" data-lang="en">Our Services</button>
+        <button class="btn btn-primary btn-lg px-4 d-none" onclick="scrollToSection('services')" data-lang="he">השירותים שלנו</button>
+        <a href="contact.html" class="btn btn-outline-light btn-lg px-4" data-lang="en">Get In Touch</a>
+        <a href="contact.html" class="btn btn-outline-light btn-lg px-4 d-none" data-lang="he">צור קשר</a>
+      </div>
     </div>
   </section>
 
   <!-- SERVICES -->
-  <section id="services" class="py-5 bg-light mb-5">
-  <div class="container">
-    <div class="row text-center g-4">
-      <!-- Service Item -->
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm" onclick="openModal('import')">
-          <div class="card-body">
-            <h4 class="card-title" data-lang="en">Import</h4>
-            <h4 class="card-title d-none" data-lang="he">יבוא</h4>
-            <img src="images/services/cat_01.png" class="card-img-top" alt="Import">
-            <button class="btn btn-outline-primary mt-2" data-lang="en">More Info</button>
-            <button class="btn btn-outline-primary mt-2 d-none" data-lang="he">מידע נוסף</button>
-          </div>
-        </div>
+  <section id="services" class="py-5" style="background: var(--surface);">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="section-label">What We Do</p>
+        <h2 class="section-title text-center" data-lang="en">Our Services</h2>
+        <h2 class="section-title text-center d-none" data-lang="he">השירותים שלנו</h2>
       </div>
+      <div class="row g-4 justify-content-center">
 
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm" onclick="openModal('export')">
-          <div class="card-body">
-            <h4 class="card-title" data-lang="en">Export</h4>
-            <h4 class="card-title d-none" data-lang="he">יצוא</h4>
-            <img src="images/services/cat_02.png" class="card-img-top" alt="Export">
-            <button class="btn btn-outline-primary mt-2" data-lang="en">More Info</button>
-            <button class="btn btn-outline-primary mt-2 d-none" data-lang="he">מידע נוסף</button>
+        <div class="col-sm-6 col-lg-4 d-flex">
+          <div class="service-card w-100" onclick="openModal('import')">
+            <div class="service-icon"><i class="fas fa-ship"></i></div>
+            <h5 data-lang="en">Import</h5>
+            <h5 class="d-none" data-lang="he">יבוא</h5>
+            <button class="btn btn-outline-primary btn-sm" data-lang="en">More Info</button>
+            <button class="btn btn-outline-primary btn-sm d-none" data-lang="he">מידע נוסף</button>
           </div>
         </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm" onclick="openModal('projects')">
-          <div class="card-body">
-            <h4 class="card-title" data-lang="en">Projects</h4>
-            <h4 class="card-title d-none" data-lang="he">פרוייקטים</h4>
-            <img src="images/services/cat_03.png" class="card-img-top" alt="Projects">
-            <button class="btn btn-outline-primary mt-2" data-lang="en">More Info</button>
-            <button class="btn btn-outline-primary mt-2 d-none" data-lang="he">מידע נוסף</button>
+        <div class="col-sm-6 col-lg-4 d-flex">
+          <div class="service-card w-100" onclick="openModal('export')">
+            <div class="service-icon"><i class="fas fa-plane-departure"></i></div>
+            <h5 data-lang="en">Export</h5>
+            <h5 class="d-none" data-lang="he">יצוא</h5>
+            <button class="btn btn-outline-primary btn-sm" data-lang="en">More Info</button>
+            <button class="btn btn-outline-primary btn-sm d-none" data-lang="he">מידע נוסף</button>
           </div>
         </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm" onclick="openModal('consulting')">
-          <div class="card-body">
-            <h4 class="card-title" data-lang="en">Consulting Services</h4>
-            <h4 class="card-title d-none" data-lang="he">יעוץ מקצועי</h4>
-            <img src="images/services/cat_04.png" class="card-img-top" alt="Consulting">
-            <button class="btn btn-outline-primary mt-2" data-lang="en">More Info</button>
-            <button class="btn btn-outline-primary mt-2 d-none" data-lang="he">מידע נוסף</button>
+        <div class="col-sm-6 col-lg-4 d-flex">
+          <div class="service-card w-100" onclick="openModal('projects')">
+            <div class="service-icon"><i class="fas fa-industry"></i></div>
+            <h5 data-lang="en">Project Cargo</h5>
+            <h5 class="d-none" data-lang="he">פרויקטים מיוחדים</h5>
+            <button class="btn btn-outline-primary btn-sm" data-lang="en">More Info</button>
+            <button class="btn btn-outline-primary btn-sm d-none" data-lang="he">מידע נוסף</button>
           </div>
         </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm" onclick="openModal('storage')">
-          <div class="card-body">
-            <h4 class="card-title" data-lang="en">Storage</h4>
-            <h4 class="card-title d-none" data-lang="he">אחסון</h4>
-            <img src="images/services/cat_05.png" class="card-img-top" alt="Storage">
-            <button class="btn btn-outline-primary mt-2" data-lang="en">More Info</button>
-            <button class="btn btn-outline-primary mt-2 d-none" data-lang="he">מידע נוסף</button>
+        <div class="col-sm-6 col-lg-4 d-flex">
+          <div class="service-card w-100" onclick="openModal('consulting')">
+            <div class="service-icon"><i class="fas fa-handshake"></i></div>
+            <h5 data-lang="en">Consulting</h5>
+            <h5 class="d-none" data-lang="he">ייעוץ מקצועי</h5>
+            <button class="btn btn-outline-primary btn-sm" data-lang="en">More Info</button>
+            <button class="btn btn-outline-primary btn-sm d-none" data-lang="he">מידע נוסף</button>
           </div>
         </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm" onclick="openModal('insurance')">
-          <div class="card-body">
-            <h4 class="card-title" data-lang="en">Insurance</h4>
-            <h4 class="card-title d-none" data-lang="he">ביטוח</h4>
-            <img src="images/services/cat_06.png" class="card-img-top" alt="Insurance">
-            <button class="btn btn-outline-primary mt-2" data-lang="en">More Info</button>
-            <button class="btn btn-outline-primary mt-2 d-none" data-lang="he">מידע נוסף</button>
+        <div class="col-sm-6 col-lg-4 d-flex">
+          <div class="service-card w-100" onclick="openModal('storage')">
+            <div class="service-icon"><i class="fas fa-warehouse"></i></div>
+            <h5 data-lang="en">Storage</h5>
+            <h5 class="d-none" data-lang="he">אחסון</h5>
+            <button class="btn btn-outline-primary btn-sm" data-lang="en">More Info</button>
+            <button class="btn btn-outline-primary btn-sm d-none" data-lang="he">מידע נוסף</button>
           </div>
         </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm" onclick="openModal('haulage')">
-          <div class="card-body">
-            <h4 class="card-title" data-lang="en">Haulage</h4>
-            <h4 class="card-title d-none" data-lang="he">הובלה</h4>
-            <img src="images/services/cat_07.png" class="card-img-top" alt="Haulage">
-            <button class="btn btn-outline-primary mt-2" data-lang="en">More Info</button>
-            <button class="btn btn-outline-primary mt-2 d-none" data-lang="he">מידע נוסף</button>
+        <div class="col-sm-6 col-lg-4 d-flex">
+          <div class="service-card w-100" onclick="openModal('insurance')">
+            <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
+            <h5 data-lang="en">Insurance</h5>
+            <h5 class="d-none" data-lang="he">ביטוח</h5>
+            <button class="btn btn-outline-primary btn-sm" data-lang="en">More Info</button>
+            <button class="btn btn-outline-primary btn-sm d-none" data-lang="he">מידע נוסף</button>
           </div>
         </div>
+
+        <div class="col-sm-6 col-lg-4 d-flex">
+          <div class="service-card w-100" onclick="openModal('haulage')">
+            <div class="service-icon"><i class="fas fa-truck"></i></div>
+            <h5 data-lang="en">Haulage</h5>
+            <h5 class="d-none" data-lang="he">הובלה</h5>
+            <button class="btn btn-outline-primary btn-sm" data-lang="en">More Info</button>
+            <button class="btn btn-outline-primary btn-sm d-none" data-lang="he">מידע נוסף</button>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
   <!-- ABOUT -->
   <section id="section3" class="py-5 bg-white">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6 mb-4 mb-md-0">
-          <img src="about.png" alt="About" class="img-fluid rounded shadow" />
+      <div class="row align-items-center g-5">
+        <div class="col-md-6">
+          <img src="about.png" alt="About Trak-line" class="img-fluid rounded shadow" />
         </div>
         <div class="col-md-6">
-          <h2 class="h4 fw-bold" data-lang="en">About Us</h2>
-          <h2 class="h4 fw-bold d-none" data-lang="he">עלינו</h2>
-          <p class="lead text-muted" data-lang="en">
-            
-            TRAK-line Ltd is an international freight forwarding company founded in Israel in 2003 by Ms. Rivka Shahar. Privately owned and operating as a limited company, TRAK-line Ltd collaborates with a global network of partners and brings over 40 years of industry experience to its clients.
-
-            The company specializes in comprehensive freight solutions across air, sea, land, and rail, both regionally and internationally — offering tailored services for both export and import operations.
-
+          <p class="section-label" data-lang="en">Who We Are</p>
+          <p class="section-label d-none" data-lang="he">מי אנחנו</p>
+          <h2 class="section-title" data-lang="en">About Trak-line Ltd</h2>
+          <h2 class="section-title d-none" data-lang="he">אודות טרקליין בע"מ</h2>
+          <p class="text-muted mt-3" data-lang="en">
+            TRAK-line Ltd is an international freight forwarding company founded in Israel in 2003 by Ms. Rivka Shahar. Privately owned and operating as a limited company, we collaborate with a global network of partners and bring over 40 years of industry experience to our clients.
           </p>
-          <p class="lead text-muted d-none" data-lang="he">
-
-חברת טראקליין בע"מ היא חברת שילוח בינלאומית שהוקמה בישראל בשנת 2003 על ידי גב' רבקה שחר. החברה פרטית בע"מ, פועלת בשיתוף עם רשת שותפים עולמית ומביאה עמה ניסיון של למעלה מ־40 שנה בענף הלוגיסטיקה והשילוח.
-
-החברה מתמחה בפתרונות שילוח מקיפים באוויר, בים, ביבשה וברכבת, הן בארץ והן ברחבי העולם — ומספקת שירותים מותאמים אישית לייצוא וייבוא כאחד.
-
-
+          <p class="text-muted mt-3 d-none" data-lang="he">
+            חברת טראקליין בע"מ היא חברת שילוח בינלאומית שהוקמה בישראל בשנת 2003 על ידי גב' רבקה שחר. החברה פרטית בע"מ, פועלת בשיתוף עם רשת שותפים עולמית ומביאה עמה ניסיון של למעלה מ־40 שנה בענף הלוגיסטיקה והשילוח.
           </p>
-          <button class="btn btn-secondary mt-3" onclick="scrollToSection('visual')" data-lang="en">Learn More</button>
-          <button class="btn btn-secondary mt-3 d-none" onclick="scrollToSection('visual')" data-lang="he">למידע נוסף</button>
+          <a href="about.html" class="btn btn-primary mt-3" data-lang="en">Learn More About Us</a>
+          <a href="about.html" class="btn btn-primary mt-3 d-none" data-lang="he">קראו עוד עלינו</a>
         </div>
       </div>
     </div>
   </section>
 
-<section id="service_map" class="py-5 position-relative text-center text-white">
-    <h2 class="h4 fw-bold" data-lang="en">Global Service Coverage</h2>
-    <h2 class="h4 fw-bold d-none" data-lang="he">עלינו</h2>
-    <div id="map"></div>
-</section>
-
-
-  <!-- VISUAL -->
-  <section id="visual" class="position-relative text-center text-white">
-    <div class="position-absolute w-100 h-100" style="background-image: url('fixed-image.jpg'); background-size: cover; background-attachment: fixed; background-position: center; z-index: -1;"></div>
-    <div class="container py-5">
-      <h2 class="display-5 fw-bold" data-lang="en">What Sets Us Apart</h2>
-      <h2 class="display-5 fw-bold d-none" data-lang="he">מה מייחד אותנו</h2>
-      <p class="lead" data-lang="en">Excellence and dedication.</p>
-      <p class="lead d-none" data-lang="he">מצוינות ומסירות.</p>
+  <!-- STATS STRIP -->
+  <section class="stats-strip">
+    <div class="container">
+      <div class="row g-0 text-center">
+        <div class="col-6 col-md-3">
+          <div class="stat-block">
+            <div class="stat-number">40+</div>
+            <div class="stat-label" data-lang="en">Years of Experience</div>
+            <div class="stat-label d-none" data-lang="he">שנות ניסיון</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-block">
+            <div class="stat-number">28+</div>
+            <div class="stat-label" data-lang="en">Countries Served</div>
+            <div class="stat-label d-none" data-lang="he">מדינות שמשרתים</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-block">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label" data-lang="en">Global Service</div>
+            <div class="stat-label d-none" data-lang="he">שירות גלובלי</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-block" style="border-right:none;">
+            <div class="stat-number">7</div>
+            <div class="stat-label" data-lang="en">Core Services</div>
+            <div class="stat-label d-none" data-lang="he">שירותי ליבה</div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- MAP -->
+  <section id="service_map" class="py-5 position-relative text-center text-white">
+    <p class="section-label text-white opacity-75 mb-1" data-lang="en">Where We Operate</p>
+    <p class="section-label text-white opacity-75 mb-1 d-none" data-lang="he">היכן אנו פועלים</p>
+    <h2 class="h4 fw-bold mb-4" data-lang="en">Global Service Coverage</h2>
+    <h2 class="h4 fw-bold mb-4 d-none" data-lang="he">כיסוי שירות גלובלי</h2>
+    <div id="map"></div>
   </section>
 
 <!-- <section class="container my-5">
@@ -349,38 +367,68 @@
   </div>
 </section> -->
 
-
-  <!-- FOOTER -->
-  <footer id="contact" class="bg-dark text-white pt-5 pb-3">
+  <!-- FIND US -->
+  <section id="find-us" class="py-5 bg-white">
     <div class="container">
-      <div class="row mb-3">
-        <div class="col-md-6">
-          <div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d769.6679777794166!2d34.8231068684073!3d32.09412173202138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4a2bdde02ad3%3A0x2fccb71ea0ec2502!2sBar%20Kochva%20St%2016%2C%20Bnei%20Brak%2C%20Israel!5e1!3m2!1sen!2suk!4v1749346690535!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-          <p>Email: <a href="mailto:rivka@trak-line.com">rivka@trak-line.com</a></p>
-          <p>Phone: <a href="tel:+972504729699">+972 50-472-9699</a></p>
-          <p>
-            8th floor, Noa Building 16 Bar Kochva st. 
-          </p>
-          <p>
-              Bnei Brak 5126107
-          </p>
-          <p>
-          Israel
-
-          </p>
-
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5">
+          <p class="section-label" data-lang="en">Our Office</p>
+          <p class="section-label d-none" data-lang="he">המשרד שלנו</p>
+          <h2 class="section-title" data-lang="en">Find Us</h2>
+          <h2 class="section-title d-none" data-lang="he">איך מגיעים</h2>
+          <ul class="list-unstyled mt-4" style="line-height:2;">
+            <li><i class="fas fa-location-dot me-2" style="color:var(--brand-mid)"></i>8th floor, Noa Building, 16 Bar Kochva St.</li>
+            <li><i class="fas fa-city me-2" style="color:var(--brand-mid)"></i>Bnei Brak 5126107, Israel</li>
+            <li><i class="fas fa-envelope me-2" style="color:var(--brand-mid)"></i><a href="mailto:rivka@trak-line.com" style="color:var(--brand-mid)">rivka@trak-line.com</a></li>
+            <li><i class="fas fa-phone me-2" style="color:var(--brand-mid)"></i><a href="tel:+972504729699" style="color:var(--brand-mid)">+972 50-472-9699</a></li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary mt-2" data-lang="en">Send Us a Message</a>
+          <a href="contact.html" class="btn btn-primary mt-2 d-none" data-lang="he">שלחו לנו הודעה</a>
         </div>
-        <div class="col-md-6 text-md-end">
-          <a href="#" class="text-white me-3">Home</a>
-          <a href="#section3" class="text-white me-3">About</a>
-          <a href="#section2" class="text-white me-3">Info</a>
-          <a href="#contact" class="text-white">Contact</a>
+        <div class="col-lg-7">
+          <div class="rounded overflow-hidden shadow-sm" style="border: 1px solid #e0e8f5;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d769.6679777794166!2d34.8231068684073!3d32.09412173202138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4a2bdde02ad3%3A0x2fccb71ea0ec2502!2sBar%20Kochva%20St%2016%2C%20Bnei%20Brak%2C%20Israel!5e1!3m2!1sen!2suk!4v1749346690535!5m2!1sen!2suk"
+              width="100%" height="380" style="border:0;display:block;"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
         </div>
       </div>
-      <div class="text-center border-top pt-3">
-        <small>Site built by Metallicode Ltd 2025</small>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" class="bg-dark text-white pt-5 pb-3 mt-5">
+    <div class="container">
+      <div class="row gy-4 mb-4">
+        <div class="col-md-4">
+          <img src="logo.png" alt="Trak-line Ltd" height="36" class="mb-3" style="opacity:.8">
+          <p class="small text-white-50" data-lang="en">International freight forwarding — Israel to the world.</p>
+          <p class="small text-white-50 d-none" data-lang="he">שילוח בינלאומי מישראל לעולם.</p>
+        </div>
+        <div class="col-md-4">
+          <h6 class="footer-col-title" data-lang="en">Contact</h6>
+          <h6 class="footer-col-title d-none" data-lang="he">יצירת קשר</h6>
+          <p class="small mb-2"><i class="fas fa-envelope me-2 footer-icon"></i><a href="mailto:rivka@trak-line.com" class="footer-link">rivka@trak-line.com</a></p>
+          <p class="small mb-2"><i class="fas fa-phone me-2 footer-icon"></i><a href="tel:+972504729699" class="footer-link">+972 50-472-9699</a></p>
+          <p class="small mb-0 text-white-50"><i class="fas fa-location-dot me-2 footer-icon"></i>8th floor, Noa Building, 16 Bar Kochva St., Bnei Brak 5126107, Israel</p>
+        </div>
+        <div class="col-md-4">
+          <h6 class="footer-col-title" data-lang="en">Navigation</h6>
+          <h6 class="footer-col-title d-none" data-lang="he">ניווט</h6>
+          <div class="d-flex flex-column gap-1">
+            <a href="about.html" class="footer-link" data-lang="en">About Us</a>
+            <a href="about.html" class="footer-link d-none" data-lang="he">עלינו</a>
+            <a href="documents.html" class="footer-link" data-lang="en">Documents</a>
+            <a href="documents.html" class="footer-link d-none" data-lang="he">מסמכים</a>
+            <a href="contact.html" class="footer-link" data-lang="en">Contact</a>
+            <a href="contact.html" class="footer-link d-none" data-lang="he">צור קשר</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center border-top border-secondary pt-3 mt-2">
+        <small class="text-white-50">© 2025 Trak-line Ltd · Site built by Metallicode Ltd</small>
       </div>
     </div>
   </footer>

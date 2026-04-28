@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us - Trak-line Ltd</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -28,6 +28,10 @@
               <a class="nav-link d-none" href="index.html" data-lang="he">ראשי</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link active fw-semibold" href="about.html" data-lang="en">About Us</a>
+              <a class="nav-link active fw-semibold d-none" href="about.html" data-lang="he">עלינו</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="info.html" data-lang="en">Info</a>
               <a class="nav-link d-none" href="info.html" data-lang="he">מידע</a>
             </li>
@@ -35,19 +39,21 @@
               <a class="nav-link" href="blog.html" data-lang="en">Blog</a>
               <a class="nav-link d-none" href="blog.html" data-lang="he">בלוג</a>
             </li>
-
             <li class="nav-item">
               <a class="nav-link" href="gallery.html" data-lang="en">Gallery</a>
               <a class="nav-link d-none" href="gallery.html" data-lang="he">גלריה</a>
             </li>
-
             <li class="nav-item">
-              <a class="nav-link" href="#contact" data-lang="en">Contact</a>
-              <a class="nav-link d-none" href="#contact" data-lang="he">צור קשר</a>
+              <a class="nav-link" href="documents.html" data-lang="en">Documents</a>
+              <a class="nav-link d-none" href="documents.html" data-lang="he">מסמכים</a>
             </li>
-            <li class="nav-item d-flex align-items-center">
-              <button class="btn btn-outline-secondary btn-sm me-1" onclick="switchLanguage('en')">EN</button>
-              <button class="btn btn-outline-secondary btn-sm" onclick="switchLanguage('he')">HE</button>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html" data-lang="en">Contact</a>
+              <a class="nav-link d-none" href="contact.html" data-lang="he">צור קשר</a>
+            </li>
+            <li class="nav-item d-flex align-items-center lang-switcher">
+              <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
+              <button class="lang-btn" onclick="switchLanguage('he')">HE</button>
             </li>
           </ul>
         </div>
@@ -62,10 +68,17 @@
       </div>
       <div class="offcanvas-body d-flex flex-column">
         <a class="nav-link text-white mb-3" href="index.html" data-lang="en" data-bs-dismiss="offcanvas">
-          <i class="fas fa-info-circle me-2"></i>Index
+          <i class="fas fa-home me-2"></i>Home
         </a>
         <a class="nav-link text-white mb-3 d-none" href="index.html" data-lang="he" data-bs-dismiss="offcanvas">
-          <i class="fas fa-info-circle me-2"></i>ראשי
+          <i class="fas fa-home me-2"></i>ראשי
+        </a>
+
+        <a class="nav-link text-white mb-3" href="about.html" data-lang="en" data-bs-dismiss="offcanvas">
+          <i class="fas fa-info-circle me-2"></i>About Us
+        </a>
+        <a class="nav-link text-white mb-3 d-none" href="about.html" data-lang="he" data-bs-dismiss="offcanvas">
+          <i class="fas fa-info-circle me-2"></i>עלינו
         </a>
 
         <a class="nav-link text-white mb-3" href="info.html" data-lang="en" data-bs-dismiss="offcanvas">
@@ -76,18 +89,24 @@
         </a>
 
         <a class="nav-link text-white mb-3" href="blog.html" data-lang="en" data-bs-dismiss="offcanvas">
-          <i class="fas fa-cogs me-2"></i>Blog
+          <i class="fas fa-newspaper me-2"></i>Blog
         </a>
         <a class="nav-link text-white mb-3 d-none" href="blog.html" data-lang="he" data-bs-dismiss="offcanvas">
-          <i class="fas fa-cogs me-2"></i>בלוג
+          <i class="fas fa-newspaper me-2"></i>בלוג
         </a>
-
 
         <a class="nav-link text-white mb-3" href="gallery.html" data-lang="en" data-bs-dismiss="offcanvas">
-          <i class="fas fa-cogs me-2"></i>Gallery
+          <i class="fas fa-images me-2"></i>Gallery
         </a>
         <a class="nav-link text-white mb-3 d-none" href="gallery.html" data-lang="he" data-bs-dismiss="offcanvas">
-          <i class="fas fa-cogs me-2"></i>גלריה
+          <i class="fas fa-images me-2"></i>גלריה
+        </a>
+
+        <a class="nav-link text-white mb-3" href="documents.html" data-lang="en" data-bs-dismiss="offcanvas">
+          <i class="fas fa-file-alt me-2"></i>Documents
+        </a>
+        <a class="nav-link text-white mb-3 d-none" href="documents.html" data-lang="he" data-bs-dismiss="offcanvas">
+          <i class="fas fa-file-alt me-2"></i>מסמכים
         </a>
 
         <a class="nav-link text-white mb-3" href="contact.html" data-lang="en" data-bs-dismiss="offcanvas">
@@ -116,8 +135,8 @@
           <img src="images/truck.png" class="img-fluid rounded shadow" alt="The Company" />
         </div>
         <div class="col-md-6">
-          <h2 data-lang="en">The Company</h2>
-          <h2 data-lang="he" class="d-none">החברה</h2>
+          <h2 class="section-title" data-lang="en">The Company</h2>
+          <h2 class="section-title d-none" data-lang="he">החברה</h2>
 
       <p data-lang="en">
         TRAK-line Ltd is an international freight forwarding company based in Israel, established in 2003 by Ms. Rivka Shahar. With over 40 years of industry experience, we collaborate with a wide network of global partners.
@@ -139,8 +158,8 @@
           <img src="images/office.png" class="img-fluid rounded shadow" alt="Our Vision" />
         </div>
         <div class="col-md-6">
-          <h2 data-lang="en">We Believe</h2>
-          <h2 data-lang="he" class="d-none">החזון שלנו</h2>
+          <h2 class="section-title" data-lang="en">We Believe</h2>
+          <h2 class="section-title d-none" data-lang="he">החזון שלנו</h2>
 
 
 <ul>
@@ -179,8 +198,8 @@
   <!-- Our Team -->
   <section class="py-5 bg-light border-top border-bottom" id="our-team">
     <div class="container text-center">
-      <h2 data-lang="en" class="mb-4">Our Team</h2>
-      <h2 data-lang="he" class="d-none mb-4">הצוות שלנו</h2>
+      <h2 class="section-title mb-4" data-lang="en">Our Team</h2>
+      <h2 class="section-title mb-4 d-none" data-lang="he">הצוות שלנו</h2>
       <div class="row">
         <div class="col-sm-6 col-md-3 mb-4">
           <img src="images/rivka.png" class="img-fluid rounded-circle mb-2" alt="Team Member 1" />
@@ -222,8 +241,8 @@
           <img src="images/specialists.png" class="img-fluid rounded shadow" alt="Specialists" />
         </div>
         <div class="col-md-6">
-          <h2 data-lang="en">Specialists</h2>
-          <h2 data-lang="he" class="d-none">מומחים</h2>
+          <h2 class="section-title" data-lang="en">Specialists</h2>
+          <h2 class="section-title d-none" data-lang="he">מומחים</h2>
 
                 <p data-lang="en">
                     We work with a global network of customs agents, marine surveyors, cargo insurers, and legal consultants to provide holistic freight and logistics solutions.
@@ -242,37 +261,41 @@
 
 
 
-<!-- FOOTER -->
-  <footer id="contact" class="bg-dark text-white pt-5 pb-3">
-    <div class="container">
-      <div class="row mb-3">
-        <div class="col-md-6">
-          <p>Email: <a href="mailto:rivka@trak-line.com">rivka@trak-line.com</a></p>
-          <p>Phone: <a href="tel:+972504729699">+972 50-472-9699</a></p>
-          <p>
-            8th floor, Noa Building 16 Bar Kochva st. 
-          </p>
-          <p>
-              Bnei Brak 5126107
-          </p>
-          <p>
-          Israel
-
-          </p>
-
-        </div>
-        <div class="col-md-6 text-md-end">
-          <a href="#" class="text-white me-3">Home</a>
-          <a href="#section3" class="text-white me-3">About</a>
-          <a href="#section2" class="text-white me-3">Info</a>
-          <a href="#contact" class="text-white">Contact</a>
-        </div>
+<footer id="contact" class="bg-dark text-white pt-5 pb-3 mt-5">
+  <div class="container">
+    <div class="row gy-4 mb-4">
+      <div class="col-md-4">
+        <img src="logo.png" alt="Trak-line Ltd" height="36" class="mb-3" style="opacity:.8">
+        <p class="small text-white-50" data-lang="en">International freight forwarding — Israel to the world.</p>
+        <p class="small text-white-50 d-none" data-lang="he">שילוח בינלאומי מישראל לעולם.</p>
       </div>
-      <div class="text-center border-top pt-3">
-        <small>Site built by Metallicode Ltd 2025</small>
+      <div class="col-md-4">
+        <h6 class="footer-col-title" data-lang="en">Contact</h6>
+        <h6 class="footer-col-title d-none" data-lang="he">יצירת קשר</h6>
+        <p class="small mb-2"><i class="fas fa-envelope me-2 footer-icon"></i><a href="mailto:rivka@trak-line.com" class="footer-link">rivka@trak-line.com</a></p>
+        <p class="small mb-2"><i class="fas fa-phone me-2 footer-icon"></i><a href="tel:+972504729699" class="footer-link">+972 50-472-9699</a></p>
+        <p class="small mb-0 text-white-50"><i class="fas fa-location-dot me-2 footer-icon"></i>8th floor, Noa Building, 16 Bar Kochva St., Bnei Brak 5126107, Israel</p>
+      </div>
+      <div class="col-md-4">
+        <h6 class="footer-col-title" data-lang="en">Navigation</h6>
+        <h6 class="footer-col-title d-none" data-lang="he">ניווט</h6>
+        <div class="d-flex flex-column gap-1">
+          <a href="index.html" class="footer-link" data-lang="en">Home</a>
+          <a href="index.html" class="footer-link d-none" data-lang="he">ראשי</a>
+          <a href="about.html" class="footer-link" data-lang="en">About Us</a>
+          <a href="about.html" class="footer-link d-none" data-lang="he">עלינו</a>
+          <a href="documents.html" class="footer-link" data-lang="en">Documents</a>
+          <a href="documents.html" class="footer-link d-none" data-lang="he">מסמכים</a>
+          <a href="contact.html" class="footer-link" data-lang="en">Contact</a>
+          <a href="contact.html" class="footer-link d-none" data-lang="he">צור קשר</a>
+        </div>
       </div>
     </div>
-  </footer> 
+    <div class="text-center border-top border-secondary pt-3 mt-2">
+      <small class="text-white-50">© 2025 Trak-line Ltd · Site built by Metallicode Ltd</small>
+    </div>
+  </div>
+</footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>

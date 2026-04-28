@@ -1,22 +1,269 @@
 
-/* === GLOBAL === */
+/* ============================================================
+   BRAND TOKENS
+   ============================================================ */
+:root {
+  --brand-dark:   #0a2a6e;
+  --brand-mid:    #1a3f99;
+  --brand-light:  #d0daf0;
+  --brand-accent: #4a72d4;
+  --text-dark:    #1a1a2e;
+  --text-muted:   #6b7280;
+  --surface:      #f7f9fd;
+}
+
+/* ============================================================
+   GLOBAL
+   ============================================================ */
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: var(--text-dark);
   scroll-behavior: smooth;
-  padding-top: 70px; /* for fixed navbar spacing */
+  padding-top: 70px;
 }
 
-    #map {
-      width: 100%;
-      height: 600px;
-    }
-
-    @media (max-width: 767px) {
-  #map {
-    height: 300px; /* or 250px depending on how compact you want it */
-  }
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+  border-bottom: 3px solid var(--brand-mid);
+  min-height: 66px;
 }
 
+.navbar .nav-link {
+  font-size: .88rem;
+  font-weight: 500;
+  color: #333 !important;
+  padding: .45rem .7rem !important;
+  position: relative;
+  transition: color .2s;
+}
+.navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: .7rem;
+  right: .7rem;
+  height: 2px;
+  background: var(--brand-mid);
+  transform: scaleX(0);
+  transition: transform .2s;
+  border-radius: 1px;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--brand-mid) !important;
+}
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* Language switcher */
+.lang-switcher {
+  border-left: 1px solid #dee2e6;
+  padding-left: 12px !important;
+  margin-left: 6px;
+  gap: 4px;
+}
+.lang-btn {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: var(--text-muted) !important;
+  border: 1px solid #dee2e6 !important;
+  padding: 2px 9px !important;
+  border-radius: 4px;
+  background: transparent;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.lang-btn:hover {
+  background: var(--brand-mid) !important;
+  border-color: var(--brand-mid) !important;
+  color: #fff !important;
+}
+
+/* ============================================================
+   BUTTONS — brand override
+   ============================================================ */
+.btn-primary {
+  background-color: var(--brand-mid) !important;
+  border-color: var(--brand-mid) !important;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--brand-dark) !important;
+  border-color: var(--brand-dark) !important;
+}
+.btn-outline-primary {
+  color: var(--brand-mid) !important;
+  border-color: var(--brand-mid) !important;
+}
+.btn-outline-primary:hover {
+  background-color: var(--brand-mid) !important;
+  border-color: var(--brand-mid) !important;
+  color: #fff !important;
+}
+.btn-secondary {
+  background-color: var(--brand-accent) !important;
+  border-color: var(--brand-accent) !important;
+}
+.btn-secondary:hover {
+  background-color: var(--brand-mid) !important;
+  border-color: var(--brand-mid) !important;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+#hero {
+  isolation: isolate;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(5,15,60,.65) 0%, rgba(10,42,110,.45) 100%);
+  z-index: 0;
+}
+#hero .hero-content {
+  position: relative;
+  z-index: 1;
+}
+#hero h1 {
+  text-shadow: 0 2px 12px rgba(0,0,0,.4);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+}
+#hero .lead {
+  text-shadow: 0 1px 6px rgba(0,0,0,.35);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
+
+/* ============================================================
+   SECTION HEADINGS
+   ============================================================ */
+.section-title {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+  margin-bottom: .5rem;
+}
+.section-title::after {
+  content: '';
+  display: block;
+  width: 42px;
+  height: 3px;
+  background: var(--brand-mid);
+  margin-top: 8px;
+  border-radius: 2px;
+}
+.section-title.text-center::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-label {
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--brand-mid);
+  margin-bottom: 6px;
+}
+
+/* ============================================================
+   SERVICES SECTION
+   ============================================================ */
+.service-card {
+  border: 1px solid #e0e8f5;
+  border-top: 4px solid var(--brand-mid);
+  border-radius: 10px;
+  padding: 28px 20px 22px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(10,42,110,.06);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: box-shadow .2s, transform .2s, border-top-color .2s;
+}
+.service-card:hover {
+  box-shadow: 0 8px 28px rgba(10,42,110,.14);
+  transform: translateY(-4px);
+  border-top-color: var(--brand-dark);
+}
+.service-icon {
+  font-size: 2rem;
+  color: var(--brand-mid);
+  margin-bottom: 14px;
+  width: 56px;
+  height: 56px;
+  background: var(--surface);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s, color .2s;
+}
+.service-card:hover .service-icon {
+  background: var(--brand-light);
+  color: var(--brand-dark);
+}
+.service-card h5 {
+  font-size: .97rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+  margin-bottom: 14px;
+}
+.service-card .btn {
+  margin-top: auto;
+  font-size: .8rem;
+}
+
+/* ============================================================
+   STATS STRIP
+   ============================================================ */
+.stats-strip {
+  background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-mid) 100%);
+  padding: 52px 0;
+}
+.stat-block {
+  padding: 0 24px;
+  border-right: 1px solid rgba(255,255,255,.18);
+}
+.stat-block:last-child { border-right: none; }
+.stat-number {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+.stat-label {
+  font-size: .78rem;
+  color: rgba(255,255,255,.72);
+  text-transform: uppercase;
+  letter-spacing: .9px;
+  margin-top: 6px;
+}
+
+/* ============================================================
+   MAP SECTION
+   ============================================================ */
+#map {
+  width: 100%;
+  height: 600px;
+}
+@media (max-width: 767px) {
+  #map { height: 300px; }
+}
+#service_map {
+  background-color: #1e2a45;
+}
+
+/* ============================================================
+   BACKGROUND VIDEO UTILITY
+   ============================================================ */
 .background-video {
   object-fit: cover;
   width: 100%;
@@ -26,47 +273,61 @@ body {
   left: 0;
 }
 
-/* === HERO SECTION === */
-#hero .hero-content {
-  z-index: 2;
+/* ============================================================
+   ABOUT PAGE — section cards
+   ============================================================ */
+.about-section {
+  padding: 64px 0;
+}
+.about-section.alt {
+  background: var(--surface);
+}
+.about-section img {
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(10,42,110,.12);
 }
 
-
-
-
-/* === SERVICES SECTION === */
+/* ============================================================
+   CARDS (generic Bootstrap override)
+   ============================================================ */
 .card {
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
-
 .card:hover {
-  transform: scale(1.02);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(10,42,110,.12) !important;
 }
 
-/* === MODAL === */
+/* ============================================================
+   MODAL
+   ============================================================ */
 .modal {
   display: none;
   position: fixed;
   z-index: 1050;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0,0,0,.5);
 }
-
 .modal-content {
   background-color: #fff;
-  margin: 10% auto;
+  margin: 8% auto;
   padding: 1.5rem;
-  border: 1px solid #888;
-  border-radius: 0.5rem;
+  border: none;
+  border-radius: 12px;
   width: 90%;
-  max-width: 500px;
+  max-width: 520px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.2);
 }
-
+.modal-header {
+  border-bottom: 2px solid var(--brand-light);
+}
+.modal-title {
+  color: var(--brand-dark);
+  font-weight: 700;
+}
 .close {
   float: end;
   font-size: 1.5rem;
@@ -74,46 +335,62 @@ body {
   cursor: pointer;
 }
 
-
-.partner-logo {
-  transition: transform 0.3s ease-in-out;
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer-col-title {
+  text-transform: uppercase;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .9px;
+  color: #8fa8d4;
+  margin-bottom: 14px;
 }
+.footer-icon {
+  color: #8fa8d4;
+}
+.footer-link {
+  color: rgba(255,255,255,.72);
+  text-decoration: none;
+  font-size: .88rem;
+  transition: color .15s;
+}
+.footer-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+footer a { text-decoration: none; }
+footer a:hover { text-decoration: underline; }
 
+/* ============================================================
+   PARTNER LOGOS
+   ============================================================ */
+.partner-logo {
+  transition: transform .3s ease-in-out;
+}
 .partner-logo:hover {
   transform: scale(1.2);
 }
 
-/* === FOOTER === */
-footer a:hover {
-  text-decoration: underline;
+/* ============================================================
+   MAP PULSE ANIMATIONS
+   ============================================================ */
+@keyframes pulse-stroke {
+  0%   { stroke-width: .5; stroke-opacity: .4; }
+  50%  { stroke-width: 1;  stroke-opacity: .8; }
+  100% { stroke-width: .5; stroke-opacity: .4; }
 }
-
-
-     @keyframes pulse-stroke {
-        0% { stroke-width: 0.5; stroke-opacity: 0.4; }
-        50% { stroke-width: 1; stroke-opacity: 0.8; }
-        100% { stroke-width: 0.5; stroke-opacity: 0.4; }
-      }
-
-      .jvm-region.pulsing {
-        animation: pulse 2s infinite;
-        fill-opacity: 1 !important;
-      }
-
-      @keyframes pulse {
-        0% { stroke-width: 1; stroke: rgba(220, 53, 69, 0.6); }
-        50% { stroke-width: 2.5; stroke: rgba(220, 53, 69, 1); }
-        100% { stroke-width: 1; stroke: rgba(220, 53, 69, 0.6); }
-      }
-
-      .jvm-region.hover-pulse:hover {
-        animation: pulse-stroke 1.5s infinite;
-        stroke: #003366;
-        stroke-linejoin: round;
-      }
-
-
-#service_map{
-      background-color: #6a757d;
+.jvm-region.pulsing {
+  animation: pulse 2s infinite;
+  fill-opacity: 1 !important;
 }
-
+@keyframes pulse {
+  0%   { stroke-width: 1;   stroke: rgba(220,53,69,.6); }
+  50%  { stroke-width: 2.5; stroke: rgba(220,53,69,1);  }
+  100% { stroke-width: 1;   stroke: rgba(220,53,69,.6); }
+}
+.jvm-region.hover-pulse:hover {
+  animation: pulse-stroke 1.5s infinite;
+  stroke: #003366;
+  stroke-linejoin: round;
+}

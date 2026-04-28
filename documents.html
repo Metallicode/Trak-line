@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Documents – Trak-line Ltd</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
@@ -137,9 +137,9 @@
               <a class="nav-link" href="contact.html" data-lang="en">Contact</a>
               <a class="nav-link d-none" href="contact.html" data-lang="he">צור קשר</a>
             </li>
-            <li class="nav-item d-flex align-items-center">
-              <button class="btn btn-outline-secondary btn-sm me-1" onclick="switchLanguage('en')">EN</button>
-              <button class="btn btn-outline-secondary btn-sm" onclick="switchLanguage('he')">HE</button>
+            <li class="nav-item d-flex align-items-center lang-switcher">
+              <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
+              <button class="lang-btn" onclick="switchLanguage('he')">HE</button>
             </li>
           </ul>
         </div>
@@ -273,18 +273,16 @@
         </div>
       </div>
 
-      <!-- Code 60 Form – Coming Soon -->
+      <!-- Importer's Declaration for Goods -->
       <div class="col-md-6 col-lg-4 d-flex">
-        <div class="doc-card w-100" style="opacity:.75;">
-          <div class="doc-icon" style="color:#9aabb8;"><i class="fas fa-file-circle-plus"></i></div>
-          <span class="badge-soon" data-lang="en">Coming Soon</span>
-          <span class="badge-soon d-none" data-lang="he">בקרוב</span>
-          <h5 data-lang="en">Code 60 Declaration</h5>
-          <h5 class="d-none" data-lang="he">הצהרת קוד 60</h5>
-          <p data-lang="en">Declaration for releasing goods under code 60, requiring compliance with an official standard. This form will be available soon.</p>
-          <p class="d-none" data-lang="he">הצהרה לשחרור טובין בקוד 60, הדורש עמידה בתקן רשמי. הטופס יהיה זמין בקרוב.</p>
-          <button class="btn btn-outline-secondary btn-sm" disabled data-lang="en">Coming Soon</button>
-          <button class="btn btn-outline-secondary btn-sm d-none" disabled data-lang="he">בקרוב</button>
+        <div class="doc-card w-100">
+          <div class="doc-icon"><i class="fas fa-file-word"></i></div>
+          <h5 data-lang="en">Importer's Declaration for Goods</h5>
+          <h5 class="d-none" data-lang="he">הצהרת יבואן לטובין</h5>
+          <p data-lang="en">Downloadable declaration form for importers of goods. Open and fill in the form, then print or submit as required.</p>
+          <p class="d-none" data-lang="he">טופס הצהרת יבואן לטובין להורדה. פתחו, מלאו והדפיסו או שלחו לפי הנדרש.</p>
+          <a href="importer's_declaration_for_goods.docx" download class="btn btn-primary btn-sm" data-lang="en">Download</a>
+          <a href="importer's_declaration_for_goods.docx" download class="btn btn-primary btn-sm d-none" data-lang="he">הורד</a>
         </div>
       </div>
 
@@ -295,71 +293,76 @@
     <div class="section-heading d-none" data-lang="he">קישורים שימושיים</div>
 
     <div class="card border-0 shadow-sm p-4 links-section">
-      <p class="text-muted fst-italic mb-3" style="font-size:.88rem;" data-lang="en">
-        Additional external links and resources will be added here shortly.
-      </p>
-      <p class="text-muted fst-italic mb-3 d-none" style="font-size:.88rem;" data-lang="he">
-        קישורים חיצוניים ומשאבים נוספים יתווספו כאן בקרוב.
-      </p>
 
-      <!-- Placeholder rows — replace href="#" and descriptions when ready -->
       <div class="link-row">
-        <span class="link-icon"><i class="fas fa-link"></i></span>
+        <span class="link-icon"><i class="fas fa-file-signature"></i></span>
         <div class="link-body">
-          <strong data-lang="en">Israel Tax Authority – Customs</strong>
-          <strong class="d-none" data-lang="he">רשות המסים – מכס</strong>
-          <span class="link-soon" data-lang="en">Link coming soon</span>
-          <span class="link-soon d-none" data-lang="he">הקישור יתווסף בקרוב</span>
+          <a target="_blank" href="https://www.gov.il/he/service/power-of-attorney" data-lang="en"><strong>Power Of Attorney</strong></a>
+          <a target="_blank" href="https://www.gov.il/he/service/power-of-attorney" class="d-none" data-lang="he"><strong>כתב הרשאה לעמיל מכס</strong></a>
+          <span data-lang="en">Israel Tax Authority – authorisation for a customs agent</span>
+          <span class="d-none" data-lang="he">רשות המסים – הרשאה לעמיל מכס</span>
         </div>
       </div>
 
       <div class="link-row">
-        <span class="link-icon"><i class="fas fa-link"></i></span>
+        <span class="link-icon"><i class="fas fa-clipboard-list"></i></span>
         <div class="link-body">
-          <strong data-lang="en">Ministry of Economy – Standardization</strong>
-          <strong class="d-none" data-lang="he">משרד הכלכלה – מינהל התקינה</strong>
-          <span class="link-soon" data-lang="en">Link coming soon</span>
-          <span class="link-soon d-none" data-lang="he">הקישור יתווסף בקרוב</span>
+          <a target="_blank" href="https://www.gov.il/he/service/submission-of-an-annual-importers-affidavit" data-lang="en"><strong>Submission Of An Annual Importers Affidavit</strong></a>
+          <a target="_blank" href="https://www.gov.il/he/service/submission-of-an-annual-importers-affidavit" class="d-none" data-lang="he"><strong>תצהיר יבואן תקופתי</strong></a>
+          <span data-lang="en">Israel Tax Authority – annual importer's affidavit submission</span>
+          <span class="d-none" data-lang="he">רשות המסים – הגשת תצהיר יבואן שנתי</span>
         </div>
       </div>
 
       <div class="link-row">
-        <span class="link-icon"><i class="fas fa-link"></i></span>
+        <span class="link-icon"><i class="fas fa-route"></i></span>
         <div class="link-body">
-          <strong data-lang="en">Additional Resource</strong>
-          <strong class="d-none" data-lang="he">משאב נוסף</strong>
-          <span class="link-soon" data-lang="en">Link coming soon</span>
-          <span class="link-soon d-none" data-lang="he">הקישור יתווסף בקרוב</span>
+          <a target="_blank" href="https://www.gov.il/he/service/maslul-plus" data-lang="en"><strong>Maslul Plus</strong></a>
+          <a target="_blank" href="https://www.gov.il/he/service/maslul-plus" class="d-none" data-lang="he"><strong>מערכת מסלול</strong></a>
+          <span data-lang="en">Israel Tax Authority – Maslul Plus import track system</span>
+          <span class="d-none" data-lang="he">רשות המסים – מערכת מסלול פלוס</span>
         </div>
       </div>
+
     </div>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer id="contact" class="bg-dark text-white pt-5 pb-3 mt-5">
-    <div class="container">
-      <div class="row mb-3">
-        <div class="col-md-6">
-          <p>Email: <a href="mailto:rivka@trak-line.com" class="text-white">rivka@trak-line.com</a></p>
-          <p>Phone: <a href="tel:+972504729699" class="text-white">+972 50-472-9699</a></p>
-          <p>8th floor, Noa Building 16 Bar Kochva st.</p>
-          <p>Bnei Brak 5126107, Israel</p>
-        </div>
-        <div class="col-md-6 text-md-end">
-          <a href="index.html" class="text-white me-3" data-lang="en">Home</a>
-          <a href="index.html" class="text-white me-3 d-none" data-lang="he">ראשי</a>
-          <a href="about.html" class="text-white me-3" data-lang="en">About</a>
-          <a href="about.html" class="text-white me-3 d-none" data-lang="he">עלינו</a>
-          <a href="contact.html" class="text-white" data-lang="en">Contact</a>
-          <a href="contact.html" class="text-white d-none" data-lang="he">צור קשר</a>
-        </div>
+<footer id="contact" class="bg-dark text-white pt-5 pb-3 mt-5">
+  <div class="container">
+    <div class="row gy-4 mb-4">
+      <div class="col-md-4">
+        <img src="logo.png" alt="Trak-line Ltd" height="36" class="mb-3" style="opacity:.8">
+        <p class="small text-white-50" data-lang="en">International freight forwarding — Israel to the world.</p>
+        <p class="small text-white-50 d-none" data-lang="he">שילוח בינלאומי מישראל לעולם.</p>
       </div>
-      <div class="text-center border-top pt-3">
-        <small>Site built by Metallicode Ltd 2025</small>
+      <div class="col-md-4">
+        <h6 class="footer-col-title" data-lang="en">Contact</h6>
+        <h6 class="footer-col-title d-none" data-lang="he">יצירת קשר</h6>
+        <p class="small mb-2"><i class="fas fa-envelope me-2 footer-icon"></i><a href="mailto:rivka@trak-line.com" class="footer-link">rivka@trak-line.com</a></p>
+        <p class="small mb-2"><i class="fas fa-phone me-2 footer-icon"></i><a href="tel:+972504729699" class="footer-link">+972 50-472-9699</a></p>
+        <p class="small mb-0 text-white-50"><i class="fas fa-location-dot me-2 footer-icon"></i>8th floor, Noa Building, 16 Bar Kochva St., Bnei Brak 5126107, Israel</p>
+      </div>
+      <div class="col-md-4">
+        <h6 class="footer-col-title" data-lang="en">Navigation</h6>
+        <h6 class="footer-col-title d-none" data-lang="he">ניווט</h6>
+        <div class="d-flex flex-column gap-1">
+          <a href="index.html" class="footer-link" data-lang="en">Home</a>
+          <a href="index.html" class="footer-link d-none" data-lang="he">ראשי</a>
+          <a href="about.html" class="footer-link" data-lang="en">About Us</a>
+          <a href="about.html" class="footer-link d-none" data-lang="he">עלינו</a>
+          <a href="documents.html" class="footer-link" data-lang="en">Documents</a>
+          <a href="documents.html" class="footer-link d-none" data-lang="he">מסמכים</a>
+          <a href="contact.html" class="footer-link" data-lang="en">Contact</a>
+          <a href="contact.html" class="footer-link d-none" data-lang="he">צור קשר</a>
+        </div>
       </div>
     </div>
-  </footer>
+    <div class="text-center border-top border-secondary pt-3 mt-2">
+      <small class="text-white-50">© 2025 Trak-line Ltd · Site built by Metallicode Ltd</small>
+    </div>
+  </div>
+</footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
