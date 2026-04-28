@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>טופס פתיחת לקוח / ספק – TRAK-line</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f0f2f5;
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 15px;
+      color: #222;
+      direction: rtl;
+    }
+
+    .page {
+      max-width: 760px;
+      margin: 32px auto 48px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.10);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #0a2a6e 0%, #1a3f99 100%);
+      padding: 28px 36px 20px;
+      text-align: center;
+    }
+    .header img { max-width: 240px; height: auto; filter: brightness(0) invert(1); }
+    .header-sub { color: #c8d8ff; font-size: 12px; margin-top: 6px; letter-spacing: .5px; }
+
+    /* ── Title ── */
+    .form-title {
+      text-align: center;
+      padding: 28px 36px 6px;
+      border-bottom: 2px solid #e8edf5;
+    }
+    .form-title h1 { margin: 0; font-size: 21px; color: #0a2a6e; font-weight: 700; }
+    .form-title p  { margin: 6px 0 0; color: #667; font-size: 13px; }
+
+    /* ── Body ── */
+    .form-body { padding: 28px 36px 32px; }
+
+    /* ── Sections ── */
+    .section { margin-bottom: 30px; }
+    .section-title {
+      font-size: 13px; font-weight: 700; color: #0a2a6e;
+      text-transform: uppercase; letter-spacing: .6px;
+      border-bottom: 2px solid #e0e8f8;
+      padding-bottom: 6px; margin-bottom: 18px;
+    }
+
+    /* ── Grid ── */
+    .grid   { display: grid; gap: 16px 20px; }
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+    .grid-1 { grid-template-columns: 1fr; }
+
+    /* ── Fields ── */
+    .field { display: flex; flex-direction: column; gap: 5px; }
+    .field label { font-size: 13px; font-weight: 600; color: #444; }
+    .field label .req { color: #e03; margin-right: 2px; }
+
+    .field input[type="text"],
+    .field input[type="email"],
+    .field input[type="tel"] {
+      width: 100%; padding: 9px 12px;
+      border: 1.5px solid #d0d8e8; border-radius: 7px;
+      font-size: 14px; font-family: inherit; color: #222;
+      background: #fafbfd; transition: border-color .2s, box-shadow .2s;
+      direction: rtl;
+    }
+    .field input:focus {
+      outline: none; border-color: #1a3f99;
+      box-shadow: 0 0 0 3px rgba(26,63,153,.12); background: #fff;
+    }
+    .field input.error { border-color: #e03; }
+
+    /* ── File upload ── */
+    .file-zone {
+      border: 2px dashed #b0bcd8; border-radius: 8px;
+      padding: 18px 16px; cursor: pointer;
+      background: #f7f9fd; text-align: center;
+      transition: border-color .2s, background .2s;
+    }
+    .file-zone:hover,
+    .file-zone.has-file { border-color: #1a3f99; background: #eef2fb; border-style: solid; }
+    .file-zone input[type="file"] { display: none; }
+    .file-zone .upload-icon { font-size: 28px; display: block; margin-bottom: 4px; }
+    .file-zone .upload-label { font-size: 13px; color: #1a3f99; font-weight: 600; }
+    .file-zone .upload-hint  { font-size: 11px; color: #888; margin-top: 3px; }
+    .file-zone .file-info    { font-size: 12px; color: #1a3f99; font-weight: 600; margin-top: 6px; display: none; }
+    .file-zone.has-file .file-info   { display: block; }
+    .file-zone.has-file .upload-hint { display: none; }
+
+    .compress-note {
+      font-size: 11px; color: #888; margin-top: 5px; text-align: center;
+    }
+
+    /* ── Submit ── */
+    .submit-row { text-align: center; margin-top: 24px; }
+    .btn-submit {
+      background: linear-gradient(135deg, #0a2a6e, #1a3f99);
+      color: #fff; border: none;
+      padding: 13px 52px; font-size: 16px; font-weight: 700;
+      border-radius: 8px; cursor: pointer; font-family: inherit;
+      transition: opacity .2s, transform .1s;
+    }
+    .btn-submit:hover  { opacity: .88; transform: translateY(-1px); }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+    /* ── Loading overlay ── */
+    .loading-overlay {
+      display: none;
+      position: absolute; inset: 0;
+      background: rgba(255,255,255,.88);
+      z-index: 50;
+      flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 16px;
+    }
+    .loading-overlay.active { display: flex; }
+    .spinner {
+      width: 48px; height: 48px;
+      border: 4px solid #e0e8f8;
+      border-top-color: #1a3f99;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-overlay p { color: #1a3f99; font-weight: 600; font-size: 15px; margin: 0; }
+
+    /* ── Success screen ── */
+    .success-screen {
+      display: none;
+      padding: 60px 36px;
+      text-align: center;
+    }
+    .success-screen.active { display: block; }
+    .success-icon { font-size: 64px; margin-bottom: 16px; }
+    .success-screen h2 { color: #0a2a6e; font-size: 24px; margin: 0 0 10px; }
+    .success-screen p  { color: #555; font-size: 15px; line-height: 1.6; margin: 0; }
+
+    /* ── Error banner ── */
+    .error-banner {
+      display: none;
+      background: #fff0f0; border: 1.5px solid #f5a0a0;
+      border-radius: 8px; padding: 12px 16px;
+      color: #c00; font-size: 14px; margin-top: 16px;
+      text-align: center;
+    }
+    .error-banner.active { display: block; }
+
+    /* ── Footer ── */
+    .footer {
+      background: #f0f3fa; border-top: 1px solid #dde3f0;
+      padding: 18px 36px; text-align: center;
+      font-size: 12px; color: #778; line-height: 1.7;
+    }
+    .footer strong { color: #0a2a6e; }
+    .footer a { color: #1a3f99; }
+
+    /* ── Responsive ── */
+    @media (max-width: 560px) {
+      .page { margin: 0; border-radius: 0; }
+      .form-body { padding: 20px 18px 28px; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .header { padding: 20px 18px 16px; }
+      .header img { max-width: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <img src="logo.png" alt="TRAK-line Ltd" />
+    <div class="header-sub">Int'l Freight Forwarding &amp; Logistics Solutions</div>
+  </div>
+
+  <!-- Title -->
+  <div class="form-title">
+    <h1>טופס עדכון פרטי לקוח / ספק</h1>
+    <p>למילוי ע"י הלקוח / הספק &nbsp;·&nbsp; שדות המסומנים בכוכבית הם חובה</p>
+  </div>
+
+  <!-- Loading overlay (sits over the whole card) -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+    <p>שולח טופס, אנא המתן...</p>
+  </div>
+
+  <!-- Form -->
+  <div class="form-body" id="formBody">
+    <form id="mainForm" novalidate>
+
+      <!-- ── Section 1: Business Details ── -->
+      <div class="section">
+        <div class="section-title">פרטי העסק</div>
+
+        <div class="grid grid-1">
+          <div class="field">
+            <label for="supplier_name">שם הספק / הלקוח <span class="req">*</span></label>
+            <input type="text" id="supplier_name" required placeholder="שם החברה או העוסק" />
+          </div>
+        </div>
+
+        <div class="grid grid-1" style="margin-top:16px">
+          <div class="field">
+            <label for="business_field">תחום עיסוק <span class="req">*</span></label>
+            <input type="text" id="business_field" required placeholder="לדוגמה: ייבוא, ייצוא, לוגיסטיקה..." />
+          </div>
+        </div>
+
+        <div class="grid grid-2" style="margin-top:16px">
+          <div class="field">
+            <label for="company_num">מספר ח.פ <span class="req">*</span></label>
+            <input type="text" id="company_num" required placeholder="מספר חברה" />
+          </div>
+          <div class="field">
+            <label for="vat_num">מספר ע.מ</label>
+            <input type="text" id="vat_num" placeholder='עוסק מורשה / מע"מ' />
+          </div>
+        </div>
+
+        <div class="grid grid-1" style="margin-top:16px">
+          <div class="field">
+            <label for="address">כתובת <span class="req">*</span></label>
+            <input type="text" id="address" required placeholder="רחוב, מספר, עיר" />
+          </div>
+        </div>
+
+        <div class="grid grid-1" style="margin-top:16px">
+          <div class="field">
+            <label for="mail_address">כתובת למשלוח דואר (ניירת)</label>
+            <input type="text" id="mail_address" placeholder="אם שונה מהכתובת הרגילה" />
+          </div>
+        </div>
+
+        <div class="grid grid-2" style="margin-top:16px">
+          <div class="field">
+            <label for="phone">טלפון <span class="req">*</span></label>
+            <input type="tel" id="phone" required placeholder="03-XXXXXXX" />
+          </div>
+          <div class="field">
+            <label for="fax">פקס</label>
+            <input type="tel" id="fax" placeholder="03-XXXXXXX" />
+          </div>
+        </div>
+
+        <div class="grid grid-1" style="margin-top:16px">
+          <div class="field">
+            <label for="email">דוא"ל <span class="req">*</span></label>
+            <input type="email" id="email" required placeholder="company@example.com" dir="ltr" />
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Section 2: Main Contact ── -->
+      <div class="section">
+        <div class="section-title">פרטי איש קשר ראשי</div>
+
+        <div class="grid grid-2">
+          <div class="field">
+            <label for="contact1_name">שם איש קשר <span class="req">*</span></label>
+            <input type="text" id="contact1_name" required placeholder="שם מלא" />
+          </div>
+          <div class="field">
+            <label for="contact1_role">תפקיד</label>
+            <input type="text" id="contact1_role" placeholder="לדוגמה: מנהל" />
+          </div>
+        </div>
+
+        <div class="grid grid-2" style="margin-top:16px">
+          <div class="field">
+            <label for="contact1_phone">טלפון</label>
+            <input type="tel" id="contact1_phone" placeholder="03-XXXXXXX" />
+          </div>
+          <div class="field">
+            <label for="contact1_mobile">נייד</label>
+            <input type="tel" id="contact1_mobile" placeholder="05X-XXXXXXX" />
+          </div>
+        </div>
+
+        <div class="grid grid-1" style="margin-top:16px">
+          <div class="field">
+            <label for="contact1_email">דוא"ל</label>
+            <input type="email" id="contact1_email" placeholder="contact@example.com" dir="ltr" />
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Section 3: Accounting / Operations ── -->
+      <div class="section">
+        <div class="section-title">פרטי איש קשר – מחלקת תפעול / הנהלת חשבונות</div>
+
+        <div class="grid grid-2">
+          <div class="field">
+            <label for="contact2_name">שם איש קשר</label>
+            <input type="text" id="contact2_name" placeholder="שם מלא" />
+          </div>
+          <div class="field">
+            <label for="contact2_role">תפקיד</label>
+            <input type="text" id="contact2_role" placeholder="לדוגמה: רואה חשבון" />
+          </div>
+        </div>
+
+        <div class="grid grid-2" style="margin-top:16px">
+          <div class="field">
+            <label for="contact2_phone">טלפון</label>
+            <input type="tel" id="contact2_phone" placeholder="03-XXXXXXX" />
+          </div>
+          <div class="field">
+            <label for="contact2_fax">פקס</label>
+            <input type="tel" id="contact2_fax" placeholder="03-XXXXXXX" />
+          </div>
+        </div>
+
+        <div class="grid grid-1" style="margin-top:16px">
+          <div class="field">
+            <label for="contact2_email">דוא"ל</label>
+            <input type="email" id="contact2_email" placeholder="accounting@example.com" dir="ltr" />
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Section 4: File Uploads ── -->
+      <div class="section">
+        <div class="section-title">מסמכים מצורפים</div>
+        <div class="grid grid-2">
+
+          <div class="field">
+            <label>תצלום תעודת זהות (ת"ז) <span class="req">*</span></label>
+            <div class="file-zone" id="zone_id" onclick="document.getElementById('file_id').click()">
+              <span class="upload-icon">🪪</span>
+              <span class="upload-label">לחץ לבחירת קובץ</span>
+              <div class="upload-hint">JPG, PNG, PDF – עד 5MB</div>
+              <div class="file-info" id="info_id"></div>
+            </div>
+            <input type="file" id="file_id" accept=".jpg,.jpeg,.png,.pdf" />
+            <div class="compress-note" id="note_id"></div>
+          </div>
+
+          <div class="field">
+            <label>תעודת עוסק מורשה <span class="req">*</span></label>
+            <div class="file-zone" id="zone_cert" onclick="document.getElementById('file_cert').click()">
+              <span class="upload-icon">📄</span>
+              <span class="upload-label">לחץ לבחירת קובץ</span>
+              <div class="upload-hint">JPG, PNG, PDF – עד 5MB</div>
+              <div class="file-info" id="info_cert"></div>
+            </div>
+            <input type="file" id="file_cert" accept=".jpg,.jpeg,.png,.pdf" />
+            <div class="compress-note" id="note_cert"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="error-banner" id="errorBanner"></div>
+
+      <!-- Submit -->
+      <div class="submit-row">
+        <button type="submit" class="btn-submit" id="submitBtn">שליחה ✉</button>
+      </div>
+
+    </form>
+
+    <!-- Success screen (shown after submission) -->
+    <div class="success-screen" id="successScreen">
+      <div class="success-icon">✅</div>
+      <h2>הטופס נשלח בהצלחה!</h2>
+      <p>פרטיך התקבלו ונשמרו.<br />ריבקה תיצור איתך קשר בהקדם.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <strong>TRAK-Line Ltd</strong> &nbsp;|&nbsp; Int'l Freight Forwarding &amp; Logistics Solutions<br />
+    טראק-ליין בע"מ &nbsp;|&nbsp; שילוח בינלאומי ופתרונות לוגיסטיים מתקדמים<br />
+    Noa Building, 8th Floor, Bar Kokhva 16, Bnei Brak, Israel<br />
+    Tel: +972-3-5248670 &nbsp;|&nbsp; <a href="mailto:rivka@trak-line.com">rivka@trak-line.com</a>
+  </div>
+
+</div>
+
+<script>
+  // ── IMPORTANT: paste your Apps Script web app URL here after deploying ──────
+  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwH6fKv5wAwcTQi9_GC2n8qOzK3reiVbOvqv94ujo1fut85QlKOKh8Q3_5rS75F_Xh5/exec';
+  // ────────────────────────────────────────────────────────────────────────────
+
+  var MAX_IMAGE_PX  = 1200;   // max width or height after resize
+  var IMAGE_QUALITY = 0.82;   // JPEG quality (0–1)
+  var MAX_PDF_BYTES = 5 * 1024 * 1024; // 5 MB
+
+  // ── File handling ────────────────────────────────────────────────────────────
+
+  function setupFileZone(inputId, zoneId, infoId, noteId) {
+    var input = document.getElementById(inputId);
+    var zone  = document.getElementById(zoneId);
+    var info  = document.getElementById(infoId);
+    var note  = document.getElementById(noteId);
+
+    input.addEventListener('change', function () {
+      var file = this.files[0];
+      if (!file) return;
+      zone.classList.add('has-file');
+      info.textContent = file.name + ' (' + (file.size / 1024).toFixed(0) + ' KB)';
+      note.textContent = '';
+
+      if (file.type.startsWith('image/')) {
+        note.textContent = 'התמונה תידחס אוטומטית לפני השליחה';
+      }
+    });
+  }
+
+  setupFileZone('file_id',   'zone_id',   'info_id',   'note_id');
+  setupFileZone('file_cert', 'zone_cert', 'info_cert', 'note_cert');
+
+  // ── Image compression via canvas ─────────────────────────────────────────────
+
+  function compressImage(file) {
+    return new Promise(function (resolve, reject) {
+      var reader = new FileReader();
+      reader.onerror = reject;
+      reader.onload = function (e) {
+        var img = new Image();
+        img.onerror = reject;
+        img.onload = function () {
+          var w = img.width, h = img.height;
+          if (w > MAX_IMAGE_PX || h > MAX_IMAGE_PX) {
+            var ratio = Math.min(MAX_IMAGE_PX / w, MAX_IMAGE_PX / h);
+            w = Math.round(w * ratio);
+            h = Math.round(h * ratio);
+          }
+          var canvas = document.createElement('canvas');
+          canvas.width = w; canvas.height = h;
+          canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+          var dataUrl = canvas.toDataURL('image/jpeg', IMAGE_QUALITY);
+          resolve({
+            base64: dataUrl.split(',')[1],
+            mime:   'image/jpeg',
+            ext:    'jpg'
+          });
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function readPdf(file) {
+    return new Promise(function (resolve, reject) {
+      if (file.size > MAX_PDF_BYTES) {
+        reject(new Error('הקובץ ' + file.name + ' גדול מדי. מקסימום 5MB לקובץ PDF.'));
+        return;
+      }
+      var reader = new FileReader();
+      reader.onerror = reject;
+      reader.onload  = function (e) {
+        resolve({
+          base64: e.target.result.split(',')[1],
+          mime:   'application/pdf',
+          ext:    'pdf'
+        });
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function processFile(file) {
+    if (file.type.startsWith('image/')) return compressImage(file);
+    if (file.type === 'application/pdf')  return readPdf(file);
+    return Promise.reject(new Error('סוג קובץ לא נתמך: ' + file.name));
+  }
+
+  // ── Validation ────────────────────────────────────────────────────────────────
+
+  function val(id) { return document.getElementById(id).value.trim(); }
+
+  function validate() {
+    var ids = ['supplier_name','business_field','company_num','address','phone','email','contact1_name'];
+    var ok  = true;
+    ids.forEach(function (id) {
+      var el = document.getElementById(id);
+      el.classList.remove('error');
+      if (!el.value.trim()) { el.classList.add('error'); ok = false; }
+    });
+    if (!document.getElementById('file_id').files[0]) {
+      document.getElementById('zone_id').style.borderColor = '#e03';
+      ok = false;
+    }
+    if (!document.getElementById('file_cert').files[0]) {
+      document.getElementById('zone_cert').style.borderColor = '#e03';
+      ok = false;
+    }
+    return ok;
+  }
+
+  // ── Submit ────────────────────────────────────────────────────────────────────
+
+  document.getElementById('mainForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    document.getElementById('errorBanner').classList.remove('active');
+
+    if (!validate()) {
+      document.querySelector('.error, [style*="e03"]')
+        .scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    var loading = document.getElementById('loadingOverlay');
+    var btn     = document.getElementById('submitBtn');
+    loading.classList.add('active');
+    btn.disabled = true;
+
+    var fileId   = document.getElementById('file_id').files[0];
+    var fileCert = document.getElementById('file_cert').files[0];
+
+    Promise.all([processFile(fileId), processFile(fileCert)])
+      .then(function (files) {
+        var payload = {
+          supplier_name:   val('supplier_name'),
+          business_field:  val('business_field'),
+          company_num:     val('company_num'),
+          vat_num:         val('vat_num'),
+          address:         val('address'),
+          mail_address:    val('mail_address'),
+          phone:           val('phone'),
+          fax:             val('fax'),
+          email:           val('email'),
+          contact1_name:   val('contact1_name'),
+          contact1_role:   val('contact1_role'),
+          contact1_phone:  val('contact1_phone'),
+          contact1_mobile: val('contact1_mobile'),
+          contact1_email:  val('contact1_email'),
+          contact2_name:   val('contact2_name'),
+          contact2_role:   val('contact2_role'),
+          contact2_phone:  val('contact2_phone'),
+          contact2_fax:    val('contact2_fax'),
+          contact2_email:  val('contact2_email'),
+          file_id:   files[0],
+          file_cert: files[1]
+        };
+
+        return fetch(SCRIPT_URL, {
+          method:  'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body:    JSON.stringify(payload)
+        });
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (result) {
+        loading.classList.remove('active');
+        if (result.success) {
+          document.getElementById('mainForm').style.display    = 'none';
+          document.getElementById('successScreen').classList.add('active');
+        } else {
+          showError('אירעה שגיאה: ' + (result.error || 'נסה שוב מאוחר יותר'));
+          btn.disabled = false;
+        }
+      })
+      .catch(function (err) {
+        loading.classList.remove('active');
+        showError(err.message || 'אירעה שגיאה בשליחה. אנא נסה שוב.');
+        btn.disabled = false;
+      });
+  });
+
+  function showError(msg) {
+    var banner = document.getElementById('errorBanner');
+    banner.textContent = msg;
+    banner.classList.add('active');
+    banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+</script>
+
+</body>
+</html>
