@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>מסלול ומסלו"ל פלוס ביבוא לישראל - TRAK-line Ltd</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .article-hero {
+      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-mid) 100%);
+      color: #fff;
+      padding: 80px 0 50px;
+      margin-bottom: 0;
+    }
+    .article-hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+    }
+    .article-hero p.lead {
+      opacity: .85;
+      max-width: 680px;
+    }
+    .article-body {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .article-body h2 {
+      color: var(--brand-dark);
+      border-right: 4px solid var(--brand-accent);
+      padding-right: 14px;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.35rem;
+    }
+    .article-body h3 {
+      color: var(--brand-mid);
+      margin-top: 1.8rem;
+      font-size: 1.1rem;
+    }
+    .article-body p, .article-body li {
+      line-height: 1.85;
+      color: #333;
+    }
+    .article-body ul {
+      padding-right: 1.5rem;
+    }
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--brand-mid);
+      color: #fff;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: .9rem;
+      flex-shrink: 0;
+      margin-left: 10px;
+    }
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.6rem;
+    }
+    .step-content h4 {
+      color: var(--brand-dark);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: .4rem;
+    }
+    .highlight-box {
+      background: var(--surface);
+      border-right: 4px solid var(--brand-accent);
+      border-radius: 0 8px 8px 0;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .highlight-box.warning {
+      border-right-color: #e67e22;
+      background: #fef9f0;
+    }
+    .mistake-item {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      margin-bottom: .8rem;
+      border-right: 4px solid #e74c3c;
+    }
+    .mistake-item h4 {
+      font-size: .95rem;
+      font-weight: 600;
+      color: #c0392b;
+      margin-bottom: .3rem;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-mid) 100%);
+      color: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .cta-box h3 {
+      color: #fff;
+      margin-bottom: .8rem;
+    }
+    .cta-box p {
+      color: rgba(255,255,255,.85);
+    }
+
+    /* LTR overrides for English version */
+    html[dir="ltr"] .article-body h2 {
+      border-right: none;
+      border-left: 4px solid var(--brand-accent);
+      padding-right: 0;
+      padding-left: 14px;
+    }
+    html[dir="ltr"] .article-body ul {
+      padding-right: 0;
+      padding-left: 1.5rem;
+    }
+    html[dir="ltr"] .step-badge {
+      margin-left: 0;
+      margin-right: 10px;
+    }
+    html[dir="ltr"] .highlight-box {
+      border-right: none;
+      border-left: 4px solid var(--brand-accent);
+      border-radius: 8px 0 0 8px;
+    }
+    html[dir="ltr"] .highlight-box.warning {
+      border-right: none;
+      border-left-color: #e67e22;
+    }
+    html[dir="ltr"] .mistake-item {
+      border-right: 1px solid #e2e8f0;
+      border-left: 4px solid #e74c3c;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html">
+          <img src="logo.png" alt="Trak-line Ltd Logo" height="40">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" data-lang="en">Home</a>
+              <a class="nav-link d-none" href="index.html" data-lang="he">ראשי</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html" data-lang="en">About Us</a>
+              <a class="nav-link d-none" href="about.html" data-lang="he">עלינו</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="info.html" data-lang="en">Info</a>
+              <a class="nav-link d-none" href="info.html" data-lang="he">מידע</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html" data-lang="en">Blog</a>
+              <a class="nav-link d-none" href="blog.html" data-lang="he">בלוג</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html" data-lang="en">Gallery</a>
+              <a class="nav-link d-none" href="gallery.html" data-lang="he">גלריה</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="documents.html" data-lang="en">Documents</a>
+              <a class="nav-link d-none" href="documents.html" data-lang="he">מסמכים</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html" data-lang="en">Contact</a>
+              <a class="nav-link d-none" href="contact.html" data-lang="he">צור קשר</a>
+            </li>
+            <li class="nav-item d-flex align-items-center lang-switcher">
+              <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
+              <button class="lang-btn" onclick="switchLanguage('he')">HE</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasMenu">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+        <a class="nav-link text-white mb-3" href="index.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-home me-2"></i>Home</a>
+        <a class="nav-link text-white mb-3 d-none" href="index.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-home me-2"></i>ראשי</a>
+        <a class="nav-link text-white mb-3" href="about.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-info-circle me-2"></i>About Us</a>
+        <a class="nav-link text-white mb-3 d-none" href="about.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-info-circle me-2"></i>עלינו</a>
+        <a class="nav-link text-white mb-3" href="info.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-cogs me-2"></i>Info</a>
+        <a class="nav-link text-white mb-3 d-none" href="info.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-cogs me-2"></i>מידע</a>
+        <a class="nav-link text-white mb-3" href="blog.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-newspaper me-2"></i>Blog</a>
+        <a class="nav-link text-white mb-3 d-none" href="blog.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-newspaper me-2"></i>בלוג</a>
+        <a class="nav-link text-white mb-3" href="gallery.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-images me-2"></i>Gallery</a>
+        <a class="nav-link text-white mb-3 d-none" href="gallery.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-images me-2"></i>גלריה</a>
+        <a class="nav-link text-white mb-3" href="documents.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-file-alt me-2"></i>Documents</a>
+        <a class="nav-link text-white mb-3 d-none" href="documents.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-file-alt me-2"></i>מסמכים</a>
+        <a class="nav-link text-white mb-3" href="contact.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-envelope me-2"></i>Contact</a>
+        <a class="nav-link text-white mb-3 d-none" href="contact.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-envelope me-2"></i>צור קשר</a>
+        <div class="mt-auto">
+          <button class="btn btn-outline-light btn-sm me-2" onclick="switchLanguage('en')">EN</button>
+          <button class="btn btn-outline-light btn-sm" onclick="switchLanguage('he')">HE</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================  HEBREW VERSION  ===================== -->
+  <div data-lang="he">
+    <div class="article-hero">
+      <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html" class="text-white-50 text-decoration-none">ראשי</a></li>
+            <li class="breadcrumb-item"><a href="info.html" class="text-white-50 text-decoration-none">מידע</a></li>
+            <li class="breadcrumb-item active text-white">מסלול ומסלו"ל פלוס</li>
+          </ol>
+        </nav>
+        <h1>מערכת מסלול / מסלו"ל פלוס ביבוא לישראל</h1>
+        <p class="lead mt-3">מה יבואנים חדשים חייבים לדעת לפני שהסחורה יוצאת לדרך</p>
+      </div>
+    </div>
+
+    <div class="container py-5">
+      <div class="article-body">
+
+        <p>כאשר מייבאים סחורה לישראל, לא מספיק רק להזמין מוצר, לשלם לספק ולשלוח אותו לארץ. בחלק מהמקרים, לפני שהמשלוח משתחרר מהמכס, נדרש לקבל <strong>אישור יבוא</strong>, <strong>רישיון</strong>, <strong>אישור תקן רשמי</strong>, או להגיש <strong>הצהרת יבואן</strong> דרך מערכת ממשלתית מקוונת.</p>
+        <p>אחת המערכות המרכזיות בתהליך הזה נקראת <strong>מערכת מסלול</strong> או <strong>מסלול+</strong>. לצד המערכת הממשלתית קיימת גם מערכת <strong>מסלו"ל פלוס של מכון התקנים הישראלי</strong>, המשמשת להגשת בקשות לאישורי יבוא בתחום התקינה.</p>
+
+        <h2>מה זה בעצם "מסלול"?</h2>
+        <p>"מסלול" הוא לא שם של בדיקה אחת ולא שם של תקן מסוים. זהו שם כללי למערכת או לתהליך שבו מגישים בקשות לאישורי יבוא מול הרשויות הרלוונטיות.</p>
+        <p>המערכת מאפשרת להגיש מספר רישיונות או אישורי יבוא בבקשה אחת, לעקוב אחר הסטטוס, ולקבל התראות בדוא"ל או ב-SMS. כאשר מדובר במוצרים שחל עליהם <strong>תקן רשמי ישראלי</strong>, התהליך עשוי לעבור דרך <strong>מכון התקנים הישראלי</strong> ומערכת <strong>מסלו"ל פלוס</strong>.</p>
+
+        <h2>האם כל מוצר חייב לעבור דרך מסלול?</h2>
+        <p>לא. זו אחת הטעויות הנפוצות של יבואנים חדשים. הדרישות תלויות בעיקר ב<strong>פרט המכס</strong> של המוצר, בסוג המוצר, בשימוש שלו, ובשאלה האם חל עליו תקן רשמי או רגולציה ממשלתית.</p>
+
+        <div class="highlight-box">
+          <strong>לדוגמה:</strong> יש מוצרים שיכולים להשתחרר ללא אישור מיוחד, יש מוצרים שדורשים הצהרה בלבד, יש מוצרים שדורשים אישור תקן רשמי, ויש מוצרים שדורשים אישור של משרד ממשלתי — למשל משרד התקשורת, משרד הבריאות, משרד הכלכלה, משרד התחבורה, משרד החקלאות ועוד.
+        </div>
+
+        <h2>מהו תקן רשמי?</h2>
+        <p>תקן רשמי הוא תקן ישראלי שהמדינה קבעה שהוא מחייב לגבי מוצר מסוים. כאשר מוצר כפוף לתקן רשמי, היבואן חייב לעמוד בדרישות שנקבעו לגביו לפני שהמוצר יכול להיכנס לשוק הישראלי.</p>
+        <p>קיימים מסלולים שונים, כולל הבחנה בין:</p>
+        <ul>
+          <li><strong>הצהרת ת"ר</strong> — היבואן מצהיר שהמוצר עומד בדרישות התקן, תוך שמירה על תיק מסמכים מתאים.</li>
+          <li><strong>אישור ת"ר</strong> — נדרש לקבל אישור רשמי לפני שחרור הסחורה, ולעיתים לבצע בדיקת דגם, בדיקת מסמכים או בדיקה פיזית.</li>
+        </ul>
+
+        <h2>למה פרט המכס כל כך חשוב?</h2>
+        <p>השלב הראשון בכל יבוא מסחרי הוא קביעת <strong>פרט המכס הנכון</strong>. פרט המכס משפיע על:</p>
+        <ul>
+          <li>שיעור המכס או מסי היבוא, אם קיימים.</li>
+          <li>האם נדרש אישור תקן.</li>
+          <li>האם נדרש רישיון יבוא.</li>
+          <li>האם חלה רגולציה של משרד ממשלתי מסוים.</li>
+          <li>אילו מסמכים צריך להכין לפני הגעת הסחורה.</li>
+        </ul>
+        <div class="highlight-box warning">
+          <i class="fas fa-exclamation-triangle me-2" style="color:#e67e22;"></i>
+          טעות בסיווג עלולה לגרום לעיכובים, עלויות אחסנה, דרישה לבדיקות נוספות, או מצב שבו לא ניתן לשחרר את הסחורה מהמכס.
+        </div>
+
+        <h2>מה קורה בפועל בתהליך?</h2>
+
+        <div class="step-item">
+          <span class="step-badge">1</span>
+          <div class="step-content">
+            <h4>בדיקה מוקדמת לפני היבוא</h4>
+            <p>לפני שהסחורה יוצאת מהספק, כדאי לבדוק: פרט המכס, האם חל תקן רשמי, האם נדרש אישור ממשלתי, האם קיימת אפשרות ליבוא במסלול הצהרה, ואם נדרש תיק מוצר. מכון התקנים ממליץ ליבואנים מתחילים להביא תחילה דוגמת מוצר לבדיקה לפני יבוא המשלוח כולו.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <span class="step-badge">2</span>
+          <div class="step-content">
+            <h4>איסוף מסמכים מהספק</h4>
+            <p>ברוב המקרים יידרשו: חשבון ספק, רשימת אריזה, שטר מטען, קטלוג ומפרט טכני, תמונות מוצר, הוראות שימוש, תעודות בדיקה קיימות, הצהרת יצרן, ומסמכי CE / EU Declaration of Conformity כאשר רלוונטי. המסמכים חייבים להתאים למוצר בפועל — שם דגם שלא תואם עלול לגרום לעיכוב.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <span class="step-badge">3</span>
+          <div class="step-content">
+            <h4>הגשת בקשה במערכת המתאימה</h4>
+            <p>לאחר שיש סיווג ומסמכים, מגישים בקשה במערכת הרלוונטית — מסלול+ לאישורי יבוא ממשלתיים, או מסלו"ל פלוס של מכון התקנים לאישורים בתחום התקינה.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <span class="step-badge">4</span>
+          <div class="step-content">
+            <h4>בדיקת הרשות המטפלת</h4>
+            <p>הרשות בודקת את הבקשה והמסמכים. לפי סוג המוצר והמסלול, ייתכן שהתהליך יסתיים באישור על בסיס מסמכים, בהצהרת יבואן, בבדיקת דגם, בבדיקת משלוח, או בדרישה להשלמת מידע.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <span class="step-badge">5</span>
+          <div class="step-content">
+            <h4>קבלת אישור והמשך שחרור מהמכס</h4>
+            <p>לאחר שהאישור מתקבל, המידע מועבר להמשך תהליך השחרור מהמכס. רק לאחר השלמת כל דרישות חוקיות היבוא ניתן לשחרר את הסחורה ללקוח.</p>
+          </div>
+        </div>
+
+        <h2>רפורמת "מה שטוב לאירופה טוב לישראל"</h2>
+        <p>במסגרת רפורמה זו, נוספו מסלולים המבוססים על התאמה לדרישות רגולציה אירופית. החל מ-1 בינואר 2025 נכנס בהדרגה מסלול תקינה חדש המבוסס על התאמה לאסדרות אירופיות מאומצות.</p>
+        <p>במוצרים מסוימים, כאשר קיימים מסמכים אירופיים מתאימים והמוצר משווק כדין באירופה, ייתכן שניתן יהיה להשתמש במסלול רגולטורי מקל יותר — <strong>אך לא כל מוצר נכלל ברפורמה ולא כל מסמך אירופי מספיק בפני עצמו.</strong></p>
+
+        <h2>טעויות נפוצות של יבואנים חדשים</h2>
+
+        <div class="mistake-item">
+          <h4><i class="fas fa-times-circle me-2"></i>להזמין קודם ולבדוק אחר כך</h4>
+          <p class="mb-0 small">אם מגלים רק כשהסחורה כבר בנמל שנדרש אישור תקן, בדיקה, מסמך חסר או רישיון יבוא — המשלוח עלול להיתקע ולצבור עלויות אחסנה, דמי השהיה ועלויות טיפול.</p>
+        </div>
+        <div class="mistake-item">
+          <h4><i class="fas fa-times-circle me-2"></i>לסמוך רק על הספק בחו"ל</h4>
+          <p class="mb-0 small">ספקים רבים כותבים שהמוצר "מאושר", "CE", "תקני". זה לא תמיד מספיק לישראל — המסמכים חייבים להתאים לדרישות הרשות הישראלית, לדגם המדויק ולמסלול היבוא המתאים.</p>
+        </div>
+        <div class="mistake-item">
+          <h4><i class="fas fa-times-circle me-2"></i>לא לבדוק את הדגם המדויק</h4>
+          <p class="mb-0 small">מספר הדגם, מתח החשמל, תווית הסימון, ארץ הייצור או יצרן בפועל — פרטים כאלה יכולים להיות קריטיים מבחינת תקינה ויבוא.</p>
+        </div>
+        <div class="mistake-item">
+          <h4><i class="fas fa-times-circle me-2"></i>להניח שמשלוח קטן פטור מדרישות</h4>
+          <p class="mb-0 small">גם משלוח קטן או ראשון יכול להיות כפוף לחוקיות יבוא. יש הבדל בין יבוא אישי, דוגמאות, יבוא מסחרי ויבוא לשיווק.</p>
+        </div>
+        <div class="mistake-item">
+          <h4><i class="fas fa-times-circle me-2"></i>לא להכין תיק מוצר</h4>
+          <p class="mb-0 small">במסלולי הצהרה, היבואן עדיין אחראי להחזיק מסמכים המוכיחים עמידה בדרישות. הצהרה אינה אומרת "אין דרישות".</p>
+        </div>
+
+        <h2>מוצרים שדורשים תשומת לב מיוחדת</h2>
+        <ul>
+          <li>מוצרי חשמל ואלקטרוניקה</li>
+          <li>צעצועים ומוצרי ילדים</li>
+          <li>מוצרים לתינוקות</li>
+          <li>גופי תאורה</li>
+          <li>מטענים, סוללות וכבלים</li>
+          <li>ציוד תקשורת — Wi-Fi, Bluetooth, RF וסלולר</li>
+          <li>כלי עבודה</li>
+          <li>מוצרי בנייה ואינסטלציה</li>
+          <li>מוצרי מזון ותמרוקים</li>
+          <li>ציוד רפואי</li>
+          <li>אופניים, קורקינטים ומוצרים ממונעים</li>
+          <li>מוצרי בטיחות, קסדות וציוד מגן</li>
+        </ul>
+
+        <h2>מה כדאי להכין לפני שפונים לעמיל מכס?</h2>
+        <ul>
+          <li>תיאור ברור של המוצר וקישור לקטלוג</li>
+          <li>תמונות המוצר והאריזה</li>
+          <li>שם יצרן, ארץ ייצור ודגם מדויק</li>
+          <li>שימוש מיועד, כמות במשלוח וערך מסחרי</li>
+          <li>חשבון ספק ומפרט טכני</li>
+          <li>תעודות בדיקה או אישורי תקינה קיימים</li>
+          <li>מידע האם המוצר נמכר באיחוד האירופי</li>
+        </ul>
+
+        <div class="highlight-box">
+          <strong>תפקיד חברת השילוח ועמיל המכס:</strong> הם יכולים לעזור להבין את התהליך, להכין מסמכים, לבדוק חוקיות יבוא, להגיש בקשות במערכות הרלוונטיות ולתאם שחרור מהמכס. ליווי נכון לפני היבוא יכול לחסוך הרבה כסף וזמן.
+        </div>
+
+        <h2>השורה התחתונה</h2>
+        <p>לפני שמייבאים מוצר לישראל, חשוב לבדוק שלושה דברים:</p>
+        <ol>
+          <li><strong>מהו פרט המכס של המוצר?</strong></li>
+          <li><strong>האם חלות עליו דרישות חוקיות יבוא, תקן רשמי או רישיון?</strong></li>
+          <li><strong>אילו מסמכים ואישורים צריך להכין לפני שהסחורה יוצאת לדרך?</strong></li>
+        </ol>
+
+        <div class="cta-box">
+          <h3>מתכננים יבוא לישראל?</h3>
+          <p>לפני שאתם שולחים את הסחורה, מומלץ לבדוק את דרישות היבוא, התקינה והמסמכים הנדרשים. שלחו לנו את פרטי המוצר, ואנו נסייע בבדיקה ראשונית מול עמיל המכס והרשויות הרלוונטיות.</p>
+          <a href="contact.html" class="btn btn-light btn-lg mt-2" style="color: var(--brand-dark); font-weight: 600;">צור קשר</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================  ENGLISH VERSION  ===================== -->
+  <div data-lang="en" class="d-none">
+    <div class="article-hero">
+      <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html" class="text-white-50 text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="info.html" class="text-white-50 text-decoration-none">Info</a></li>
+            <li class="breadcrumb-item active text-white">Maslul Import System</li>
+          </ol>
+        </nav>
+        <h1>The Maslul / Maslul Plus Import System in Israel</h1>
+        <p class="lead mt-3">What new importers must know before their shipment leaves the warehouse</p>
+      </div>
+    </div>
+
+    <div class="container py-5">
+      <div class="article-body" style="direction: ltr; text-align: left;">
+
+        <p>Importing goods into Israel is not as simple as placing an order, paying the supplier, and shipping. In many cases, before a shipment can clear customs, you must obtain an <strong>import approval</strong>, a <strong>license</strong>, an <strong>official standards certificate</strong>, or submit an <strong>importer declaration</strong> through a government online system.</p>
+        <p>One of the central systems in this process is known as <strong>Maslul+</strong>. Alongside the government portal, the <strong>Israel Standards Institution (SII)</strong> operates <strong>Maslul Plus</strong>, used for submitting import approval requests related to product standards compliance.</p>
+
+        <h2>What Exactly Is "Maslul"?</h2>
+        <p>"Maslul" is not the name of a single test or standard. It is a general term for the system or process through which import approval requests are submitted to the relevant authorities.</p>
+        <p>The system allows importers to submit multiple licenses or approvals in one request, track their status in real time, and receive email or SMS notifications. When products are subject to an <strong>Israeli official standard</strong>, the process may go through the <strong>Israel Standards Institution</strong> and its <strong>Maslul Plus</strong> platform.</p>
+
+        <h2>Does Every Product Need to Go Through Maslul?</h2>
+        <p>No. This is one of the most common misconceptions among new importers. Requirements depend mainly on the product's <strong>customs tariff item</strong>, its type and intended use, and whether it is subject to an official standard or government regulation.</p>
+
+        <div class="highlight-box">
+          <strong>For example:</strong> Some products can be cleared without any special approval; some require only a declaration; others require an official standard certificate; and still others require approval from a specific government ministry — such as the Ministry of Communications, Ministry of Health, Ministry of Economy, Ministry of Transport, Ministry of Agriculture, and others.
+        </div>
+
+        <h2>What Is an Official Standard (Teken Rishmi)?</h2>
+        <p>An official standard is an Israeli standard that the state has declared mandatory for a specific product. When a product is subject to an official standard, the importer must comply with the requirements before the product can enter the Israeli market.</p>
+        <p>Two main tracks exist:</p>
+        <ul>
+          <li><strong>Standard Declaration (Hatzhanat T.R.)</strong> — The importer declares that the product meets the standard requirements while maintaining a supporting document file.</li>
+          <li><strong>Standard Approval (Ishur T.R.)</strong> — A formal approval must be obtained before clearance, sometimes including a product sample test, document review, or physical inspection.</li>
+        </ul>
+
+        <h2>Why Is the Customs Tariff Item So Important?</h2>
+        <p>The first step in any commercial import is establishing the correct <strong>customs tariff item</strong>. It determines:</p>
+        <ul>
+          <li>The customs duty rate, if applicable.</li>
+          <li>Whether a standard certificate is required.</li>
+          <li>Whether an import license is required.</li>
+          <li>Whether a specific government ministry's regulation applies.</li>
+          <li>Which documents must be prepared before the shipment arrives.</li>
+        </ul>
+        <div class="highlight-box warning">
+          <i class="fas fa-exclamation-triangle me-2" style="color:#e67e22;"></i>
+          A misclassification can result in delays, storage charges, demands for additional testing, or a situation where the goods cannot be released from customs at all.
+        </div>
+
+        <h2>What Does the Process Look Like in Practice?</h2>
+
+        <div class="step-item">
+          <span class="step-badge">1</span>
+          <div class="step-content">
+            <h4>Pre-Import Check</h4>
+            <p>Before the goods leave the supplier, verify: the customs tariff item, whether an official standard applies, whether a government approval is needed, whether a declaration track is available, and whether a product dossier is required. The SII recommends bringing a product sample for testing before importing a full commercial shipment.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <span class="step-badge">2</span>
+          <div class="step-content">
+            <h4>Collecting Documents from the Supplier</h4>
+            <p>Typically required: Commercial Invoice, Packing List, Bill of Lading or Air Waybill, product catalogue and technical specifications, product photos, user manual, existing test certificates, manufacturer's declaration, and CE / EU Declaration of Conformity where applicable. All documents must match the actual product — a mismatched model number can trigger a delay.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <span class="step-badge">3</span>
+          <div class="step-content">
+            <h4>Submitting the Application</h4>
+            <p>Once classification and documents are ready, the application is submitted through the relevant system — Maslul+ for general government import approvals, or SII's Maslul Plus for standards-related approvals.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <span class="step-badge">4</span>
+          <div class="step-content">
+            <h4>Authority Review</h4>
+            <p>The authority reviews the application and documents. Depending on the product type and track, the process may conclude with a document-based approval, an importer declaration, a sample test, a shipment inspection, or a request for additional information.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <span class="step-badge">5</span>
+          <div class="step-content">
+            <h4>Receiving Approval and Clearing Customs</h4>
+            <p>Once approval is granted, the information is forwarded to continue the clearance process. Only after all legal import requirements are met can the goods be released to the consignee.</p>
+          </div>
+        </div>
+
+        <h2>The "What's Good for Europe Is Good for Israel" Reform</h2>
+        <p>In recent years, significant changes have taken place in Israeli import regulation. This reform added tracks based on alignment with EU regulatory requirements. From 1 January 2025, a new standards track based on adopted European regulations is being gradually introduced.</p>
+        <p>For certain products, when appropriate European documents exist and the product is legally marketed in Europe, it may be possible to use a lighter regulatory track — <strong>but not every product is covered by the reform, and not every European document is sufficient on its own.</strong></p>
+
+        <h2>Common Mistakes by New Importers</h2>
+
+        <div class="mistake-item">
+          <h4><i class="fas fa-times-circle me-2"></i>Order First, Check Later</h4>
+          <p class="mb-0 small">Discovering only when the shipment is already at the port that a standard approval, test, missing document, or import license is required can cause the shipment to be held, accumulating storage fees, demurrage, and handling costs.</p>
+        </div>
+        <div class="mistake-item">
+          <h4><i class="fas fa-times-circle me-2"></i>Relying Solely on the Overseas Supplier</h4>
+          <p class="mb-0 small">Many suppliers describe their products as "approved", "CE", or "compliant". This is not always sufficient for Israel — documents must match Israeli authority requirements, the exact model, and the appropriate import track.</p>
+        </div>
+        <div class="mistake-item">
+          <h4><i class="fas fa-times-circle me-2"></i>Not Checking the Exact Model</h4>
+          <p class="mb-0 small">Model number, voltage, labelling, country of origin, or actual manufacturer — details like these can be critical from a standards and import perspective.</p>
+        </div>
+        <div class="mistake-item">
+          <h4><i class="fas fa-times-circle me-2"></i>Assuming a Small Shipment Is Exempt</h4>
+          <p class="mb-0 small">Even a small or first shipment can be subject to import compliance rules. There is a meaningful difference between personal import, samples, commercial import, and import for resale.</p>
+        </div>
+        <div class="mistake-item">
+          <h4><i class="fas fa-times-circle me-2"></i>Not Preparing a Product Dossier</h4>
+          <p class="mb-0 small">In declaration tracks, the importer is still responsible for holding documents that prove compliance. A declaration does not mean "no requirements".</p>
+        </div>
+
+        <h2>Products That Typically Require Special Attention</h2>
+        <ul>
+          <li>Electrical and electronic products</li>
+          <li>Toys and children's products</li>
+          <li>Baby and infant products</li>
+          <li>Lighting fixtures</li>
+          <li>Chargers, batteries and cables</li>
+          <li>Communication equipment — Wi-Fi, Bluetooth, RF and cellular</li>
+          <li>Power tools and hand tools</li>
+          <li>Construction and plumbing materials</li>
+          <li>Food products and cosmetics</li>
+          <li>Medical devices and equipment</li>
+          <li>Bicycles, scooters and motorised personal mobility devices</li>
+          <li>Safety equipment, helmets and protective gear</li>
+        </ul>
+
+        <h2>What to Prepare Before Contacting a Freight Forwarder</h2>
+        <ul>
+          <li>A clear product description and catalogue link</li>
+          <li>Photos of the product and packaging</li>
+          <li>Manufacturer name, country of origin, exact model number</li>
+          <li>Intended use, shipment quantity and commercial value</li>
+          <li>Commercial invoice and technical specifications</li>
+          <li>Existing test certificates or compliance approvals</li>
+          <li>Whether the product is already legally sold in the European Union</li>
+        </ul>
+
+        <div class="highlight-box">
+          <strong>The role of your freight forwarder and customs agent:</strong> They can help you understand the process, prepare documentation, check import compliance, submit applications through the relevant systems, and coordinate customs clearance. Proper guidance before the import can save significant time and money.
+        </div>
+
+        <h2>Bottom Line for New Importers</h2>
+        <p>Before importing any product into Israel, verify three things:</p>
+        <ol>
+          <li><strong>What is the customs tariff item for the product?</strong></li>
+          <li><strong>Are there any legal import requirements, official standards, or licenses that apply?</strong></li>
+          <li><strong>Which documents and approvals need to be in hand before the shipment departs?</strong></li>
+        </ol>
+
+        <div class="cta-box">
+          <h3>Planning to Import into Israel?</h3>
+          <p>Before you ship, it pays to check the import requirements, applicable standards, and required documents. Send us your product details and we will help with an initial review with our customs agent and the relevant authorities.</p>
+          <a href="contact.html" class="btn btn-light btn-lg mt-2" style="color: var(--brand-dark); font-weight: 600;">Contact Us</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer id="contact" class="bg-dark text-white pt-5 pb-3 mt-5">
+    <div class="container">
+      <div class="row gy-4 mb-4">
+        <div class="col-md-4">
+          <img src="logo.png" alt="Trak-line Ltd" height="36" class="mb-3" style="opacity:.8">
+          <p class="small text-white-50" data-lang="en">International freight forwarding — Israel to the world.</p>
+          <p class="small text-white-50 d-none" data-lang="he">שילוח בינלאומי מישראל לעולם.</p>
+        </div>
+        <div class="col-md-4">
+          <h6 class="footer-col-title" data-lang="en">Contact</h6>
+          <h6 class="footer-col-title d-none" data-lang="he">יצירת קשר</h6>
+          <p class="small mb-2"><i class="fas fa-envelope me-2 footer-icon"></i><a href="mailto:rivka@trak-line.com" class="footer-link">rivka@trak-line.com</a></p>
+          <p class="small mb-2"><i class="fas fa-phone me-2 footer-icon"></i><a href="tel:+972504729699" class="footer-link">+972 50-472-9699</a></p>
+          <p class="small mb-0 text-white-50"><i class="fas fa-location-dot me-2 footer-icon"></i>8th floor, Noa Building, 16 Bar Kochva St., Bnei Brak 5126107, Israel</p>
+        </div>
+        <div class="col-md-4">
+          <h6 class="footer-col-title" data-lang="en">Navigation</h6>
+          <h6 class="footer-col-title d-none" data-lang="he">ניווט</h6>
+          <div class="d-flex flex-column gap-1">
+            <a href="index.html" class="footer-link" data-lang="en">Home</a>
+            <a href="index.html" class="footer-link d-none" data-lang="he">ראשי</a>
+            <a href="about.html" class="footer-link" data-lang="en">About Us</a>
+            <a href="about.html" class="footer-link d-none" data-lang="he">עלינו</a>
+            <a href="documents.html" class="footer-link" data-lang="en">Documents</a>
+            <a href="documents.html" class="footer-link d-none" data-lang="he">מסמכים</a>
+            <a href="contact.html" class="footer-link" data-lang="en">Contact</a>
+            <a href="contact.html" class="footer-link d-none" data-lang="he">צור קשר</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center border-top border-secondary pt-3 mt-2">
+        <small class="text-white-50">© 2025 Trak-line Ltd · Site built by Metallicode Ltd</small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

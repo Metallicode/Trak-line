@@ -1,0 +1,827 @@
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ברוכים הבאים לעולם היבוא והיצוא - TRAK-line Ltd</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .article-hero {
+      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-mid) 100%);
+      color: #fff;
+      padding: 80px 0 50px;
+    }
+    .article-hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+    }
+    .article-hero p.lead {
+      opacity: .85;
+      max-width: 680px;
+    }
+    .article-body {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .article-body h2 {
+      color: var(--brand-dark);
+      border-right: 4px solid var(--brand-accent);
+      padding-right: 14px;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.35rem;
+    }
+    .article-body h3 {
+      color: var(--brand-mid);
+      margin-top: 1.8rem;
+      font-size: 1.1rem;
+    }
+    .article-body p, .article-body li {
+      line-height: 1.85;
+      color: #333;
+    }
+    .article-body ul, .article-body ol {
+      padding-right: 1.5rem;
+    }
+    .highlight-box {
+      background: var(--surface);
+      border-right: 4px solid var(--brand-accent);
+      border-radius: 0 8px 8px 0;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .highlight-box.warning {
+      border-right-color: #e67e22;
+      background: #fef9f0;
+    }
+    .shipping-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.4rem;
+      height: 100%;
+    }
+    .shipping-card .icon-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: #d0daf0;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+    .shipping-card h4 {
+      color: var(--brand-dark);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: .5rem;
+    }
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 1rem 1.2rem;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      margin-bottom: .7rem;
+    }
+    .checklist-item .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 30px;
+      height: 30px;
+      background: var(--brand-mid);
+      color: #fff;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: .85rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .checklist-item .content strong {
+      color: var(--brand-dark);
+      display: block;
+      margin-bottom: .2rem;
+    }
+    .checklist-item .content ul {
+      margin: .4rem 0 0;
+      padding-right: 1.2rem;
+    }
+    .checklist-item .content li {
+      font-size: .88rem;
+      color: #555;
+    }
+    .example-box {
+      background: #f0f4ff;
+      border: 1px solid #c7d4f5;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      font-size: .92rem;
+      line-height: 1.9;
+    }
+    .example-box strong {
+      color: var(--brand-dark);
+    }
+    .cta-box {
+      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-mid) 100%);
+      color: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .cta-box h3 { color: #fff; margin-bottom: .8rem; }
+    .cta-box p  { color: rgba(255,255,255,.85); }
+
+    /* LTR overrides */
+    html[dir="ltr"] .article-body h2 {
+      border-right: none;
+      border-left: 4px solid var(--brand-accent);
+      padding-right: 0;
+      padding-left: 14px;
+    }
+    html[dir="ltr"] .article-body ul,
+    html[dir="ltr"] .article-body ol {
+      padding-right: 0;
+      padding-left: 1.5rem;
+    }
+    html[dir="ltr"] .highlight-box {
+      border-right: none;
+      border-left: 4px solid var(--brand-accent);
+      border-radius: 8px 0 0 8px;
+    }
+    html[dir="ltr"] .highlight-box.warning {
+      border-right: none;
+      border-left-color: #e67e22;
+    }
+    html[dir="ltr"] .checklist-item .content ul {
+      padding-right: 0;
+      padding-left: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html">
+          <img src="logo.png" alt="Trak-line Ltd Logo" height="40">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" data-lang="en">Home</a>
+              <a class="nav-link d-none" href="index.html" data-lang="he">ראשי</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html" data-lang="en">About Us</a>
+              <a class="nav-link d-none" href="about.html" data-lang="he">עלינו</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="info.html" data-lang="en">Info</a>
+              <a class="nav-link d-none" href="info.html" data-lang="he">מידע</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html" data-lang="en">Blog</a>
+              <a class="nav-link d-none" href="blog.html" data-lang="he">בלוג</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html" data-lang="en">Gallery</a>
+              <a class="nav-link d-none" href="gallery.html" data-lang="he">גלריה</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="documents.html" data-lang="en">Documents</a>
+              <a class="nav-link d-none" href="documents.html" data-lang="he">מסמכים</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html" data-lang="en">Contact</a>
+              <a class="nav-link d-none" href="contact.html" data-lang="he">צור קשר</a>
+            </li>
+            <li class="nav-item d-flex align-items-center lang-switcher">
+              <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
+              <button class="lang-btn" onclick="switchLanguage('he')">HE</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasMenu">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+        <a class="nav-link text-white mb-3" href="index.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-home me-2"></i>Home</a>
+        <a class="nav-link text-white mb-3 d-none" href="index.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-home me-2"></i>ראשי</a>
+        <a class="nav-link text-white mb-3" href="about.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-info-circle me-2"></i>About Us</a>
+        <a class="nav-link text-white mb-3 d-none" href="about.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-info-circle me-2"></i>עלינו</a>
+        <a class="nav-link text-white mb-3" href="info.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-cogs me-2"></i>Info</a>
+        <a class="nav-link text-white mb-3 d-none" href="info.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-cogs me-2"></i>מידע</a>
+        <a class="nav-link text-white mb-3" href="blog.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-newspaper me-2"></i>Blog</a>
+        <a class="nav-link text-white mb-3 d-none" href="blog.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-newspaper me-2"></i>בלוג</a>
+        <a class="nav-link text-white mb-3" href="gallery.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-images me-2"></i>Gallery</a>
+        <a class="nav-link text-white mb-3 d-none" href="gallery.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-images me-2"></i>גלריה</a>
+        <a class="nav-link text-white mb-3" href="documents.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-file-alt me-2"></i>Documents</a>
+        <a class="nav-link text-white mb-3 d-none" href="documents.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-file-alt me-2"></i>מסמכים</a>
+        <a class="nav-link text-white mb-3" href="contact.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-envelope me-2"></i>Contact</a>
+        <a class="nav-link text-white mb-3 d-none" href="contact.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-envelope me-2"></i>צור קשר</a>
+        <div class="mt-auto">
+          <button class="btn btn-outline-light btn-sm me-2" onclick="switchLanguage('en')">EN</button>
+          <button class="btn btn-outline-light btn-sm" onclick="switchLanguage('he')">HE</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================  HEBREW VERSION  ===================== -->
+  <div data-lang="he">
+    <div class="article-hero">
+      <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html" class="text-white-50 text-decoration-none">ראשי</a></li>
+            <li class="breadcrumb-item"><a href="info.html" class="text-white-50 text-decoration-none">מידע</a></li>
+            <li class="breadcrumb-item active text-white">ברוכים הבאים</li>
+          </ol>
+        </nav>
+        <h1>ברוכים הבאים לעולם היבוא והיצוא</h1>
+        <p class="lead mt-3">מדריך מעשי לכל מי שמתחיל לעבוד עם שילוח בינלאומי — ומה צריך לדעת לפני שמבקשים הצעת מחיר</p>
+      </div>
+    </div>
+
+    <div class="container py-5">
+      <div class="article-body">
+
+        <p>יבוא או יצוא של סחורה נשמעים לפעמים כמו תהליך מורכב: ספקים, מסמכים, אוניות, טיסות, מכס, נמלים, עלויות, ביטוחים ושחרור סחורה. בפועל, כאשר עובדים בצורה מסודרת ועם גורם מקצועי שמרכז את התהליך, ניתן להפוך את השילוח הבינלאומי להרבה יותר ברור ונשלט.</p>
+        <p>כאן נכנסת לתמונה <strong>חברת השילוח הבינלאומי</strong>. חברת שילוח, או Freight Forwarder, היא הגורם שמארגן ומתאם את העברת הסחורה ממדינה אחת למדינה אחרת. המשלח אינו בהכרח הבעלים של האונייה, המטוס או המשאית, אלא <strong>מנהל התהליך הלוגיסטי של המשלוח הבינלאומי</strong>.</p>
+
+        <h2>מה עושה חברת שילוח?</h2>
+        <p>חברת שילוח יכולה לטפל בשלבים שונים של התהליך, בהתאם לצורך:</p>
+        <ul>
+          <li>איסוף הסחורה מהספק בחו"ל</li>
+          <li>תיאום הובלה יבשתית לנמל או לשדה תעופה</li>
+          <li>הזמנת מקום באונייה, במטוס או במשאית</li>
+          <li>בדיקת אפשרויות שילוח ימי, אווירי או יבשתי</li>
+          <li>הכנת מסמכי שילוח</li>
+          <li>תיאום מול סוכן בחו"ל ומול עמיל מכס</li>
+          <li>מעקב אחר המשלוח</li>
+          <li>תיאום שחרור מהמכס</li>
+          <li>תיאום הובלה עד מחסן, עסק או בית הלקוח</li>
+        </ul>
+        <p class="text-muted small">לא כל משלוח דורש את כל השלבים. יש משלוחים פשוטים יחסית, ויש כאלה שדורשים בדיקות תקן, רישיונות יבוא, אישורי רגולציה, טיפול מיוחד, ביטוח, אחסנה, פריקה או הובלה חריגה.</p>
+
+        <h2>יבואן חדש — מה חשוב להבין?</h2>
+        <p>אם אתם מייבאים סחורה לישראל בפעם הראשונה, חשוב לדעת שמחיר הספק בחו"ל הוא רק חלק מהתמונה. מעבר למחיר המוצר עצמו, ייתכנו עלויות נוספות כגון:</p>
+        <ul>
+          <li>הובלה מהספק לנמל או לשדה התעופה</li>
+          <li>שילוח בינלאומי</li>
+          <li>דמי נמל והיטלי דלק וביטחון</li>
+          <li>מסי יבוא, מכס ומע"מ</li>
+          <li>עמילות מכס</li>
+          <li>בדיקות תקן או אישורים</li>
+          <li>אחסנה, אם יש עיכוב</li>
+          <li>הובלה פנימית בישראל</li>
+          <li>ביטוח מטען</li>
+        </ul>
+
+        <h2>יצואן חדש — מה חשוב להבין?</h2>
+        <p>אם אתם שולחים סחורה מישראל לחו"ל, צריך להבין לאן הסחורה נשלחת, מי מקבל אותה, באילו תנאי מכר עובדים, מי משלם על ההובלה, ואילו מסמכים נדרשים. ביצוא חשוב במיוחד להקפיד על:</p>
+        <ul>
+          <li>חשבון מסחרי ברור ותיאור נכון של הסחורה</li>
+          <li>אריזה מתאימה וסימון נכון של הקרטונים או המשטחים</li>
+          <li>מסמכי מקור, אם נדרשים</li>
+          <li>התאמה לדרישות מדינת היעד</li>
+          <li>תיאום מוקדם עם הלקוח לגבי תנאי המשלוח</li>
+        </ul>
+        <div class="highlight-box warning">
+          <i class="fas fa-exclamation-triangle me-2" style="color:#e67e22;"></i>
+          טעות במסמכים או בתיאור הסחורה עלולה לגרום לעיכובים במדינת היעד, חיובים נוספים או בעיות מול הלקוח.
+        </div>
+
+        <h2>מה ההבדל בין שילוח ימי, אווירי ויבשתי?</h2>
+        <div class="row g-3 mt-1">
+          <div class="col-md-4">
+            <div class="shipping-card">
+              <div class="icon-wrap"><i class="fas fa-ship" style="color:#1a3f99;font-size:1.2rem;"></i></div>
+              <h4>שילוח ימי</h4>
+              <p class="small text-muted mb-2">מתאים למשלוחים גדולים, כבדים או פחות דחופים. האפשרות הכלכלית ביותר לנפחים משמעותיים.</p>
+              <p class="small mb-0"><strong>FCL</strong> — מכולה מלאה (20 או 40 רגל)</p>
+              <p class="small mb-0"><strong>LCL</strong> — מטען חלקי, משולב עם לקוחות אחרים</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="shipping-card">
+              <div class="icon-wrap"><i class="fas fa-plane" style="color:#1a3f99;font-size:1.2rem;"></i></div>
+              <h4>שילוח אווירי</h4>
+              <p class="small text-muted mb-0">מתאים למשלוחים דחופים, יקרים, קטנים יחסית או רגישים לזמן. מהיר יותר — אך יקר יותר.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="shipping-card">
+              <div class="icon-wrap"><i class="fas fa-truck" style="color:#1a3f99;font-size:1.2rem;"></i></div>
+              <h4>שילוח יבשתי</h4>
+              <p class="small text-muted mb-0">מתאים להובלה בין מדינות שכנות, או כחלק מהמסלול הכולל — למשל איסוף מהספק לנמל, או הובלה מהנמל למחסן.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>מה זה Door to Door?</h2>
+        <p>כאשר לקוח מבקש הצעת מחיר <strong>Door to Door</strong>, הכוונה היא שהמשלח מתמחר את כל המסלול מנקודת האיסוף ועד נקודת המסירה הסופית — למשל ממחסן הספק בסין עד מחסן הלקוח בישראל.</p>
+        <div class="highlight-box">
+          <i class="fas fa-info-circle me-2" style="color:var(--brand-accent);"></i>
+          Door to Door אינו תמיד כולל את כל העלויות באופן אוטומטי. תמיד כדאי לבקש הצעה מפורטת ולבדוק מה בדיוק כלול: מכס? מע"מ? בדיקות תקן? אחסנה? פריקה? ביטוח? הובלה פנימית?
+        </div>
+
+        <h2>מה צריך לדעת לגבי Incoterms?</h2>
+        <p>אחד הדברים החשובים ביותר בהצעת שילוח הוא תנאי המכר בין הקונה למוכר — <strong>Incoterms</strong>:</p>
+        <ul>
+          <li><strong>EXW</strong> — הקונה אחראי כמעט לכל התהליך, כולל איסוף מהספק.</li>
+          <li><strong>FOB</strong> — הספק מביא את הסחורה לנמל המוצא ומעמיס אותה.</li>
+          <li><strong>CIF</strong> — הספק כולל הובלה וביטוח עד נמל היעד, אך לא בהכרח שחרור והובלה פנימית.</li>
+          <li><strong>DAP</strong> — המשלח מביא את הסחורה עד כתובת היעד, אך בדרך כלל ללא תשלום מסי יבוא.</li>
+          <li><strong>DDP</strong> — המחיר כולל בדרך כלל גם מסי יבוא ואחריות רחבה יותר מצד המוכר.</li>
+        </ul>
+        <p class="text-muted small">ליבואנים חדשים: אל תחתמו על עסקה לפני שמבינים מי משלם על כל שלב ומי אחראי לכל סיכון בדרך.</p>
+
+        <h2>המידע הנדרש להצעת מחיר Door to Door</h2>
+        <p>כדי לקבל הצעת מחיר מדויקת, חברת השילוח צריכה לקבל מידע ברור על הסחורה, נקודת האיסוף, היעד, תנאי המכר והדרישות המיוחדות. ככל שהמידע מדויק יותר — כך ההצעה אמינה יותר ופחות הפתעות בהמשך.</p>
+
+        <div class="checklist-item">
+          <span class="num">1</span>
+          <div class="content">
+            <strong>מהיכן אוספים את הסחורה?</strong>
+            <ul>
+              <li>שם הספק, כתובת מלאה, עיר, מדינה, מיקוד ואיש קשר</li>
+              <li>האם הסחורה מוכנה לאיסוף ושעות פעילות המחסן</li>
+              <li>האם יש במקום מלגזה או ציוד טעינה</li>
+            </ul>
+            <p class="text-muted small mt-1 mb-0">"סין" או "גרמניה" לא מספיקות — יש הבדל גדול בין איסוף מנמל לבין איסוף ממפעל מאות ק"מ פנימה.</p>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">2</span>
+          <div class="content">
+            <strong>לאן מוסרים את הסחורה?</strong>
+            <ul>
+              <li>שם החברה, כתובת מלאה, עיר, מדינה, מיקוד ואיש קשר</li>
+              <li>האם מדובר במחסן, חנות, מפעל, משרד או בית פרטי</li>
+              <li>האם יש גישה למשאית ומה נדרש לפריקה: מלגזה, רמפה, מנוף</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">3</span>
+          <div class="content">
+            <strong>מהי הסחורה?</strong>
+            <ul>
+              <li>תיאור ברור, שימוש, חומרי גלם, מותג ודגם</li>
+              <li>האם מדובר במוצר חדש או משומש</li>
+              <li>האם המוצר שביר, רגיש, יקר, מסוכן או בפיקוח רגולטורי</li>
+            </ul>
+            <p class="text-muted small mt-1 mb-0">תיאור כמו "goods" או "parts" לא מספיק ועלול לגרום לעיכובים במכס.</p>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">4</span>
+          <div class="content">
+            <strong>פרטי אריזה, משקל ונפח</strong>
+            <ul>
+              <li>מספר קרטונים / משטחים ומידות כל אריזה (א × ר × ג)</li>
+              <li>משקל ברוטו לאריזה ומשקל ו נפח כולל</li>
+              <li>האם ניתן לערום, האם נדרשת שמירת כיוון</li>
+            </ul>
+            <p class="text-muted small mt-1 mb-0">מחיר השילוח נקבע לפי משקל או נפח — המחמיר שביניהם.</p>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">5</span>
+          <div class="content">
+            <strong>ערך הסחורה</strong>
+            <p class="mb-0 small text-muted">נדרש לחישוב מסים, הערכת ביטוח, בדיקת סיכון וטיפול במכס. הערך חייב להיות אמיתי ותואם למסמכים — הצהרה לא נכונה עלולה לגרום לבעיות מול המכס.</p>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">6</span>
+          <div class="content">
+            <strong>תנאי מכר — Incoterms</strong>
+            <p class="mb-0 small text-muted">EXW, FOB, CIF, DAP, DDP — חשוב לציין מה הוסכם עם הספק, כדי שהמשלח ידע מהיכן הוא נכנס לתמונה.</p>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">7</span>
+          <div class="content">
+            <strong>מסמכים קיימים</strong>
+            <ul>
+              <li>Commercial Invoice ו-Packing List</li>
+              <li>הצעת מחיר מהספק, קטלוג ומפרט טכני</li>
+              <li>תמונות מוצר ואריזה</li>
+              <li>תעודות מקור, אישורי תקן ו-MSDS אם רלוונטי</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">8</span>
+          <div class="content">
+            <strong>האם נדרש טיפול מיוחד?</strong>
+            <ul>
+              <li>סחורה שבירה, מסוכנת, סוללות ליתיום, כימיקלים</li>
+              <li>מזון / מוצרים בטמפרטורה מבוקרת, ציוד רפואי</li>
+              <li>מטען יקר ערך, חריג במידות, הדורש מנוף או פריקה מיוחדת</li>
+            </ul>
+            <p class="text-muted small mt-1 mb-0">אי-מסירת מידע זה מראש עלולה לגרום לעיכובים, שינוי מחיר או סירוב של חברת התעופה/ספנות.</p>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">9</span>
+          <div class="content">
+            <strong>מועד מוכנות ודחיפות</strong>
+            <ul>
+              <li>מתי הסחורה תהיה מוכנה לאיסוף</li>
+              <li>האם יש דדליין לקבלת הסחורה</li>
+              <li>האם עדיף מחיר זול יותר או זמן הגעה קצר יותר</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">10</span>
+          <div class="content">
+            <strong>ביטוח מטען</strong>
+            <p class="mb-0 small text-muted">ביטוח אינו תמיד כלול אוטומטית. יש לשאול מה בדיוק מכוסה. אחריות חברות הספנות והתעופה מוגבלת בדרך כלל — במשלוחים בעלי ערך משמעותי, שבירים או רגישים מומלץ לשקול ביטוח מטען.</p>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">11</span>
+          <div class="content">
+            <strong>מה כלול בהצעה מבחינת מסים ומכס?</strong>
+            <ul>
+              <li>מכס, מס קנייה, מע"מ יבוא</li>
+              <li>אגרות נמל, עמילות מכס, בדיקות תקן</li>
+              <li>אחסנה, היטלים מקומיים, הובלה עד היעד</li>
+            </ul>
+            <p class="text-muted small mt-1 mb-0">לא כל הצעת Door to Door כוללת מסים. לעיתים המסים משולמים בנפרד על ידי היבואן.</p>
+          </div>
+        </div>
+
+        <h2>דוגמה לבקשת הצעת מחיר טובה</h2>
+        <div class="example-box">
+          <strong>שלום,</strong><br>
+          אני מבקש/ת הצעת מחיר Door to Door ליבוא מסחרי.<br><br>
+          <strong>איסוף:</strong> כתובת מלאה של הספק בחו"ל.<br>
+          <strong>יעד:</strong> כתובת מלאה בישראל.<br>
+          <strong>סחורה:</strong> תיאור מוצר ברור.<br>
+          <strong>כמות:</strong> 5 משטחים.<br>
+          <strong>מידות:</strong> 120×100×150 ס"מ כל משטח.<br>
+          <strong>משקל:</strong> 350 ק"ג כל משטח.<br>
+          <strong>ערך סחורה:</strong> 8,000 דולר.<br>
+          <strong>תנאי מכר:</strong> EXW / FOB / CIF וכו'.<br>
+          <strong>מוכנות לאיסוף:</strong> ____.<br><br>
+          מצורפים: חשבון ספק, רשימת אריזה, תמונות ומפרט טכני.<br>
+          נא לציין האם ההצעה כוללת שחרור ממכס, מסים, הובלה פנימית וביטוח.
+        </div>
+
+        <h2>השורה התחתונה</h2>
+        <p>כדי לקבל הצעת שילוח Door to Door טובה, לא מספיק לשאול "כמה עולה להביא סחורה מסין לישראל?". צריך לדעת <strong>מה הסחורה, מאיפה אוספים, לאן מוסרים, מה המשקל והנפח, מה תנאי המכר, מה הערך, והאם יש דרישות מיוחדות</strong>.</p>
+        <p>ככל שהמידע מדויק יותר, כך חברת השילוח יכולה לתת הצעה נכונה יותר, למנוע הפתעות ולנהל את המשלוח בצורה מקצועית יותר.</p>
+
+        <div class="cta-box">
+          <h3>מוכנים לשלוח הצעה?</h3>
+          <p>צרו איתנו קשר עם פרטי המשלוח שלכם ונחזור אליכם עם הצעת מחיר מפורטת ומקצועית.</p>
+          <a href="contact.html" class="btn btn-light btn-lg mt-2" style="color: var(--brand-dark); font-weight: 600;">צור קשר</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================  ENGLISH VERSION  ===================== -->
+  <div data-lang="en" class="d-none">
+    <div class="article-hero">
+      <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html" class="text-white-50 text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="info.html" class="text-white-50 text-decoration-none">Info</a></li>
+            <li class="breadcrumb-item active text-white">Welcome Guide</li>
+          </ol>
+        </nav>
+        <h1>Welcome to the World of Import &amp; Export</h1>
+        <p class="lead mt-3">A practical guide for anyone starting out with international freight — and what you need to know before requesting a quote</p>
+      </div>
+    </div>
+
+    <div class="container py-5">
+      <div class="article-body" style="direction: ltr; text-align: left;">
+
+        <p>Importing or exporting goods can sound complicated: suppliers, documents, ships, flights, customs, ports, costs, insurance, and cargo clearance. In practice, when the process is organised and managed by a professional who coordinates everything, international shipping becomes far clearer and more manageable.</p>
+        <p>This is where the <strong>international freight forwarder</strong> comes in. A freight forwarder organises and coordinates the movement of goods from one country to another. The forwarder is not necessarily the owner of the ship, aircraft, or truck — they are <strong>the manager of the entire logistics process</strong>.</p>
+
+        <h2>What Does a Freight Forwarder Do?</h2>
+        <p>A freight forwarder can handle various stages of the process depending on the client's needs:</p>
+        <ul>
+          <li>Collecting goods from the overseas supplier</li>
+          <li>Coordinating inland transport to the port or airport</li>
+          <li>Booking space on a vessel, aircraft, or truck</li>
+          <li>Evaluating sea, air, and land shipping options</li>
+          <li>Preparing shipping documents</li>
+          <li>Coordinating with overseas agents and customs agents</li>
+          <li>Tracking the shipment</li>
+          <li>Coordinating customs clearance</li>
+          <li>Arranging delivery to the client's warehouse, business, or home</li>
+        </ul>
+        <p class="text-muted small">Not every shipment requires every step. Some are straightforward; others require standards checks, import licenses, regulatory approvals, special handling, insurance, storage, unloading, or oversized transport.</p>
+
+        <h2>New Importer — What You Need to Know</h2>
+        <p>If you are importing goods into Israel for the first time, understand that the price you pay the overseas supplier is only part of the picture. Beyond the product cost itself, additional charges may include:</p>
+        <ul>
+          <li>Inland transport from the supplier to the port or airport</li>
+          <li>International freight</li>
+          <li>Port charges and fuel/security surcharges</li>
+          <li>Import duties, customs, and VAT</li>
+          <li>Customs brokerage</li>
+          <li>Standards tests or approvals</li>
+          <li>Storage, if there is a delay</li>
+          <li>Inland transport within Israel</li>
+          <li>Cargo insurance</li>
+        </ul>
+
+        <h2>New Exporter — What You Need to Know</h2>
+        <p>If you are sending goods from Israel abroad, the process is similar but in reverse. You need to know the destination, who is receiving the goods, the trade terms, who pays for transport, and which documents are required for the consignee to receive the goods. For exports, pay particular attention to:</p>
+        <ul>
+          <li>A clear commercial invoice and accurate description of the goods</li>
+          <li>Appropriate packaging and correct marking of cartons or pallets</li>
+          <li>Certificates of origin, if required</li>
+          <li>Compliance with the destination country's requirements</li>
+          <li>Early coordination with the overseas buyer on shipping terms</li>
+        </ul>
+        <div class="highlight-box warning">
+          <i class="fas fa-exclamation-triangle me-2" style="color:#e67e22;"></i>
+          Errors in documents or goods descriptions can cause delays at the destination, additional charges, or problems with the client.
+        </div>
+
+        <h2>Sea, Air, and Land Shipping — What's the Difference?</h2>
+        <div class="row g-3 mt-1">
+          <div class="col-md-4">
+            <div class="shipping-card">
+              <div class="icon-wrap"><i class="fas fa-ship" style="color:#1a3f99;font-size:1.2rem;"></i></div>
+              <h4>Sea Freight</h4>
+              <p class="small text-muted mb-2">Best for large, heavy, or less time-sensitive shipments. Generally the most economical option for significant volumes.</p>
+              <p class="small mb-0"><strong>FCL</strong> — Full Container Load (20ft or 40ft)</p>
+              <p class="small mb-0"><strong>LCL</strong> — Less than Container Load, consolidated with other cargo</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="shipping-card">
+              <div class="icon-wrap"><i class="fas fa-plane" style="color:#1a3f99;font-size:1.2rem;"></i></div>
+              <h4>Air Freight</h4>
+              <p class="small text-muted mb-0">Ideal for urgent, high-value, relatively small, or time-sensitive shipments. Faster than sea — but generally more expensive.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="shipping-card">
+              <div class="icon-wrap"><i class="fas fa-truck" style="color:#1a3f99;font-size:1.2rem;"></i></div>
+              <h4>Land Freight</h4>
+              <p class="small text-muted mb-0">Suitable for transport between neighbouring countries, or as part of the full routing — e.g. collection from the supplier to the port, or delivery from the port to the warehouse.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>What Is Door to Door?</h2>
+        <p>When a client requests a <strong>Door to Door</strong> quote, this means the forwarder is pricing the entire route from the collection point to the final delivery address — for example, from the supplier's warehouse in China to the client's warehouse in Israel.</p>
+        <div class="highlight-box">
+          <i class="fas fa-info-circle me-2" style="color:var(--brand-accent);"></i>
+          Door to Door does not always include every cost automatically. Always request a detailed quote and verify exactly what is included: customs duties? VAT? standards checks? storage? unloading? insurance? inland delivery?
+        </div>
+
+        <h2>What You Need to Know About Incoterms</h2>
+        <p>One of the most important elements of a shipping quote is the trade terms agreed between buyer and seller — <strong>Incoterms</strong>:</p>
+        <ul>
+          <li><strong>EXW</strong> — The buyer is responsible for almost the entire process, including collection from the supplier.</li>
+          <li><strong>FOB</strong> — The supplier delivers the goods to the port of origin and loads them onto the vessel.</li>
+          <li><strong>CIF</strong> — The supplier includes freight and insurance to the destination port, but not necessarily clearance or inland delivery.</li>
+          <li><strong>DAP</strong> — The forwarder delivers to the destination address, but typically without paying import duties.</li>
+          <li><strong>DDP</strong> — The price generally includes import duties and broader seller responsibility — but verify this carefully.</li>
+        </ul>
+        <p class="text-muted small">For new importers: do not sign an agreement before understanding who pays for each stage and who bears each risk along the way.</p>
+
+        <h2>Information Required for a Door to Door Quote</h2>
+        <p>To provide an accurate quote, a freight forwarder needs clear information about the goods, collection point, destination, trade terms, and any special requirements. The more precise the information, the more reliable the quote — and the fewer surprises later.</p>
+
+        <div class="checklist-item">
+          <span class="num">1</span>
+          <div class="content">
+            <strong>Where are the goods being collected from?</strong>
+            <ul>
+              <li>Supplier name, full address, city, country, postcode, and contact details</li>
+              <li>Whether the goods are ready for collection and warehouse operating hours</li>
+              <li>Whether a forklift or loading equipment is available on site</li>
+            </ul>
+            <p class="text-muted small mt-1 mb-0">"China" or "Germany" is not enough — there is a big difference between a port-city pickup and a factory hundreds of kilometres inland.</p>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">2</span>
+          <div class="content">
+            <strong>Where are the goods being delivered?</strong>
+            <ul>
+              <li>Company name, full address, city, country, postcode, and contact details</li>
+              <li>Whether it is a warehouse, shop, factory, office, or private residence</li>
+              <li>Whether there is truck access and what is needed for unloading: forklift, ramp, crane</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">3</span>
+          <div class="content">
+            <strong>What are the goods?</strong>
+            <ul>
+              <li>Clear description, intended use, main materials, brand and model</li>
+              <li>Whether the goods are new or used</li>
+              <li>Whether the product is fragile, sensitive, high-value, hazardous, or under regulatory supervision</li>
+            </ul>
+            <p class="text-muted small mt-1 mb-0">Descriptions like "goods" or "parts" are not sufficient and may cause customs delays.</p>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">4</span>
+          <div class="content">
+            <strong>Packaging details, weight, and volume</strong>
+            <ul>
+              <li>Number of cartons / pallets and dimensions of each piece (L × W × H)</li>
+              <li>Gross weight per piece and total weight and volume</li>
+              <li>Whether goods can be stacked and whether orientation must be maintained</li>
+            </ul>
+            <p class="text-muted small mt-1 mb-0">Freight pricing is based on weight or volume — whichever is greater.</p>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">5</span>
+          <div class="content">
+            <strong>Value of the goods</strong>
+            <p class="mb-0 small text-muted">Required for duty calculations, insurance assessment, risk evaluation, and customs processing. The value must be accurate and consistent with the documents — a false declaration can cause serious problems with customs.</p>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">6</span>
+          <div class="content">
+            <strong>Trade terms — Incoterms</strong>
+            <p class="mb-0 small text-muted">EXW, FOB, CIF, DAP, DDP — state what was agreed with the supplier so the forwarder knows exactly where their responsibility begins.</p>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">7</span>
+          <div class="content">
+            <strong>Existing documents</strong>
+            <ul>
+              <li>Commercial Invoice and Packing List</li>
+              <li>Supplier quotation, product catalogue and technical specifications</li>
+              <li>Photos of product and packaging</li>
+              <li>Certificates of origin, standards approvals, and MSDS/SDS if applicable</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">8</span>
+          <div class="content">
+            <strong>Does the shipment require special handling?</strong>
+            <ul>
+              <li>Fragile, dangerous goods, lithium batteries, chemicals</li>
+              <li>Food / temperature-controlled products, medical equipment</li>
+              <li>High-value cargo, oversized dimensions, requiring crane or special unloading</li>
+            </ul>
+            <p class="text-muted small mt-1 mb-0">Failing to disclose this in advance can cause delays, price changes, or refusal by the airline or shipping line.</p>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">9</span>
+          <div class="content">
+            <strong>Readiness date and urgency</strong>
+            <ul>
+              <li>When the goods will be ready for collection</li>
+              <li>Whether there is a delivery deadline</li>
+              <li>Whether a lower cost or a shorter transit time is the priority</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">10</span>
+          <div class="content">
+            <strong>Cargo insurance</strong>
+            <p class="mb-0 small text-muted">Insurance is not always automatically included. Ask what is covered. Shipping lines and airlines have limited liability — for valuable, fragile, or sensitive shipments, cargo insurance is strongly recommended.</p>
+          </div>
+        </div>
+
+        <div class="checklist-item">
+          <span class="num">11</span>
+          <div class="content">
+            <strong>What does the quote include in terms of taxes and customs?</strong>
+            <ul>
+              <li>Customs duties, purchase tax, import VAT</li>
+              <li>Port charges, customs brokerage, standards tests</li>
+              <li>Storage, local surcharges, inland delivery to destination</li>
+            </ul>
+            <p class="text-muted small mt-1 mb-0">Not every Door to Door quote includes taxes. Sometimes taxes are paid separately by the importer.</p>
+          </div>
+        </div>
+
+        <h2>Example of a Good Quote Request</h2>
+        <div class="example-box">
+          <strong>Hello,</strong><br>
+          I would like a Door to Door quote for a commercial import shipment.<br><br>
+          <strong>Collection:</strong> Full address of the overseas supplier.<br>
+          <strong>Delivery:</strong> Full address in Israel.<br>
+          <strong>Goods:</strong> Clear product description.<br>
+          <strong>Quantity:</strong> 5 pallets.<br>
+          <strong>Dimensions:</strong> 120×100×150 cm per pallet.<br>
+          <strong>Weight:</strong> 350 kg per pallet.<br>
+          <strong>Cargo value:</strong> USD 8,000.<br>
+          <strong>Trade terms:</strong> EXW / FOB / CIF etc.<br>
+          <strong>Goods ready for collection:</strong> ____.<br><br>
+          Attached: supplier invoice, packing list, photos and technical spec.<br>
+          Please indicate whether the quote includes customs clearance, taxes, inland delivery, and insurance.
+        </div>
+
+        <h2>Bottom Line</h2>
+        <p>To receive a good Door to Door shipping quote, it is not enough to ask "how much does it cost to ship from China to Israel?". You need to know <strong>what the goods are, where to collect from, where to deliver, the weight and volume, the trade terms, the value, and whether there are any special requirements</strong>.</p>
+        <p>The more precise the information, the more accurate the quote, the fewer surprises, and the more professionally the shipment can be managed.</p>
+
+        <div class="cta-box">
+          <h3>Ready to send us your shipment details?</h3>
+          <p>Get in touch with your shipment information and we will come back to you with a detailed, professional quote.</p>
+          <a href="contact.html" class="btn btn-light btn-lg mt-2" style="color: var(--brand-dark); font-weight: 600;">Contact Us</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer id="contact" class="bg-dark text-white pt-5 pb-3 mt-5">
+    <div class="container">
+      <div class="row gy-4 mb-4">
+        <div class="col-md-4">
+          <img src="logo.png" alt="Trak-line Ltd" height="36" class="mb-3" style="opacity:.8">
+          <p class="small text-white-50" data-lang="en">International freight forwarding — Israel to the world.</p>
+          <p class="small text-white-50 d-none" data-lang="he">שילוח בינלאומי מישראל לעולם.</p>
+        </div>
+        <div class="col-md-4">
+          <h6 class="footer-col-title" data-lang="en">Contact</h6>
+          <h6 class="footer-col-title d-none" data-lang="he">יצירת קשר</h6>
+          <p class="small mb-2"><i class="fas fa-envelope me-2 footer-icon"></i><a href="mailto:rivka@trak-line.com" class="footer-link">rivka@trak-line.com</a></p>
+          <p class="small mb-2"><i class="fas fa-phone me-2 footer-icon"></i><a href="tel:+972504729699" class="footer-link">+972 50-472-9699</a></p>
+          <p class="small mb-0 text-white-50"><i class="fas fa-location-dot me-2 footer-icon"></i>8th floor, Noa Building, 16 Bar Kochva St., Bnei Brak 5126107, Israel</p>
+        </div>
+        <div class="col-md-4">
+          <h6 class="footer-col-title" data-lang="en">Navigation</h6>
+          <h6 class="footer-col-title d-none" data-lang="he">ניווט</h6>
+          <div class="d-flex flex-column gap-1">
+            <a href="index.html" class="footer-link" data-lang="en">Home</a>
+            <a href="index.html" class="footer-link d-none" data-lang="he">ראשי</a>
+            <a href="about.html" class="footer-link" data-lang="en">About Us</a>
+            <a href="about.html" class="footer-link d-none" data-lang="he">עלינו</a>
+            <a href="documents.html" class="footer-link" data-lang="en">Documents</a>
+            <a href="documents.html" class="footer-link d-none" data-lang="he">מסמכים</a>
+            <a href="contact.html" class="footer-link" data-lang="en">Contact</a>
+            <a href="contact.html" class="footer-link d-none" data-lang="he">צור קשר</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center border-top border-secondary pt-3 mt-2">
+        <small class="text-white-50">© 2025 Trak-line Ltd · Site built by Metallicode Ltd</small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

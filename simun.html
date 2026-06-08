@@ -1,0 +1,585 @@
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>חוק סימון מוצרים ביבוא לישראל - TRAK-line Ltd</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .article-hero {
+      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-mid) 100%);
+      color: #fff;
+      padding: 80px 0 50px;
+    }
+    .article-hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+    }
+    .article-hero p.lead {
+      opacity: .85;
+      max-width: 680px;
+    }
+    .article-body {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .article-body h2 {
+      color: var(--brand-dark);
+      border-right: 4px solid var(--brand-accent);
+      padding-right: 14px;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.35rem;
+    }
+    .article-body h3 {
+      color: var(--brand-mid);
+      margin-top: 1.8rem;
+      font-size: 1.1rem;
+    }
+    .article-body p, .article-body li {
+      line-height: 1.85;
+      color: #333;
+    }
+    .article-body ul, .article-body ol {
+      padding-right: 1.5rem;
+    }
+    .highlight-box {
+      background: var(--surface);
+      border-right: 4px solid var(--brand-accent);
+      border-radius: 0 8px 8px 0;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .highlight-box.warning {
+      border-right-color: #e67e22;
+      background: #fef9f0;
+    }
+    .highlight-box.danger {
+      border-right-color: #e74c3c;
+      background: #fef2f2;
+    }
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: .9rem;
+    }
+    .checklist-item .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      height: 28px;
+      background: var(--brand-mid);
+      color: #fff;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: .8rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .checklist-item .content strong {
+      color: var(--brand-dark);
+    }
+    .mistake-item {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      margin-bottom: .8rem;
+      border-right: 4px solid #e74c3c;
+    }
+    .mistake-item h4 {
+      font-size: .95rem;
+      font-weight: 600;
+      color: #c0392b;
+      margin-bottom: .3rem;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-mid) 100%);
+      color: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .cta-box h3 { color: #fff; margin-bottom: .8rem; }
+    .cta-box p  { color: rgba(255,255,255,.85); }
+
+    /* LTR overrides */
+    html[dir="ltr"] .article-body h2 {
+      border-right: none;
+      border-left: 4px solid var(--brand-accent);
+      padding-right: 0;
+      padding-left: 14px;
+    }
+    html[dir="ltr"] .article-body ul,
+    html[dir="ltr"] .article-body ol {
+      padding-right: 0;
+      padding-left: 1.5rem;
+    }
+    html[dir="ltr"] .highlight-box {
+      border-right: none;
+      border-left: 4px solid var(--brand-accent);
+      border-radius: 8px 0 0 8px;
+    }
+    html[dir="ltr"] .highlight-box.warning {
+      border-right: none;
+      border-left-color: #e67e22;
+    }
+    html[dir="ltr"] .highlight-box.danger {
+      border-right: none;
+      border-left-color: #e74c3c;
+    }
+    html[dir="ltr"] .mistake-item {
+      border-right: 1px solid #e2e8f0;
+      border-left: 4px solid #e74c3c;
+    }
+    html[dir="ltr"] .checklist-item {
+      flex-direction: row;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html">
+          <img src="logo.png" alt="Trak-line Ltd Logo" height="40">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" data-lang="en">Home</a>
+              <a class="nav-link d-none" href="index.html" data-lang="he">ראשי</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html" data-lang="en">About Us</a>
+              <a class="nav-link d-none" href="about.html" data-lang="he">עלינו</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="info.html" data-lang="en">Info</a>
+              <a class="nav-link d-none" href="info.html" data-lang="he">מידע</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html" data-lang="en">Blog</a>
+              <a class="nav-link d-none" href="blog.html" data-lang="he">בלוג</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html" data-lang="en">Gallery</a>
+              <a class="nav-link d-none" href="gallery.html" data-lang="he">גלריה</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="documents.html" data-lang="en">Documents</a>
+              <a class="nav-link d-none" href="documents.html" data-lang="he">מסמכים</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html" data-lang="en">Contact</a>
+              <a class="nav-link d-none" href="contact.html" data-lang="he">צור קשר</a>
+            </li>
+            <li class="nav-item d-flex align-items-center lang-switcher">
+              <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
+              <button class="lang-btn" onclick="switchLanguage('he')">HE</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasMenu">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+        <a class="nav-link text-white mb-3" href="index.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-home me-2"></i>Home</a>
+        <a class="nav-link text-white mb-3 d-none" href="index.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-home me-2"></i>ראשי</a>
+        <a class="nav-link text-white mb-3" href="about.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-info-circle me-2"></i>About Us</a>
+        <a class="nav-link text-white mb-3 d-none" href="about.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-info-circle me-2"></i>עלינו</a>
+        <a class="nav-link text-white mb-3" href="info.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-cogs me-2"></i>Info</a>
+        <a class="nav-link text-white mb-3 d-none" href="info.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-cogs me-2"></i>מידע</a>
+        <a class="nav-link text-white mb-3" href="blog.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-newspaper me-2"></i>Blog</a>
+        <a class="nav-link text-white mb-3 d-none" href="blog.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-newspaper me-2"></i>בלוג</a>
+        <a class="nav-link text-white mb-3" href="gallery.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-images me-2"></i>Gallery</a>
+        <a class="nav-link text-white mb-3 d-none" href="gallery.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-images me-2"></i>גלריה</a>
+        <a class="nav-link text-white mb-3" href="documents.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-file-alt me-2"></i>Documents</a>
+        <a class="nav-link text-white mb-3 d-none" href="documents.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-file-alt me-2"></i>מסמכים</a>
+        <a class="nav-link text-white mb-3" href="contact.html" data-lang="en" data-bs-dismiss="offcanvas"><i class="fas fa-envelope me-2"></i>Contact</a>
+        <a class="nav-link text-white mb-3 d-none" href="contact.html" data-lang="he" data-bs-dismiss="offcanvas"><i class="fas fa-envelope me-2"></i>צור קשר</a>
+        <div class="mt-auto">
+          <button class="btn btn-outline-light btn-sm me-2" onclick="switchLanguage('en')">EN</button>
+          <button class="btn btn-outline-light btn-sm" onclick="switchLanguage('he')">HE</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================  HEBREW VERSION  ===================== -->
+  <div data-lang="he">
+    <div class="article-hero">
+      <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html" class="text-white-50 text-decoration-none">ראשי</a></li>
+            <li class="breadcrumb-item"><a href="info.html" class="text-white-50 text-decoration-none">מידע</a></li>
+            <li class="breadcrumb-item active text-white">סימון מוצרים</li>
+          </ol>
+        </nav>
+        <h1>חוק סימון מוצרים ביבוא לישראל</h1>
+        <p class="lead mt-3">מה יבואנים חייבים לדעת לפני שמתחילים למכור</p>
+      </div>
+    </div>
+
+    <div class="container py-5">
+      <div class="article-body">
+
+        <p>אחת השאלות הנפוצות ביותר של יבואנים היא: <strong>"האם אני חייב לסמן את המוצר שלי בעברית לפני השיווק בישראל?"</strong></p>
+        <p>התשובה הקצרה היא: <strong>במקרים רבים כן — אבל זה תלוי בסוג המוצר, בדרישות החוק, בתקנים החלים עליו וברשות המפקחת.</strong></p>
+
+        <div class="highlight-box">
+          <i class="fas fa-info-circle me-2" style="color:var(--brand-accent);"></i>
+          סימון מוצרים אינו רק עניין טכני של מדבקה על האריזה. במוצרים מסוימים הסימון הוא חלק מדרישות החוק בישראל, ובחלק מהמקרים הוא תנאי לשיווק המוצר או אפילו לשחרורו מהמכס.
+        </div>
+
+        <h2>מהו חוק סימון מוצרים?</h2>
+        <p>בישראל קיימות הוראות שונות המחייבות עוסקים ויבואנים לסמן מוצרים בפרטים מסוימים, לרוב בעברית. אחת המסגרות המרכזיות היא <strong>צו הגנת הצרכן (סימון טובין)</strong>. לצד צו זה קיימות גם דרישות סימון מכוח תקנים רשמיים, הוראות משרד הכלכלה, משרד הבריאות, משרד התחבורה, משרד התקשורת, רשות המסים ורשויות נוספות — בהתאם לסוג המוצר.</p>
+        <p>מטרת הסימון היא לאפשר לצרכן לדעת מה הוא קונה, מי אחראי למוצר, כיצד להשתמש בו בצורה נכונה, ומהן האזהרות או המגבלות הרלוונטיות.</p>
+
+        <h2>האם המכס בודק את סימון המוצרים?</h2>
+        <p>בפועל, בחלק גדול מהמוצרים, הפיקוח על סימון המוצר נעשה <strong>בשלב השיווק והמכירה בישראל</strong> — לא בשלב שחרור המכס — על ידי גורמים כגון משרד הכלכלה והרשות להגנת הצרכן ולסחר הוגן.</p>
+
+        <div class="highlight-box warning">
+          <i class="fas fa-exclamation-triangle me-2" style="color:#e67e22;"></i>
+          <strong>גם אם המשלוח שוחרר מהמכס — זה לא אומר שהמוצר עומד בכל דרישות הסימון והשיווק בישראל.</strong> שחרור מהמכס אינו פוטר את היבואן מהאחריות לוודא שהמוצר מסומן נכון לפני מכירה לצרכן.
+        </div>
+
+        <h2>האחריות היא על היבואן</h2>
+        <p>יבואן שמכניס מוצר לישראל צריך לבדוק בעצמו — או בעזרת עמיל מכס, יועץ תקינה, עורך דין מסחרי או גורם מקצועי מתאים — אילו דרישות סימון חלות על המוצר.</p>
+        <p>החובה לבדוק את דרישות הסימון חלה על מי שמייבא, משווק או מוכר את המוצר בישראל. לכן חשוב לבדוק את הדרישות עוד לפני שהמוצר מגיע לארץ, ובוודאי לפני שמתחילים למכור אותו.</p>
+
+        <h2>אילו פרטים בדרך כלל נדרשים בסימון?</h2>
+        <p>הדרישות משתנות לפי סוג המוצר, אך במקרים רבים עשויים להידרש:</p>
+        <ul>
+          <li>שם המוצר</li>
+          <li>שם היצרן</li>
+          <li>ארץ הייצור</li>
+          <li>שם היבואן וכתובתו</li>
+          <li>דגם או מספר קטלוגי</li>
+          <li>כמות, משקל, נפח או מידה</li>
+          <li>הוראות שימוש ובטיחות</li>
+          <li>אזהרות</li>
+          <li>תאריך ייצור או תוקף (במוצרים רלוונטיים)</li>
+          <li>רכיבים או חומרים (במוצרים מסוימים)</li>
+          <li>הוראות אחסון</li>
+          <li>תקן, אישור או סימון רגולטורי כאשר נדרש</li>
+        </ul>
+
+        <h2>האם חייבים לסמן בעברית?</h2>
+        <p>במוצרים רבים — כן. השאלה אינה רק אם יש מדבקה, אלא האם הסימון עומד בדרישות החלות על אותו סוג מוצר. יש מקרים שבהם ניתן להשאיר סימון לועזי לצד סימון עברי, ויש מקרים שבהם נדרש תרגום ברור של הוראות, אזהרות או פרטי יבואן.</p>
+
+        <h2>הקשר בין סימון מוצרים לבין מכון התקנים</h2>
+        <p>כאשר מוצר כפוף ל<strong>תקן רשמי</strong>, דרישות הסימון עשויות להיות חלק מהתקן עצמו. מעבר לבדיקות טכניות, התקן יכול לקבוע גם מה חייב להופיע על המוצר, על האריזה או בהוראות השימוש.</p>
+        <p>לכן, במוצרים שמטופלים מול מכון התקנים, חשוב לא להתייחס לסימון כאל עניין נפרד — לעיתים הסימון הוא <strong>חלק בלתי נפרד מאישור התקן</strong>.</p>
+
+        <h2>מוצרים חריגים שבהם הסימון נבדק לפני שחרור</h2>
+
+        <h3>מוצרי עישון וטבק</h3>
+        <p>מוצרים אלה כפופים לדרישות מחמירות לגבי אזהרות, סימון ואריזה. המכס והרשויות הרלוונטיות עשויים לבדוק את הסימון והעמידה בדרישות לפני שחרור המשלוח.</p>
+
+        <h3>חלקי רכב ומוצרי תעבורה</h3>
+        <p>חלקי רכב כפופים לדרישות משרד התחבורה, תקנים, אישורים וסימונים ייעודיים. בחלק מהמקרים, גם ביבוא אישי של פריטי תעבורה מסוימים, נדרש אישור משרד התחבורה או בדיקת סימון.</p>
+
+        <h3>מוצרים בפיקוח מכון התקנים</h3>
+        <p>כאשר מוצר כפוף לתקן רשמי, דרישות הסימון עשויות להיבדק כחלק מתהליך אישור התקן — נפוץ במוצרי חשמל, צעצועים, מוצרים לתינוקות, ציוד בטיחות, כלי עבודה ועוד.</p>
+
+        <h2>מוצרים שבהם חשוב לבדוק סימון מראש</h2>
+        <ul>
+          <li>מוצרי חשמל ואלקטרוניקה</li>
+          <li>מטענים, כבלים וסוללות</li>
+          <li>צעצועים ומוצרי תינוקות וילדים</li>
+          <li>מוצרי מזון ותוספי תזונה</li>
+          <li>תמרוקים</li>
+          <li>טקסטיל, הלבשה ונעליים</li>
+          <li>כלי מטבח</li>
+          <li>מוצרי ניקוי וכימיקלים ביתיים</li>
+          <li>חלקי רכב</li>
+          <li>מוצרי עישון וטבק</li>
+          <li>ציוד רפואי</li>
+          <li>ציוד תקשורת</li>
+          <li>מוצרי בטיחות וציוד מגן</li>
+        </ul>
+
+        <h2>מה כדאי לבדוק לפני שמייבאים?</h2>
+
+        <div class="checklist-item">
+          <span class="num">1</span>
+          <div class="content"><strong>מהו פרט המכס של המוצר?</strong><br><span class="text-muted small">פרט המכס משפיע על דרישות חוקיות היבוא, התקינה והאישורים.</span></div>
+        </div>
+        <div class="checklist-item">
+          <span class="num">2</span>
+          <div class="content"><strong>האם חל על המוצר תקן רשמי?</strong><br><span class="text-muted small">אם כן, ייתכן שדרישות הסימון מופיעות בתוך התקן עצמו.</span></div>
+        </div>
+        <div class="checklist-item">
+          <span class="num">3</span>
+          <div class="content"><strong>האם קיימת רגולציה ייעודית?</strong><br><span class="text-muted small">למשל: מזון, תמרוקים, חלקי רכב, ציוד תקשורת, מוצרי עישון, ציוד רפואי.</span></div>
+        </div>
+        <div class="checklist-item">
+          <span class="num">4</span>
+          <div class="content"><strong>האם נדרש סימון בעברית?</strong><br><span class="text-muted small">יש לבדוק מה בדיוק צריך להיות בעברית: שם מוצר, הוראות שימוש, אזהרות, פרטי יבואן, ארץ ייצור.</span></div>
+        </div>
+        <div class="checklist-item">
+          <span class="num">5</span>
+          <div class="content"><strong>האם הסימון צריך להיות על המוצר עצמו?</strong><br><span class="text-muted small">בחלק מהמוצרים נדרש סימון על המוצר, ובאחרים ניתן לסמן על האריזה, התווית או העלון המצורף.</span></div>
+        </div>
+        <div class="checklist-item">
+          <span class="num">6</span>
+          <div class="content"><strong>האם ניתן להדביק מדבקה בישראל?</strong><br><span class="text-muted small">במקרים מסוימים ניתן לסמן באמצעות מדבקה לאחר הגעת הסחורה. במקרים אחרים הסימון חייב להיות קבוע, ברור ובלתי ניתן להסרה.</span></div>
+        </div>
+
+        <h2>טעויות נפוצות</h2>
+
+        <div class="mistake-item">
+          <h4><i class="fas fa-times-circle me-2"></i>"המוצר כבר נמכר באירופה, אז אין בעיה"</h4>
+          <p class="mb-0 small">זה לא תמיד נכון. גם אם מוצר נמכר באירופה, עדיין יש לבדוק את הדרישות בישראל. ייתכן שחסר לו סימון בעברית, פרטי יבואן ישראלי, אזהרה מקומית, הוראות שימוש מתורגמות או דרישת תקן ישראלית.</p>
+        </div>
+        <div class="mistake-item">
+          <h4><i class="fas fa-times-circle me-2"></i>"אם המכס שחרר, אני מכוסה"</h4>
+          <p class="mb-0 small">שחרור מהמכס הוא רק שלב אחד בתהליך. יבואן יכול לשחרר סחורה מהמכס, למכור אותה בישראל, ורק לאחר מכן להיתקל בביקורת של משרד הכלכלה, הרשות להגנת הצרכן, משרד הבריאות, משרד התחבורה או רשות אחרת.</p>
+        </div>
+
+        <div class="highlight-box danger">
+          <i class="fas fa-exclamation-circle me-2" style="color:#e74c3c;"></i>
+          אם מתגלה שהמוצר אינו מסומן כנדרש, היבואן עלול להידרש לתקן את הסימון, לעצור מכירה, לבצע החזרה מהשוק, לשלם קנסות או להתמודד עם הליכים נוספים.
+        </div>
+
+        <h2>מה כדאי לשלוח לבדיקה ראשונית?</h2>
+        <ul>
+          <li>תמונות של המוצר והאריזה</li>
+          <li>קישור למוצר באתר הספק</li>
+          <li>מפרט טכני, דגם מדויק, שם יצרן, ארץ ייצור</li>
+          <li>שימוש מיועד וקהל יעד</li>
+          <li>חשבון ספק, תעודות בדיקה ואישורים קיימים</li>
+          <li>צילום הסימון הקיים על המוצר או האריזה</li>
+        </ul>
+
+        <h2>השורה התחתונה</h2>
+        <p>חוקי סימון מוצרים הם חלק חשוב מהיבוא לישראל. גם אם המכס אינו בודק כל מוצר מבחינת סימון, היבואן עדיין אחראי לוודא שהמוצר מסומן לפי הדין לפני שהוא נמכר בישראל.</p>
+
+        <div class="cta-box">
+          <h3>רוצים לבדוק את דרישות הסימון למוצר שלכם?</h3>
+          <p>שלחו לנו את פרטי המוצר ואנו נסייע בבדיקה ראשונית מול עמיל המכס והרשויות הרלוונטיות — לפני שהסחורה יוצאת לדרך.</p>
+          <a href="contact.html" class="btn btn-light btn-lg mt-2" style="color: var(--brand-dark); font-weight: 600;">צור קשר</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================  ENGLISH VERSION  ===================== -->
+  <div data-lang="en" class="d-none">
+    <div class="article-hero">
+      <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html" class="text-white-50 text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="info.html" class="text-white-50 text-decoration-none">Info</a></li>
+            <li class="breadcrumb-item active text-white">Product Labelling Law</li>
+          </ol>
+        </nav>
+        <h1>Product Labelling Law for Imports into Israel</h1>
+        <p class="lead mt-3">What importers must know before they start selling</p>
+      </div>
+    </div>
+
+    <div class="container py-5">
+      <div class="article-body" style="direction: ltr; text-align: left;">
+
+        <p>One of the most common questions from importers is: <strong>"Do I need to label my product in Hebrew before marketing it in Israel?"</strong></p>
+        <p>The short answer is: <strong>In many cases, yes — but it depends on the product type, applicable laws, relevant standards, and the supervising authority.</strong></p>
+
+        <div class="highlight-box">
+          <i class="fas fa-info-circle me-2" style="color:var(--brand-accent);"></i>
+          Product labelling is not merely a technical matter of sticking a label on the packaging. For certain products it is a legal requirement in Israel, and in some cases it is a condition for marketing or even for customs clearance.
+        </div>
+
+        <h2>What Is the Product Labelling Law?</h2>
+        <p>Israel has various regulations that require businesses and importers to label products with specific information, generally in Hebrew. One of the central frameworks is the <strong>Consumer Protection Order (Goods Marking)</strong>. Alongside this order, labelling requirements also arise from official standards, directives of the Ministry of Economy, the Ministry of Health, the Ministry of Transport, the Ministry of Communications, the Tax Authority, and other regulators — depending on the product type.</p>
+        <p>The purpose of labelling is to allow consumers to know what they are buying, who is responsible for the product, how to use it correctly, and what warnings or limitations apply.</p>
+
+        <h2>Does Customs Check Product Labelling?</h2>
+        <p>In practice, for a large proportion of products, labelling compliance is enforced <strong>at the marketing and sales stage in Israel</strong> — not at customs clearance — by bodies such as the Ministry of Economy and the Consumer Protection and Fair Trade Authority.</p>
+
+        <div class="highlight-box warning">
+          <i class="fas fa-exclamation-triangle me-2" style="color:#e67e22;"></i>
+          <strong>Even if the shipment has cleared customs, that does not mean the product complies with all labelling and marketing requirements in Israel.</strong> Customs clearance does not release the importer from the responsibility to ensure correct labelling before selling to consumers.
+        </div>
+
+        <h2>The Responsibility Lies with the Importer</h2>
+        <p>An importer bringing goods into Israel must verify — either independently or with the help of a customs agent, standards consultant, commercial lawyer, or other professional — which labelling requirements apply to the product.</p>
+        <p>The obligation to check labelling requirements falls on whoever imports, markets, or sells the product in Israel. It is therefore important to check requirements before the goods arrive in the country, and certainly before sales begin.</p>
+
+        <h2>What Information Is Typically Required on Labels?</h2>
+        <p>Requirements vary by product type, but commonly required details include:</p>
+        <ul>
+          <li>Product name</li>
+          <li>Manufacturer's name</li>
+          <li>Country of origin</li>
+          <li>Importer's name and address or contact details</li>
+          <li>Model or catalogue number</li>
+          <li>Quantity, weight, volume or dimensions</li>
+          <li>Instructions for use and safety instructions</li>
+          <li>Warnings</li>
+          <li>Manufacturing date or expiry date (where relevant)</li>
+          <li>Ingredients or materials (for certain products)</li>
+          <li>Storage instructions</li>
+          <li>Standard, approval, or regulatory marking where required</li>
+        </ul>
+
+        <h2>Does Labelling Have to Be in Hebrew?</h2>
+        <p>For many products — yes. The question is not only whether a label exists, but whether it meets the requirements applicable to that type of product. In some cases, foreign-language labelling can remain alongside Hebrew; in others, a clear translation of instructions, warnings, or importer details is required.</p>
+
+        <h2>The Link Between Labelling and the Standards Institution</h2>
+        <p>When a product is subject to an <strong>official standard</strong>, labelling requirements may form part of the standard itself. Beyond technical or safety testing, the standard can specify what must appear on the product, on the packaging, or in the user manual.</p>
+        <p>For products handled through the Standards Institution, labelling should not be treated as a separate matter — the labelling is often <strong>an integral part of obtaining standard approval</strong>.</p>
+
+        <h2>Products Where Labelling Is Checked Before Clearance</h2>
+
+        <h3>Tobacco and Smoking Products</h3>
+        <p>These products are subject to strict requirements regarding warnings, labelling, and packaging. Customs and the relevant authorities may verify labelling compliance before releasing the shipment.</p>
+
+        <h3>Vehicle Parts and Transport Products</h3>
+        <p>Vehicle parts are subject to Ministry of Transport requirements, standards, approvals, and specific markings. In some cases, even personal importation of certain transport items requires Ministry of Transport approval or a labelling check.</p>
+
+        <h3>Products Under Standards Institution Supervision</h3>
+        <p>When a product is subject to an official standard, labelling requirements may be reviewed as part of the standard approval process — common for electrical products, toys, infant products, safety equipment, power tools, and more.</p>
+
+        <h2>Products Where Labelling Should Be Checked in Advance</h2>
+        <ul>
+          <li>Electrical and electronic products</li>
+          <li>Chargers, cables and batteries</li>
+          <li>Toys and infant/children's products</li>
+          <li>Food products and dietary supplements</li>
+          <li>Cosmetics</li>
+          <li>Textiles, clothing and footwear</li>
+          <li>Kitchen utensils</li>
+          <li>Cleaning products and household chemicals</li>
+          <li>Vehicle parts</li>
+          <li>Tobacco and smoking products</li>
+          <li>Medical devices</li>
+          <li>Communication equipment</li>
+          <li>Safety equipment and protective gear</li>
+        </ul>
+
+        <h2>What to Check Before Importing</h2>
+
+        <div class="checklist-item">
+          <span class="num">1</span>
+          <div class="content"><strong>What is the customs tariff item for the product?</strong><br><span class="text-muted small">The tariff item affects legal import requirements, standards, and approvals.</span></div>
+        </div>
+        <div class="checklist-item">
+          <span class="num">2</span>
+          <div class="content"><strong>Is the product subject to an official standard?</strong><br><span class="text-muted small">If so, labelling requirements may be contained within the standard itself.</span></div>
+        </div>
+        <div class="checklist-item">
+          <span class="num">3</span>
+          <div class="content"><strong>Is there specific sector regulation?</strong><br><span class="text-muted small">For example: food, cosmetics, vehicle parts, communication equipment, tobacco, medical devices.</span></div>
+        </div>
+        <div class="checklist-item">
+          <span class="num">4</span>
+          <div class="content"><strong>Is Hebrew labelling required?</strong><br><span class="text-muted small">Check exactly what must be in Hebrew: product name, instructions, warnings, importer details, country of origin.</span></div>
+        </div>
+        <div class="checklist-item">
+          <span class="num">5</span>
+          <div class="content"><strong>Must labelling appear on the product itself?</strong><br><span class="text-muted small">For some products it must be on the item; for others the packaging, label, or accompanying leaflet is sufficient.</span></div>
+        </div>
+        <div class="checklist-item">
+          <span class="num">6</span>
+          <div class="content"><strong>Can a sticker be applied in Israel?</strong><br><span class="text-muted small">Sometimes a Hebrew sticker applied after arrival is acceptable; in other cases labelling must be permanent, clear, and non-removable.</span></div>
+        </div>
+
+        <h2>Common Mistakes</h2>
+
+        <div class="mistake-item">
+          <h4><i class="fas fa-times-circle me-2"></i>"The product is already sold in Europe, so there's no problem"</h4>
+          <p class="mb-0 small">This is not always correct. Even if a product is sold in Europe, Israel's requirements must still be checked. It may comply with foreign safety standards yet lack Hebrew labelling, Israeli importer details, a local warning, translated instructions, or an Israeli standard requirement.</p>
+        </div>
+        <div class="mistake-item">
+          <h4><i class="fas fa-times-circle me-2"></i>"If customs released it, I'm covered"</h4>
+          <p class="mb-0 small">Customs clearance is only one step in the process. An importer can clear goods, sell them in Israel, and later face an inspection by the Ministry of Economy, the Consumer Protection Authority, the Ministry of Health, the Ministry of Transport, or another authority.</p>
+        </div>
+
+        <div class="highlight-box danger">
+          <i class="fas fa-exclamation-circle me-2" style="color:#e74c3c;"></i>
+          If a product is found to be incorrectly labelled, the importer may be required to correct the labelling, halt sales, conduct a market recall, pay fines, or face further proceedings.
+        </div>
+
+        <h2>What to Send for an Initial Check</h2>
+        <ul>
+          <li>Photos of the product and packaging</li>
+          <li>Link to the product on the supplier's website</li>
+          <li>Technical specifications, exact model number, manufacturer name, country of origin</li>
+          <li>Intended use and target audience</li>
+          <li>Commercial invoice, existing test certificates and approvals</li>
+          <li>A photo of the existing markings on the product or packaging</li>
+        </ul>
+
+        <h2>Bottom Line</h2>
+        <p>Product labelling laws are an important part of importing into Israel. Even if customs does not check every product for labelling, the importer is still responsible for ensuring the product is labelled in accordance with the law before it is sold in Israel.</p>
+
+        <div class="cta-box">
+          <h3>Want to check the labelling requirements for your product?</h3>
+          <p>Send us your product details and we will assist with an initial review with our customs agent and the relevant authorities — before your shipment departs.</p>
+          <a href="contact.html" class="btn btn-light btn-lg mt-2" style="color: var(--brand-dark); font-weight: 600;">Contact Us</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer id="contact" class="bg-dark text-white pt-5 pb-3 mt-5">
+    <div class="container">
+      <div class="row gy-4 mb-4">
+        <div class="col-md-4">
+          <img src="logo.png" alt="Trak-line Ltd" height="36" class="mb-3" style="opacity:.8">
+          <p class="small text-white-50" data-lang="en">International freight forwarding — Israel to the world.</p>
+          <p class="small text-white-50 d-none" data-lang="he">שילוח בינלאומי מישראל לעולם.</p>
+        </div>
+        <div class="col-md-4">
+          <h6 class="footer-col-title" data-lang="en">Contact</h6>
+          <h6 class="footer-col-title d-none" data-lang="he">יצירת קשר</h6>
+          <p class="small mb-2"><i class="fas fa-envelope me-2 footer-icon"></i><a href="mailto:rivka@trak-line.com" class="footer-link">rivka@trak-line.com</a></p>
+          <p class="small mb-2"><i class="fas fa-phone me-2 footer-icon"></i><a href="tel:+972504729699" class="footer-link">+972 50-472-9699</a></p>
+          <p class="small mb-0 text-white-50"><i class="fas fa-location-dot me-2 footer-icon"></i>8th floor, Noa Building, 16 Bar Kochva St., Bnei Brak 5126107, Israel</p>
+        </div>
+        <div class="col-md-4">
+          <h6 class="footer-col-title" data-lang="en">Navigation</h6>
+          <h6 class="footer-col-title d-none" data-lang="he">ניווט</h6>
+          <div class="d-flex flex-column gap-1">
+            <a href="index.html" class="footer-link" data-lang="en">Home</a>
+            <a href="index.html" class="footer-link d-none" data-lang="he">ראשי</a>
+            <a href="about.html" class="footer-link" data-lang="en">About Us</a>
+            <a href="about.html" class="footer-link d-none" data-lang="he">עלינו</a>
+            <a href="documents.html" class="footer-link" data-lang="en">Documents</a>
+            <a href="documents.html" class="footer-link d-none" data-lang="he">מסמכים</a>
+            <a href="contact.html" class="footer-link" data-lang="en">Contact</a>
+            <a href="contact.html" class="footer-link d-none" data-lang="he">צור קשר</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center border-top border-secondary pt-3 mt-2">
+        <small class="text-white-50">© 2025 Trak-line Ltd · Site built by Metallicode Ltd</small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
